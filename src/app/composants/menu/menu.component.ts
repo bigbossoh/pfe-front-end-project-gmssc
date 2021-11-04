@@ -46,6 +46,41 @@ export class MenuComponent implements OnInit {
           id: '22',
           titre: 'intervenants',
           icon: 'fas fa-people-carry',
+          url: 'intervenants'
+        }
+      ]
+    },
+    {
+      id: '6',
+      titre: 'Gestion des contrats',
+      icon: 'fab fa-pied-piper-alt',
+      url: '',
+      sousMenu: [
+        {
+          id: '21',
+          titre: "Contrats",
+          icon: 'fas fa-file-signature',
+          url: ''
+        }
+      ]
+    }
+    ,
+    {
+      id: '7',
+      titre: 'Gestion des interventions',
+      icon: 'fas fa-phone-alt',
+      url: '',
+      sousMenu: [
+        {
+          id: '21',
+          titre: "signaler une panne",
+          icon: 'fas fa-virus-slash',
+          url: ''
+        },
+        {
+          id: '21',
+          titre: "historique des pannes",
+          icon: 'fas fa-history',
           url: ''
         }
       ]
@@ -58,15 +93,15 @@ export class MenuComponent implements OnInit {
       sousMenu: [
         {
           id: '31',
-          titre: "Gestion des biens",
-          icon: '',
-          url: ''
+          titre: "biens immobiliers",
+          icon: 'fas fa-hotel',
+          url: 'bienimmobilier'
         },
         {
           id: '32',
           titre: 'Gestion des Pièces',
-          icon: '',
-          url: ''
+          icon: 'fas fa-person-booth',
+          url: 'piece'
         }
       ]
     },
@@ -109,19 +144,6 @@ export class MenuComponent implements OnInit {
           url: ''
         }
       ]
-    },
-    {
-      id: '6',
-      titre: 'Gestion des contrats',
-      icon: 'fab fa-pied-piper-alt',
-      url: ''
-    }
-    ,
-    {
-      id: '7',
-      titre: 'Gestion des interventions',
-      icon: 'fas fa-phone-alt',
-      url: ''
     }
     ,
     {
