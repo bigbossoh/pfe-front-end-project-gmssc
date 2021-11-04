@@ -22,6 +22,11 @@ import { DetailBienImmobilierComponent } from './composants/detail-bien-immobili
 import { PageNouveauBienComponent } from './pages/bien-immobilier/page-nouveau-bien/page-nouveau-bien.component';
 import { PageBienPieceComponent } from './pages/bien-immobilier/page-bien-piece/page-bien-piece.component';
 import { NouveauIntervenantComponent } from './pages/societes/nouveau-intervenant/nouveau-intervenant.component';
+import { DetailPieceComponent } from './composants/detail-piece/detail-piece.component';
+import { PageNouvellePieceComponent } from './pages/bien-immobilier/page-nouvelle-piece/page-nouvelle-piece.component';
+import { PageEquipementComponent } from './pages/equipement/page-equipement/page-equipement.component';
+import { PageNouveauEquipementComponent } from './pages/equipement/page-nouveau-equipement/page-nouveau-equipement.component';
+import { DetailEquipementComponent } from './composants/detail-equipement/detail-equipement.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,12 @@ import { NouveauIntervenantComponent } from './pages/societes/nouveau-intervenan
     DetailBienImmobilierComponent,
     PageNouveauBienComponent,
     PageBienPieceComponent,
-    NouveauIntervenantComponent
+    NouveauIntervenantComponent,
+    DetailPieceComponent,
+    PageNouvellePieceComponent,
+    PageEquipementComponent,
+    PageNouveauEquipementComponent,
+    DetailEquipementComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,10 @@ import { PageSocieteIntervenantComponent } from './pages/societes/page-societe-i
 import { PageBienImmobilierComponent } from './pages/bien-immobilier/page-bien-immobilier/page-bien-immobilier.component';
 import { PageBienPieceComponent } from './pages/bien-immobilier/page-bien-piece/page-bien-piece.component';
 import { NouveauIntervenantComponent } from './pages/societes/nouveau-intervenant/nouveau-intervenant.component';
+import { PageNouveauBienComponent } from './pages/bien-immobilier/page-nouveau-bien/page-nouveau-bien.component';
+import { PageNouvellePieceComponent } from './pages/bien-immobilier/page-nouvelle-piece/page-nouvelle-piece.component';
+import { PageEquipementComponent } from './pages/equipement/page-equipement/page-equipement.component';
+import { PageNouveauEquipementComponent } from './pages/equipement/page-nouveau-equipement/page-nouveau-equipement.component';
 
 const routes: Routes = [
   {
@@ -51,10 +55,31 @@ const routes: Routes = [
     path:'bienimmobilier',
     component:PageBienImmobilierComponent
 },
+// nouvellePiece
+  {
+    path:'nouveaubien',
+    component:PageNouveauBienComponent
+},
+
+  {
+    path:'nouvellePiece',
+    component:PageNouvellePieceComponent
+},
 {
-  path:'piece',
+  path:'listedespieces',
   component:PageBienPieceComponent
 }
+,
+{
+  path:'listeequipement',
+  component:PageEquipementComponent
+}
+,
+{
+  path:'nouvelleequipement',
+  component:PageNouveauEquipementComponent
+}
+//
     ]
 
   }

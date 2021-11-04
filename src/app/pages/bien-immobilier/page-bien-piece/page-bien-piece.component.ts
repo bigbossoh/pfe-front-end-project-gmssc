@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-bien-piece',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageBienPieceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
   }
-
+  nouvellePiece():void{
+  this.router.navigate(['nouvellePiece'])
+  }
 }

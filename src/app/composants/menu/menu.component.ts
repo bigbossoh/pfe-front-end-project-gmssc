@@ -51,6 +51,46 @@ export class MenuComponent implements OnInit {
       ]
     },
     {
+      id: '3',
+      titre: 'Gestion des biens',
+      icon: 'fas fa-city',
+      url: '',
+      sousMenu: [
+        {
+          id: '31',
+          titre: "biens immobiliers",
+          icon: 'fas fa-hotel',
+          url: 'bienimmobilier'
+        },
+        {
+          id: '32',
+          titre: 'Gestion des Pièces',
+          icon: 'fas fa-person-booth',
+          url: 'listedespieces'
+        }
+      ]
+    },
+    {
+      id: '4',
+      titre: 'Gestion des équipements',
+      icon: 'fas fa-wind',
+      url: '',
+      sousMenu: [
+        {
+          id: '41',
+          titre: "Equipements de climatisation",
+          icon: 'fas fa-fan',
+          url: 'listeequipement'
+        },
+        {
+          id: '42',
+          titre: "Affectation dans les pièces",
+          icon: '',
+          url: ''
+        },
+      ]
+    },
+    {
       id: '6',
       titre: 'Gestion des contrats',
       icon: 'fab fa-pied-piper-alt',
@@ -83,46 +123,6 @@ export class MenuComponent implements OnInit {
           icon: 'fas fa-history',
           url: ''
         }
-      ]
-    },
-    {
-      id: '3',
-      titre: 'Gestion des biens',
-      icon: 'fas fa-city',
-      url: '',
-      sousMenu: [
-        {
-          id: '31',
-          titre: "biens immobiliers",
-          icon: 'fas fa-hotel',
-          url: 'bienimmobilier'
-        },
-        {
-          id: '32',
-          titre: 'Gestion des Pièces',
-          icon: 'fas fa-person-booth',
-          url: 'piece'
-        }
-      ]
-    },
-    {
-      id: '4',
-      titre: 'Gestion des équipements',
-      icon: 'fas fa-wind',
-      url: '',
-      sousMenu: [
-        {
-          id: '41',
-          titre: "Equipements de climatisation",
-          icon: '',
-          url: ''
-        },
-        {
-          id: '42',
-          titre: "Affectation dans les pièces",
-          icon: '',
-          url: ''
-        },
       ]
     },
     {
