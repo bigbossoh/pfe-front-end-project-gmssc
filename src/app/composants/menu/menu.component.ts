@@ -78,16 +78,10 @@ export class MenuComponent implements OnInit {
       sousMenu: [
         {
           id: '41',
-          titre: "Equipements de climatisation",
+          titre: "Equipements",
           icon: 'fas fa-fan',
           url: 'listeequipement'
-        },
-        {
-          id: '42',
-          titre: "Affectation dans les pièces",
-          icon: '',
-          url: ''
-        },
+        }
       ]
     },
     {
@@ -100,8 +94,9 @@ export class MenuComponent implements OnInit {
           id: '21',
           titre: "Contrats",
           icon: 'fas fa-file-signature',
-          url: ''
-        }
+          url: 'listescontrats'
+        },
+
       ]
     }
     ,
@@ -115,19 +110,13 @@ export class MenuComponent implements OnInit {
           id: '21',
           titre: "signaler une panne",
           icon: 'fas fa-virus-slash',
-          url: ''
-        },
-        {
-          id: '21',
-          titre: "historique des pannes",
-          icon: 'fas fa-history',
-          url: ''
+          url: 'listeintervention'
         }
       ]
     },
     {
       id: '5',
-      titre: 'Gestion des maintenances',
+      titre: 'Maintenances',
       icon: 'fas fa-praying-hands',
       url: '',
       sousMenu: [

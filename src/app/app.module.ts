@@ -27,6 +27,13 @@ import { PageNouvellePieceComponent } from './pages/bien-immobilier/page-nouvell
 import { PageEquipementComponent } from './pages/equipement/page-equipement/page-equipement.component';
 import { PageNouveauEquipementComponent } from './pages/equipement/page-nouveau-equipement/page-nouveau-equipement.component';
 import { DetailEquipementComponent } from './composants/detail-equipement/detail-equipement.component';
+import { PageContratComponent } from './pages/Contrat/page-contrat/page-contrat.component';
+import { PageNouveauContratComponent } from './pages/Contrat/page-nouveau-contrat/page-nouveau-contrat.component';
+import { DetailContratComponent } from './composants/detail-contrat/detail-contrat.component';
+import { FooterComponent } from './composants/footer/footer.component';
+import { PageInterventionComponent } from './pages/Intervention/page-intervention/page-intervention.component';
+import { PageNouvelleInterventionComponent } from './pages/Intervention/page-nouvelle-intervention/page-nouvelle-intervention.component';
+import { DetailInterventionComponent } from './composants/detail-intervention/detail-intervention.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +61,14 @@ import { DetailEquipementComponent } from './composants/detail-equipement/detail
     PageNouvellePieceComponent,
     PageEquipementComponent,
     PageNouveauEquipementComponent,
-    DetailEquipementComponent
+    DetailEquipementComponent,
+    PageContratComponent,
+    PageNouveauContratComponent,
+    DetailContratComponent,
+    FooterComponent,
+    PageInterventionComponent,
+    PageNouvelleInterventionComponent,
+    DetailInterventionComponent
   ],
   imports: [
     BrowserModule,

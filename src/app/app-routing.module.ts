@@ -14,6 +14,10 @@ import { PageNouveauBienComponent } from './pages/bien-immobilier/page-nouveau-b
 import { PageNouvellePieceComponent } from './pages/bien-immobilier/page-nouvelle-piece/page-nouvelle-piece.component';
 import { PageEquipementComponent } from './pages/equipement/page-equipement/page-equipement.component';
 import { PageNouveauEquipementComponent } from './pages/equipement/page-nouveau-equipement/page-nouveau-equipement.component';
+import { PageContratComponent } from './pages/Contrat/page-contrat/page-contrat.component';
+import { PageNouveauContratComponent } from './pages/Contrat/page-nouveau-contrat/page-nouveau-contrat.component';
+import { PageNouvelleInterventionComponent } from './pages/Intervention/page-nouvelle-intervention/page-nouvelle-intervention.component';
+import { PageInterventionComponent } from './pages/Intervention/page-intervention/page-intervention.component';
 
 const routes: Routes = [
   {
@@ -79,7 +83,26 @@ const routes: Routes = [
   path:'nouvelleequipement',
   component:PageNouveauEquipementComponent
 }
-//
+,
+{
+  path:'nouveaucontrat',
+  component:PageNouveauContratComponent
+}
+,
+{
+  path:'listescontrats',
+  component:PageContratComponent
+}
+,
+{
+  path:'nouvelleintervention',
+  component:PageNouvelleInterventionComponent
+}
+,
+{
+  path:'listeintervention',
+  component:PageInterventionComponent
+}
     ]
 
   }

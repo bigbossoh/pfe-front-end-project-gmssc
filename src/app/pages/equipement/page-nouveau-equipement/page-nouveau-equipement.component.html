@@ -1,1 +1,174 @@
-<p>page-nouveau-equipement works!</p>
+<div class="col mt-3 mb-3">
+  <div class="col-md-12 mb-3">
+    <img src="assets/split.jpg" class="rounded" wight="150" height="150">
+  </div>
+  <div class="col-md-12">
+    <h3><i class="fas fa-info-circle blue-color"></i>&nbsp;Caractéristiques techniques</h3>
+  </div>
+  <hr>
+  <div class="col-md-12 ">
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Bien immobilier</label>
+            <select id="Bien" name="modele" class="form-control">
+              <option value="0">selectionnez le bien immobilier</option>
+              <option value="1">Pigier centre</option>
+              <option value="2">Pigier annexe</option>
+              <option value="3">Pigier Yamoussoukro</option>
+              <option value="">Villa Pigier</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+          <label>Pièce</label>
+          <select id="piece" name="piece" class="form-control">
+            <option value="0">selectionnez la piece</option>
+            <option value="1">Salle 1</option>
+            <option value="2">Salle 2</option>
+            <option value="3">Salle 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-3">
+
+        <div class="col-md-4">
+          <label>Marque</label>
+          <input type="text" class="form-control" placeholder="Marque">
+        </div>
+        <div class="col-md-4">
+          <label>N° de série</label>
+          <input type="text" class="form-control" placeholder="N° de série">
+        </div>
+
+        <div class="col-md-4">
+          <label>Modèle</label>
+          <select id="modele" name="modele" class="form-control">
+            <option value="0">selectionnez le modèle</option>
+            <option value="1">Monobloc mural</option>
+            <option value="2">Monobloc window</option>
+            <option value="3">Split mural</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h5><i class="fas fa-info-circle blue-color"></i>&nbsp;Dimensions totales</h5>
+        </div>
+        <div class="col-md-6">
+          <h5><i class="fas fa-balance-scale blue-color"></i>&nbsp;Poids & Puissance</h5>
+        </div>
+      </div>
+      <hr>
+      <!-- <div class="row mb-3"> -->
+      <div class="row mb-3">
+        <div class="col-md-1">
+          <label>Hauteur</label>
+        </div>
+        <div class="col-md-5">
+          <input type="number" class="form-control" placeholder="Hauteur">
+        </div>
+        <div class="col-md-2">
+          <label>Poids net (intérieur, Kg)</label>
+        </div>
+        <div class="col-md-4">
+          <input type="number" class="form-control" placeholder="Kg">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-1">
+          <label>Largeur</label>
+        </div>
+        <div class="col-md-5">
+          <input type="number" class="form-control" placeholder="Largeur">
+        </div>
+        <div class="col-md-2">
+          <label>Poids net (Extérieur, Kg)</label>
+        </div>
+        <div class="col-md-4">
+          <input type="number" class="form-control" placeholder="Kg">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-1">
+          <label>Longueur</label>
+        </div>
+        <div class="col-md-5">
+          <input type="number" class="form-control" placeholder="Longueur">
+        </div>
+        <div class="col-md-2">
+          <label>Puissance (Chevaux)</label>
+        </div>
+        <div class="col-md-4">
+          <input type="number" class="form-control" placeholder="2 chevaux">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5><i class="fas fa-asterisk blue-color"></i>&nbsp;Détails importants</h5>
+        </div>
+      </div>
+      <hr>
+      <div class="row mb-3">
+        <div class="col-md-3">
+            <label>Date d'achat</label>
+            <input type="Date" class="form-control" placeholder="Contrat">
+        </div>
+        <div class="col-md-3">
+            <label>N° de facture</label>
+            <input type="text" class="form-control" placeholder="facture">
+        </div>
+        <div class="col-md-3">
+            <label>Prix d'achat (Fr CFA)</label>
+            <input type="number" class="form-control" placeholder="Prix">
+        </div>
+        <div class="col-md-3">
+            <label>Garantie (ans)</label>
+            <input type="number" class="form-control" placeholder="Garantie">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+            <label>Fournisseur</label>
+            <input type="text" class="form-control" placeholder="Fournisseur">
+        </div>
+        <div class="col-md-3">
+            <label>Personne ressource</label>
+            <input type="number" class="form-control" placeholder="Personne ressource">
+        </div>
+        <div class="col-md-3">
+            <label>Téléphone</label>
+            <input type="number" class="form-control" placeholder="Téléphone">
+        </div>
+        <div class="col-md-3">
+            <label>Mobile</label>
+            <input type="number" class="form-control" placeholder="Mobile">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5><i class="fas fa-feather-alt blue-color"></i>&nbsp;Autres informations</h5>
+        </div>
+      </div>
+      <hr>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Description</label>
+          <textarea class="form-control" placeholder="Description" rows="2"></textarea>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Livré avec un support de protection et tous les accessoires.</label>
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+  <div class="col-md-12 text-right">
+    <button type="button" class="btn btn-danger mr-3"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+    <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+  </div>
+</div>
