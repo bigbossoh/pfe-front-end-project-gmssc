@@ -34,6 +34,8 @@ import { FooterComponent } from './composants/footer/footer.component';
 import { PageInterventionComponent } from './pages/Intervention/page-intervention/page-intervention.component';
 import { PageNouvelleInterventionComponent } from './pages/Intervention/page-nouvelle-intervention/page-nouvelle-intervention.component';
 import { DetailInterventionComponent } from './composants/detail-intervention/detail-intervention.component';
+import { PageProfilComponent } from './pages/profil/page-profil/page-profil.component';
+import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-passe/page-changer-mot-passe.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { DetailInterventionComponent } from './composants/detail-intervention/de
     FooterComponent,
     PageInterventionComponent,
     PageNouvelleInterventionComponent,
-    DetailInterventionComponent
+    DetailInterventionComponent,
+    PageProfilComponent,
+    PageChangerMotPasseComponent
   ],
   imports: [
     BrowserModule,

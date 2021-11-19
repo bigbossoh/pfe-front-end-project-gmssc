@@ -18,6 +18,8 @@ import { PageContratComponent } from './pages/Contrat/page-contrat/page-contrat.
 import { PageNouveauContratComponent } from './pages/Contrat/page-nouveau-contrat/page-nouveau-contrat.component';
 import { PageNouvelleInterventionComponent } from './pages/Intervention/page-nouvelle-intervention/page-nouvelle-intervention.component';
 import { PageInterventionComponent } from './pages/Intervention/page-intervention/page-intervention.component';
+import { PageProfilComponent } from './pages/profil/page-profil/page-profil.component';
+import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-passe/page-changer-mot-passe.component';
 
 const routes: Routes = [
   {
@@ -102,6 +104,15 @@ const routes: Routes = [
 {
   path:'listeintervention',
   component:PageInterventionComponent
+},
+{
+  path:'profil',
+  component:PageProfilComponent
+}
+,
+{
+  path:'changermotpasse',
+  component:PageChangerMotPasseComponent
 }
     ]
 
