@@ -7,17 +7,16 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
-import { Pieces } from '../models/pieces';
+import { PiecesDto } from '../models/pieces-dto';
 @Injectable({
   providedIn: 'root',
 })
 class Gmsscapiv1piecesService extends __BaseService {
   static readonly getListeDesPiecesPath = '/gmssc/api/v1/pieces/all';
   static readonly deletePieceByIdPath = '/gmssc/api/v1/pieces/delete/{idPiece}';
-  static readonly getPieceByIDPath = '/gmssc/api/v1/pieces/getPiece/{codebien}';
+  static readonly getPieceByCodePiecePath = '/gmssc/api/v1/pieces/getPiece/{codePiece}';
   static readonly savePiecePath = '/gmssc/api/v1/pieces/savepiece';
-  static readonly updatingSocietePath = '/gmssc/api/v1/pieces/update';
-  static readonly getPieceByID_1Path = '/gmssc/api/v1/pieces/{IdPiece}';
+  static readonly getPieceByIDPath = '/gmssc/api/v1/pieces/{IdPiece}';
 
   constructor(
     config: __Configuration,
@@ -29,7 +28,7 @@ class Gmsscapiv1piecesService extends __BaseService {
   /**
    * @return successful operation
    */
-  getListeDesPiecesResponse(): __Observable<__StrictHttpResponse<Array<Pieces>>> {
+  getListeDesPiecesResponse(): __Observable<__StrictHttpResponse<Array<PiecesDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -46,16 +45,16 @@ class Gmsscapiv1piecesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<Pieces>>;
+        return _r as __StrictHttpResponse<Array<PiecesDto>>;
       })
     );
   }
   /**
    * @return successful operation
    */
-  getListeDesPieces(): __Observable<Array<Pieces>> {
+  getListeDesPieces(): __Observable<Array<PiecesDto>> {
     return this.getListeDesPiecesResponse().pipe(
-      __map(_r => _r.body as Array<Pieces>)
+      __map(_r => _r.body as Array<PiecesDto>)
     );
   }
 
@@ -99,14 +98,14 @@ class Gmsscapiv1piecesService extends __BaseService {
    * @param CodePiece undefined
    * @return successful operation
    */
-  getPieceByIDResponse(CodePiece: string): __Observable<__StrictHttpResponse<Pieces>> {
+  getPieceByCodePieceResponse(CodePiece: string): __Observable<__StrictHttpResponse<PiecesDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gmssc/api/v1/pieces/getPiece/${codebien}`,
+      this.rootUrl + `/gmssc/api/v1/pieces/getPiece/${codePiece}`,
       __body,
       {
         headers: __headers,
@@ -117,7 +116,7 @@ class Gmsscapiv1piecesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Pieces>;
+        return _r as __StrictHttpResponse<PiecesDto>;
       })
     );
   }
@@ -125,9 +124,9 @@ class Gmsscapiv1piecesService extends __BaseService {
    * @param CodePiece undefined
    * @return successful operation
    */
-  getPieceByID(CodePiece: string): __Observable<Pieces> {
-    return this.getPieceByIDResponse(CodePiece).pipe(
-      __map(_r => _r.body as Pieces)
+  getPieceByCodePiece(CodePiece: string): __Observable<PiecesDto> {
+    return this.getPieceByCodePieceResponse(CodePiece).pipe(
+      __map(_r => _r.body as PiecesDto)
     );
   }
 
@@ -135,7 +134,7 @@ class Gmsscapiv1piecesService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  savePieceResponse(body?: Pieces): __Observable<__StrictHttpResponse<Pieces>> {
+  savePieceResponse(body?: PiecesDto): __Observable<__StrictHttpResponse<PiecesDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -153,7 +152,7 @@ class Gmsscapiv1piecesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Pieces>;
+        return _r as __StrictHttpResponse<PiecesDto>;
       })
     );
   }
@@ -161,45 +160,9 @@ class Gmsscapiv1piecesService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  savePiece(body?: Pieces): __Observable<Pieces> {
+  savePiece(body?: PiecesDto): __Observable<PiecesDto> {
     return this.savePieceResponse(body).pipe(
-      __map(_r => _r.body as Pieces)
-    );
-  }
-
-  /**
-   * @param body undefined
-   * @return successful operation
-   */
-  updatingSocieteResponse(body?: Pieces): __Observable<__StrictHttpResponse<Pieces>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-    __body = body;
-    let req = new HttpRequest<any>(
-      'PUT',
-      this.rootUrl + `/gmssc/api/v1/pieces/update`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'json'
-      });
-
-    return this.http.request<any>(req).pipe(
-      __filter(_r => _r instanceof HttpResponse),
-      __map((_r) => {
-        return _r as __StrictHttpResponse<Pieces>;
-      })
-    );
-  }
-  /**
-   * @param body undefined
-   * @return successful operation
-   */
-  updatingSociete(body?: Pieces): __Observable<Pieces> {
-    return this.updatingSocieteResponse(body).pipe(
-      __map(_r => _r.body as Pieces)
+      __map(_r => _r.body as PiecesDto)
     );
   }
 
@@ -207,7 +170,7 @@ class Gmsscapiv1piecesService extends __BaseService {
    * @param IdPiece undefined
    * @return successful operation
    */
-  getPieceByID_1Response(IdPiece: number): __Observable<__StrictHttpResponse<Pieces>> {
+  getPieceByIDResponse(IdPiece: number): __Observable<__StrictHttpResponse<PiecesDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -225,7 +188,7 @@ class Gmsscapiv1piecesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Pieces>;
+        return _r as __StrictHttpResponse<PiecesDto>;
       })
     );
   }
@@ -233,9 +196,9 @@ class Gmsscapiv1piecesService extends __BaseService {
    * @param IdPiece undefined
    * @return successful operation
    */
-  getPieceByID_1(IdPiece: number): __Observable<Pieces> {
-    return this.getPieceByID_1Response(IdPiece).pipe(
-      __map(_r => _r.body as Pieces)
+  getPieceByID(IdPiece: number): __Observable<PiecesDto> {
+    return this.getPieceByIDResponse(IdPiece).pipe(
+      __map(_r => _r.body as PiecesDto)
     );
   }
 }

@@ -111,6 +111,19 @@ export class MenuComponent implements OnInit {
           titre: "signaler une panne",
           icon: 'fas fa-virus-slash',
           url: 'listeintervention'
+        },
+        {
+          id: '22',
+          titre: "Groupe d'intervention",
+          icon: 'fas fa-users-cog',
+          url: 'listegroupeintervention'
+        }
+        ,
+        {
+          id: '23',
+          titre: "Créer Groupe d'intervention",
+          icon: 'fas fa-user-plus',
+          url: 'nouveaugroupeintervention'
         }
       ]
     },

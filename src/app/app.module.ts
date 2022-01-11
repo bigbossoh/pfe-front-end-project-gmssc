@@ -36,6 +36,8 @@ import { PageNouvelleInterventionComponent } from './pages/Intervention/page-nou
 import { DetailInterventionComponent } from './composants/detail-intervention/detail-intervention.component';
 import { PageProfilComponent } from './pages/profil/page-profil/page-profil.component';
 import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-passe/page-changer-mot-passe.component';
+import { PageGroupeInterventionComponent } from './pages/Intervention/page-groupe-intervention/page-groupe-intervention.component';
+import { PageNouveauGroupeInterventionComponent } from './pages/Intervention/page-nouveau-groupe-intervention/page-nouveau-groupe-intervention.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-pa
     PageNouvelleInterventionComponent,
     DetailInterventionComponent,
     PageProfilComponent,
-    PageChangerMotPasseComponent
+    PageChangerMotPasseComponent,
+    PageGroupeInterventionComponent,
+    PageNouveauGroupeInterventionComponent
   ],
   imports: [
     BrowserModule,

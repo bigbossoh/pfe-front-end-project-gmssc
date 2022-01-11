@@ -7,7 +7,7 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
-import { Societe } from '../models/societe';
+import { SocieteDto } from '../models/societe-dto';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,7 +15,6 @@ class Gmsscapiv1societesService extends __BaseService {
   static readonly getListeDesSocietesPath = '/gmssc/api/v1/societes/all';
   static readonly deleteSocieteByIdPath = '/gmssc/api/v1/societes/delete/{idSociete}';
   static readonly saveSocietePath = '/gmssc/api/v1/societes/savesociete';
-  static readonly updatingSocietePath = '/gmssc/api/v1/societes/update';
   static readonly getSocieteByIDPath = '/gmssc/api/v1/societes/{IdSociete}';
 
   constructor(
@@ -28,7 +27,7 @@ class Gmsscapiv1societesService extends __BaseService {
   /**
    * @return successful operation
    */
-  getListeDesSocietesResponse(): __Observable<__StrictHttpResponse<Array<Societe>>> {
+  getListeDesSocietesResponse(): __Observable<__StrictHttpResponse<Array<SocieteDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -45,16 +44,16 @@ class Gmsscapiv1societesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<Societe>>;
+        return _r as __StrictHttpResponse<Array<SocieteDto>>;
       })
     );
   }
   /**
    * @return successful operation
    */
-  getListeDesSocietes(): __Observable<Array<Societe>> {
+  getListeDesSocietes(): __Observable<Array<SocieteDto>> {
     return this.getListeDesSocietesResponse().pipe(
-      __map(_r => _r.body as Array<Societe>)
+      __map(_r => _r.body as Array<SocieteDto>)
     );
   }
 
@@ -98,7 +97,7 @@ class Gmsscapiv1societesService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveSocieteResponse(body?: Societe): __Observable<__StrictHttpResponse<Societe>> {
+  saveSocieteResponse(body?: SocieteDto): __Observable<__StrictHttpResponse<SocieteDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -116,7 +115,7 @@ class Gmsscapiv1societesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Societe>;
+        return _r as __StrictHttpResponse<SocieteDto>;
       })
     );
   }
@@ -124,45 +123,9 @@ class Gmsscapiv1societesService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveSociete(body?: Societe): __Observable<Societe> {
+  saveSociete(body?: SocieteDto): __Observable<SocieteDto> {
     return this.saveSocieteResponse(body).pipe(
-      __map(_r => _r.body as Societe)
-    );
-  }
-
-  /**
-   * @param body undefined
-   * @return successful operation
-   */
-  updatingSocieteResponse(body?: Societe): __Observable<__StrictHttpResponse<Societe>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-    __body = body;
-    let req = new HttpRequest<any>(
-      'PUT',
-      this.rootUrl + `/gmssc/api/v1/societes/update`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'json'
-      });
-
-    return this.http.request<any>(req).pipe(
-      __filter(_r => _r instanceof HttpResponse),
-      __map((_r) => {
-        return _r as __StrictHttpResponse<Societe>;
-      })
-    );
-  }
-  /**
-   * @param body undefined
-   * @return successful operation
-   */
-  updatingSociete(body?: Societe): __Observable<Societe> {
-    return this.updatingSocieteResponse(body).pipe(
-      __map(_r => _r.body as Societe)
+      __map(_r => _r.body as SocieteDto)
     );
   }
 
@@ -170,7 +133,7 @@ class Gmsscapiv1societesService extends __BaseService {
    * @param IdSociete undefined
    * @return successful operation
    */
-  getSocieteByIDResponse(IdSociete: number): __Observable<__StrictHttpResponse<Societe>> {
+  getSocieteByIDResponse(IdSociete: number): __Observable<__StrictHttpResponse<SocieteDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -188,7 +151,7 @@ class Gmsscapiv1societesService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Societe>;
+        return _r as __StrictHttpResponse<SocieteDto>;
       })
     );
   }
@@ -196,9 +159,9 @@ class Gmsscapiv1societesService extends __BaseService {
    * @param IdSociete undefined
    * @return successful operation
    */
-  getSocieteByID(IdSociete: number): __Observable<Societe> {
+  getSocieteByID(IdSociete: number): __Observable<SocieteDto> {
     return this.getSocieteByIDResponse(IdSociete).pipe(
-      __map(_r => _r.body as Societe)
+      __map(_r => _r.body as SocieteDto)
     );
   }
 }

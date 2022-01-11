@@ -20,6 +20,8 @@ import { PageNouvelleInterventionComponent } from './pages/Intervention/page-nou
 import { PageInterventionComponent } from './pages/Intervention/page-intervention/page-intervention.component';
 import { PageProfilComponent } from './pages/profil/page-profil/page-profil.component';
 import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-passe/page-changer-mot-passe.component';
+import { PageGroupeInterventionComponent } from './pages/Intervention/page-groupe-intervention/page-groupe-intervention.component';
+import { PageNouveauGroupeInterventionComponent } from './pages/Intervention/page-nouveau-groupe-intervention/page-nouveau-groupe-intervention.component';
 
 const routes: Routes = [
   {
@@ -104,6 +106,14 @@ const routes: Routes = [
 {
   path:'listeintervention',
   component:PageInterventionComponent
+},
+{
+  path:'listegroupeintervention',
+  component:PageGroupeInterventionComponent
+},
+{
+  path:'nouveaugroupeintervention',
+  component:PageNouveauGroupeInterventionComponent
 },
 {
   path:'profil',

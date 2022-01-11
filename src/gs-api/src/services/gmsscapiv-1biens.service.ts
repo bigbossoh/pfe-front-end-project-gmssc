@@ -7,17 +7,16 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
-import { BienImmobilier } from '../models/bien-immobilier';
+import { BienImmobilierDto } from '../models/bien-immobilier-dto';
 @Injectable({
   providedIn: 'root',
 })
 class Gmsscapiv1biensService extends __BaseService {
   static readonly getAllBienPath = '/gmssc/api/v1/biens/all';
   static readonly deleteBienByIdPath = '/gmssc/api/v1/biens/delete/{IdBien}';
-  static readonly getBienByIDPath = '/gmssc/api/v1/biens/getbien/{codebien}';
+  static readonly getBienByCodePath = '/gmssc/api/v1/biens/getbien/{codebien}';
   static readonly saveBienImmobilierPath = '/gmssc/api/v1/biens/savebien';
-  static readonly updatingBienImmobilierPath = '/gmssc/api/v1/biens/update';
-  static readonly getBienByID_1Path = '/gmssc/api/v1/biens/{IdBien}';
+  static readonly getBienByIDPath = '/gmssc/api/v1/biens/{IdBien}';
 
   constructor(
     config: __Configuration,
@@ -29,7 +28,7 @@ class Gmsscapiv1biensService extends __BaseService {
   /**
    * @return successful operation
    */
-  getAllBienResponse(): __Observable<__StrictHttpResponse<Array<BienImmobilier>>> {
+  getAllBienResponse(): __Observable<__StrictHttpResponse<Array<BienImmobilierDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -46,16 +45,16 @@ class Gmsscapiv1biensService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<BienImmobilier>>;
+        return _r as __StrictHttpResponse<Array<BienImmobilierDto>>;
       })
     );
   }
   /**
    * @return successful operation
    */
-  getAllBien(): __Observable<Array<BienImmobilier>> {
+  getAllBien(): __Observable<Array<BienImmobilierDto>> {
     return this.getAllBienResponse().pipe(
-      __map(_r => _r.body as Array<BienImmobilier>)
+      __map(_r => _r.body as Array<BienImmobilierDto>)
     );
   }
 
@@ -99,7 +98,7 @@ class Gmsscapiv1biensService extends __BaseService {
    * @param codebien undefined
    * @return successful operation
    */
-  getBienByIDResponse(codebien: string): __Observable<__StrictHttpResponse<BienImmobilier>> {
+  getBienByCodeResponse(codebien: string): __Observable<__StrictHttpResponse<BienImmobilierDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -117,7 +116,7 @@ class Gmsscapiv1biensService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<BienImmobilier>;
+        return _r as __StrictHttpResponse<BienImmobilierDto>;
       })
     );
   }
@@ -125,9 +124,9 @@ class Gmsscapiv1biensService extends __BaseService {
    * @param codebien undefined
    * @return successful operation
    */
-  getBienByID(codebien: string): __Observable<BienImmobilier> {
-    return this.getBienByIDResponse(codebien).pipe(
-      __map(_r => _r.body as BienImmobilier)
+  getBienByCode(codebien: string): __Observable<BienImmobilierDto> {
+    return this.getBienByCodeResponse(codebien).pipe(
+      __map(_r => _r.body as BienImmobilierDto)
     );
   }
 
@@ -135,7 +134,7 @@ class Gmsscapiv1biensService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveBienImmobilierResponse(body?: BienImmobilier): __Observable<__StrictHttpResponse<BienImmobilier>> {
+  saveBienImmobilierResponse(body?: BienImmobilierDto): __Observable<__StrictHttpResponse<BienImmobilierDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -153,7 +152,7 @@ class Gmsscapiv1biensService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<BienImmobilier>;
+        return _r as __StrictHttpResponse<BienImmobilierDto>;
       })
     );
   }
@@ -161,45 +160,9 @@ class Gmsscapiv1biensService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveBienImmobilier(body?: BienImmobilier): __Observable<BienImmobilier> {
+  saveBienImmobilier(body?: BienImmobilierDto): __Observable<BienImmobilierDto> {
     return this.saveBienImmobilierResponse(body).pipe(
-      __map(_r => _r.body as BienImmobilier)
-    );
-  }
-
-  /**
-   * @param body undefined
-   * @return successful operation
-   */
-  updatingBienImmobilierResponse(body?: BienImmobilier): __Observable<__StrictHttpResponse<BienImmobilier>> {
-    let __params = this.newParams();
-    let __headers = new HttpHeaders();
-    let __body: any = null;
-    __body = body;
-    let req = new HttpRequest<any>(
-      'PUT',
-      this.rootUrl + `/gmssc/api/v1/biens/update`,
-      __body,
-      {
-        headers: __headers,
-        params: __params,
-        responseType: 'json'
-      });
-
-    return this.http.request<any>(req).pipe(
-      __filter(_r => _r instanceof HttpResponse),
-      __map((_r) => {
-        return _r as __StrictHttpResponse<BienImmobilier>;
-      })
-    );
-  }
-  /**
-   * @param body undefined
-   * @return successful operation
-   */
-  updatingBienImmobilier(body?: BienImmobilier): __Observable<BienImmobilier> {
-    return this.updatingBienImmobilierResponse(body).pipe(
-      __map(_r => _r.body as BienImmobilier)
+      __map(_r => _r.body as BienImmobilierDto)
     );
   }
 
@@ -207,7 +170,7 @@ class Gmsscapiv1biensService extends __BaseService {
    * @param IdBien undefined
    * @return successful operation
    */
-  getBienByID_1Response(IdBien: number): __Observable<__StrictHttpResponse<BienImmobilier>> {
+  getBienByIDResponse(IdBien: number): __Observable<__StrictHttpResponse<BienImmobilierDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -225,7 +188,7 @@ class Gmsscapiv1biensService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<BienImmobilier>;
+        return _r as __StrictHttpResponse<BienImmobilierDto>;
       })
     );
   }
@@ -233,9 +196,9 @@ class Gmsscapiv1biensService extends __BaseService {
    * @param IdBien undefined
    * @return successful operation
    */
-  getBienByID_1(IdBien: number): __Observable<BienImmobilier> {
-    return this.getBienByID_1Response(IdBien).pipe(
-      __map(_r => _r.body as BienImmobilier)
+  getBienByID(IdBien: number): __Observable<BienImmobilierDto> {
+    return this.getBienByIDResponse(IdBien).pipe(
+      __map(_r => _r.body as BienImmobilierDto)
     );
   }
 }

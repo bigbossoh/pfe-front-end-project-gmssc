@@ -1,5 +1,14 @@
 export { Gmsscapiv1PieceEquipementsService } from './services/gmsscapiv-1piece-equipements.service';
+export { Gmsscapiv1utilisateurGroupeIntervenantService } from './services/gmsscapiv-1utilisateur-groupe-intervenant.service';
 export { Gmsscapiv1biensService } from './services/gmsscapiv-1biens.service';
+export { Gmsscapiv1CompetencesService } from './services/gmsscapiv-1competences.service';
+export { Gmsscapiv1contratsService } from './services/gmsscapiv-1contrats.service';
 export { Gmsscapiv1equipementsService } from './services/gmsscapiv-1equipements.service';
+export { Gmsscapiv1groupeIntervenantService } from './services/gmsscapiv-1groupe-intervenant.service';
+export { Gmsscapiv1interventioncorrectiveService } from './services/gmsscapiv-1interventioncorrective.service';
+export { Gmsscapiv1interventionpreventiveService } from './services/gmsscapiv-1interventionpreventive.service';
 export { Gmsscapiv1piecesService } from './services/gmsscapiv-1pieces.service';
+export { Gmsscapiv1signalerPanneService } from './services/gmsscapiv-1signaler-panne.service';
 export { Gmsscapiv1societesService } from './services/gmsscapiv-1societes.service';
+export { Gmsscapiv1utilisateursService } from './services/gmsscapiv-1utilisateurs.service';
+export { ApiService } from './services/api.service';
