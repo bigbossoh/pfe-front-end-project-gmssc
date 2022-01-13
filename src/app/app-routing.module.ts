@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageInscriptionSocieteMaintenanceComponent } from './pages/page-inscription-societe-maintenance/page-inscription-societe-maintenance.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
@@ -22,6 +22,7 @@ import { PageProfilComponent } from './pages/profil/page-profil/page-profil.comp
 import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-passe/page-changer-mot-passe.component';
 import { PageGroupeInterventionComponent } from './pages/Intervention/page-groupe-intervention/page-groupe-intervention.component';
 import { PageNouveauGroupeInterventionComponent } from './pages/Intervention/page-nouveau-groupe-intervention/page-nouveau-groupe-intervention.component';
+import { ApplicationGuardService } from './services/guard/application-guard.service';
 
 const routes: Routes = [
   {
@@ -36,93 +37,113 @@ const routes: Routes = [
   {
     path:'',
     component:PageDashboardComponent,
+    canActivate:[ApplicationGuardService],
     children:[
       {
         path:'statistiques',
-        component:PageStatistiquesComponent
+        component:PageStatistiquesComponent,
+        canActivate:[ApplicationGuardService]
     },
     {
       path:'société',
-      component:PageSocieteComponent
+      component:PageSocieteComponent,
+      canActivate:[ApplicationGuardService]
   }
   ,
     {
       path:'nouvellesociete',
-      component:NouvelleSocieteComponent
+      component:NouvelleSocieteComponent,
+      canActivate:[ApplicationGuardService]
   },
   {
     path:'nouveauintervenant',
-    component:NouveauIntervenantComponent
+    component:NouveauIntervenantComponent,
+    canActivate:[ApplicationGuardService]
 }
   ,
     {
       path:'intervenants',
-      component:PageSocieteIntervenantComponent
+      component:PageSocieteIntervenantComponent,
+      canActivate:[ApplicationGuardService]
   },
   {
     path:'bienimmobilier',
-    component:PageBienImmobilierComponent
+    component:PageBienImmobilierComponent,
+    canActivate:[ApplicationGuardService]
 },
 // nouvellePiece
   {
     path:'nouveaubien',
-    component:PageNouveauBienComponent
+    component:PageNouveauBienComponent,
+    canActivate:[ApplicationGuardService]
 },
 
   {
     path:'nouvellePiece',
-    component:PageNouvellePieceComponent
+    component:PageNouvellePieceComponent,
+    canActivate:[ApplicationGuardService]
 },
 {
   path:'listedespieces',
-  component:PageBienPieceComponent
+  component:PageBienPieceComponent,
+  canActivate:[ApplicationGuardService]
 }
 ,
 {
   path:'listeequipement',
-  component:PageEquipementComponent
+  component:PageEquipementComponent,
+  canActivate:[ApplicationGuardService]
 }
 ,
 {
   path:'nouvelleequipement',
-  component:PageNouveauEquipementComponent
+  component:PageNouveauEquipementComponent,
+  canActivate:[ApplicationGuardService]
 }
 ,
 {
   path:'nouveaucontrat',
-  component:PageNouveauContratComponent
+  component:PageNouveauContratComponent,
+  canActivate:[ApplicationGuardService]
 }
 ,
 {
   path:'listescontrats',
-  component:PageContratComponent
+  component:PageContratComponent,
+  canActivate:[ApplicationGuardService]
 }
 ,
 {
   path:'nouvelleintervention',
-  component:PageNouvelleInterventionComponent
+  component:PageNouvelleInterventionComponent,
+  canActivate:[ApplicationGuardService]
 }
 ,
 {
   path:'listeintervention',
-  component:PageInterventionComponent
+  component:PageInterventionComponent,
+  canActivate:[ApplicationGuardService]
 },
 {
   path:'listegroupeintervention',
-  component:PageGroupeInterventionComponent
+  component:PageGroupeInterventionComponent,
+  canActivate:[ApplicationGuardService]
 },
 {
   path:'nouveaugroupeintervention',
-  component:PageNouveauGroupeInterventionComponent
+  component:PageNouveauGroupeInterventionComponent,
+  canActivate:[ApplicationGuardService]
 },
 {
   path:'profil',
-  component:PageProfilComponent
+  component:PageProfilComponent,
+  canActivate:[ApplicationGuardService]
 }
 ,
 {
   path:'changermotpasse',
-  component:PageChangerMotPasseComponent
+  component:PageChangerMotPasseComponent,
+  canActivate:[ApplicationGuardService]
 }
     ]
 

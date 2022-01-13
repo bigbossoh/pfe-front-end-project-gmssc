@@ -5,6 +5,7 @@ import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration
 
 import { Gmsscapiv1PieceEquipementsService } from './services/gmsscapiv-1piece-equipements.service';
 import { Gmsscapiv1utilisateurGroupeIntervenantService } from './services/gmsscapiv-1utilisateur-groupe-intervenant.service';
+import { Gmsscapiv1authService } from './services/gmsscapiv-1auth.service';
 import { Gmsscapiv1biensService } from './services/gmsscapiv-1biens.service';
 import { Gmsscapiv1CompetencesService } from './services/gmsscapiv-1competences.service';
 import { Gmsscapiv1contratsService } from './services/gmsscapiv-1contrats.service';
@@ -16,7 +17,6 @@ import { Gmsscapiv1piecesService } from './services/gmsscapiv-1pieces.service';
 import { Gmsscapiv1signalerPanneService } from './services/gmsscapiv-1signaler-panne.service';
 import { Gmsscapiv1societesService } from './services/gmsscapiv-1societes.service';
 import { Gmsscapiv1utilisateursService } from './services/gmsscapiv-1utilisateurs.service';
-import { ApiService } from './services/api.service';
 
 /**
  * Provider for all Api services, plus ApiConfiguration
@@ -33,6 +33,7 @@ import { ApiService } from './services/api.service';
     ApiConfiguration,
     Gmsscapiv1PieceEquipementsService,
     Gmsscapiv1utilisateurGroupeIntervenantService,
+    Gmsscapiv1authService,
     Gmsscapiv1biensService,
     Gmsscapiv1CompetencesService,
     Gmsscapiv1contratsService,
@@ -43,8 +44,7 @@ import { ApiService } from './services/api.service';
     Gmsscapiv1piecesService,
     Gmsscapiv1signalerPanneService,
     Gmsscapiv1societesService,
-    Gmsscapiv1utilisateursService,
-    ApiService
+    Gmsscapiv1utilisateursService
   ],
 })
 export class ApiModule {

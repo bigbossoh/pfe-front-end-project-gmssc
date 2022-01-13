@@ -38,6 +38,9 @@ import { PageProfilComponent } from './pages/profil/page-profil/page-profil.comp
 import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-passe/page-changer-mot-passe.component';
 import { PageGroupeInterventionComponent } from './pages/Intervention/page-groupe-intervention/page-groupe-intervention.component';
 import { PageNouveauGroupeInterventionComponent } from './pages/Intervention/page-nouveau-groupe-intervention/page-nouveau-groupe-intervention.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './services/interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -80,9 +83,17 @@ import { PageNouveauGroupeInterventionComponent } from './pages/Intervention/pag
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide:HTTP_INTERCEPTORS,
+    useClass:HttpInterceptorService,
+    multi:true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
