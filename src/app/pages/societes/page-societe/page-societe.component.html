@@ -6,16 +6,18 @@
     <div class="col-md-4 text-right">
       <app-boutton-action (clickEvent)="nouvelleSociete()"></app-boutton-action>
     </div>
-
+    <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+    </div>
   </div>
   <div class="col m-3">
-    <app-detail-societe></app-detail-societe>
-    <app-detail-societe></app-detail-societe>
-    <app-detail-societe></app-detail-societe>
-    <app-detail-societe></app-detail-societe>
-    <app-detail-societe></app-detail-societe>
+    <app-detail-societe *ngFor="let societe of listeSocietes"
+    [societeDto]="societe"
+    (suppressionResult)="handleSuppression($event)"
+    >
+  </app-detail-societe>
   </div>
-  <div class="row mb-3">
+  <div class="row mb-3" *ngIf="listeSocietes.length>0">
     <div class=" col-md-12 text-center">
         <app-pagination></app-pagination>
     </div>
