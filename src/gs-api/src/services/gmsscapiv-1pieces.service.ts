@@ -105,7 +105,7 @@ class Gmsscapiv1piecesService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gmssc/api/v1/pieces/getPiece/${codePiece}`,
+      this.rootUrl + `/gmssc/api/v1/pieces/getPiece/${CodePiece}`,
       __body,
       {
         headers: __headers,

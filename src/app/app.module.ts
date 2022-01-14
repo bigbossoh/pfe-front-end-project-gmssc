@@ -41,6 +41,7 @@ import { PageNouveauGroupeInterventionComponent } from './pages/Intervention/pag
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/interceptor/http-interceptor.service';
+import { LoaderComponent } from './composants/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { HttpInterceptorService } from './services/interceptor/http-interceptor.
     PageProfilComponent,
     PageChangerMotPasseComponent,
     PageGroupeInterventionComponent,
-    PageNouveauGroupeInterventionComponent
+    PageNouveauGroupeInterventionComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

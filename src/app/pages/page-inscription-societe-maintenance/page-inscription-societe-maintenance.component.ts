@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { AdresseDto, RolesDto, UtilisateurDto } from 'src/gs-api/src/models';
+import { UtilisateurService } from '../../services/utilisateur/utilisateur.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class PageInscriptionSocieteMaintenanceComponent implements OnInit {
   errorsMsg:Array<string>=[];
 
   constructor(
-
+    private utilisateurService : UtilisateurService,
     private router: Router
   ) { }
 
@@ -26,16 +27,16 @@ export class PageInscriptionSocieteMaintenanceComponent implements OnInit {
   }
   inscrire():void{
     this.utilisateurDto.adresseDto=this.adresseDto;
-    //console.log(this.utilisateurDto);
- // debugger
-    // this.utilisateurService.sinscrire(this.utilisateurDto)
-    // .subscribe(utilisateurDTO=>{
-    //   //TODO
-    //   this.router.navigate(['login']);
-    // },error=>{
-    //   console.log(error.error.errors,error);
-    //   this.errorsMsg=error.error.errors;
-    // })
+   this.utilisateurDto.roles=[this.rolesDTO]
+  //  console.log("we are stating here ",this.utilisateurDto);
+     this.utilisateurService.sinscrire(this.utilisateurDto)
+     .subscribe(utilisateurDTO=>{
+       //TODO
+       this.router.navigate(['login']);
+    },error=>{
+       console.log(error.error.errors,error);
+       this.errorsMsg=error.error.errors;
+     })
 
   }
 }
