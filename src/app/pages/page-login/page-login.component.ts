@@ -24,18 +24,23 @@ login(){
   this.userService.login(this.authenticationRequest).subscribe(
     (data)=>{
       this.errorMessage=''
-     // localStorage.setItem('authenticationResponse',JSON.stringify(data));
-     this.userService.setConnectedUser(data);
+     this.userService.setAccessToken(data);
+     this.getUtilisateurByEmail();
      this.router.navigate(['']);
-
     }, error=>{
      console.log(error);
-     // debugger
-      //this.router.navigate(['inscrire']);
-      //this.errorMessage=error.error.message;
       this.errorMessage='Login et/ou Mot de passe incorrecte.'
     }
 
   );
+}
+getUtilisateurByEmail():void{
+//  console.log("ici on recupere le mail ",this.authenticationRequest.login);
+
+  this.userService.getUserByEmail(this.authenticationRequest.login).subscribe(
+    (user)=>{
+       this.userService.setConnectedUser(user);
+    }
+  )
 }
 }

@@ -68,7 +68,7 @@ class Gmsscapiv1PieceEquipementsService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'DELETE',
-      this.rootUrl + `/gmssc/api/v1/PieceEquipements/delete/${IdBien}`,
+      this.rootUrl + `/gmssc/api/v1/PieceEquipements/delete/${IdPieceEqpt}`,
       __body,
       {
         headers: __headers,

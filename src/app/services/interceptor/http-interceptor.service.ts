@@ -1,4 +1,4 @@
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthenticationResponse } from '../../../gs-api/src/models/authentication-response';
@@ -9,28 +9,39 @@ import { AuthenticationResponse } from '../../../gs-api/src/models/authenticatio
 })
 export class HttpInterceptorService implements HttpInterceptor  {
 
-  constructor() { }
+
+  constructor(
+    //private loaderService: LoaderService
+  ) { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-   // throw new Error('Method not implemented.');
-
-   let authenticationResponse:AuthenticationResponse={};
-   if(localStorage.getItem('connectedUser')){
-    authenticationResponse=JSON.parse(
-      localStorage.getItem('connectedUser') as string
-    );
-   }
-   const re = `/gmssc/api/v1/auth/authenticate`;
-   if (req.url.search(re) === -1 ) {
-    const authReq=req.clone({
-      headers: new HttpHeaders({
-        Authorization: 'Bearer '+authenticationResponse.accessToken
-      })
-    });
-    return next.handle(authReq);
+    //this.loaderService.show();
+    let authenticationResponse: AuthenticationResponse = {};
+    if (localStorage.getItem('AccessToken')) {
+      authenticationResponse = JSON.parse(
+        localStorage.getItem('AccessToken') as string
+      );
+      const authReq = req.clone({
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + authenticationResponse.accessToken
+        })
+      });
+      return next.handle(authReq);
+    }
+    return next.handle(req);
   }
-  const authReq=req.clone({
+  // handle(authReq: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  //   throw new Error('Method not implemented.');
+  // }
 
-  });
-    return next.handle(authReq);
-  }
+  // handleRequest(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  //   return next.handle(req)
+  //     .pipe(tap((event: HttpEvent<any>) => {
+  //       if (event instanceof HttpResponse) {
+  //         this.loaderService.hide();
+  //       }
+  //     }, (err: any) => {
+  //         this.loaderService.hide();
+  //     }));
+  // }
 }
