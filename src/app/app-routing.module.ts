@@ -56,6 +56,11 @@ const routes: Routes = [
       canActivate:[ApplicationGuardService]
   },
   {
+    path:'nouvellesociete/:idSociete',
+    component:NouvelleSocieteComponent,
+    canActivate:[ApplicationGuardService]
+},
+  {
     path:'nouveauintervenant',
     component:NouveauIntervenantComponent,
     canActivate:[ApplicationGuardService]
