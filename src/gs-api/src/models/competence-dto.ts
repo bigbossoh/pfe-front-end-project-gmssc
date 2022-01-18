@@ -1,8 +1,8 @@
 /* tslint:disable */
-import { UtilisateurDto } from './utilisateur-dto';
+import { IntervenantDto } from './intervenant-dto';
 export interface CompetenceDto {
   id?: number;
   descrition?: string;
   job?: string;
-  userDto?: UtilisateurDto;
+  intervenantDto?: IntervenantDto;
 }

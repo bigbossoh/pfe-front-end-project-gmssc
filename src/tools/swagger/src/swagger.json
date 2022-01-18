@@ -23,6 +23,8 @@
   }, {
     "name" : "gmsscapiv1groupe-intervenant"
   }, {
+    "name" : "gmsscapiv1intervenants"
+  }, {
     "name" : "gmsscapiv1interventioncorrective"
   }, {
     "name" : "gmsscapiv1interventionpreventive"
@@ -58,7 +60,7 @@
         }
       }
     },
-    "/gmssc/api/v1/PieceEquipements/delete/{IdBien}" : {
+    "/gmssc/api/v1/PieceEquipements/delete/{IdPieceEqpt}" : {
       "delete" : {
         "tags" : [ "gmsscapiv1PieceEquipements" ],
         "operationId" : "deletePieceEquipementById",
@@ -642,6 +644,117 @@
         }
       }
     },
+    "/gmssc/api/v1/intervenants/all" : {
+      "get" : {
+        "tags" : [ "gmsscapiv1intervenants" ],
+        "operationId" : "getAllIntervenants",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/IntervenantDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gmssc/api/v1/intervenants/allbysociete/{IdSociete}" : {
+      "get" : {
+        "tags" : [ "gmsscapiv1intervenants" ],
+        "operationId" : "listOfIntervenantsBySocieteId",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "IdSociete",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/IntervenantDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gmssc/api/v1/intervenants/delete/{IdInterv}" : {
+      "delete" : {
+        "tags" : [ "gmsscapiv1intervenants" ],
+        "operationId" : "deleteIntervenantById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "IdInterv",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/gmssc/api/v1/intervenants/saveIntervenant" : {
+      "post" : {
+        "tags" : [ "gmsscapiv1intervenants" ],
+        "operationId" : "saveIntervenant",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/IntervenantDto"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/IntervenantDto"
+            }
+          }
+        }
+      }
+    },
+    "/gmssc/api/v1/intervenants/{IdInterv}" : {
+      "get" : {
+        "tags" : [ "gmsscapiv1intervenants" ],
+        "operationId" : "getIntervenantByID",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "IdInterv",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/IntervenantDto"
+            }
+          }
+        }
+      }
+    },
     "/gmssc/api/v1/intervention/corrective/all" : {
       "get" : {
         "tags" : [ "gmsscapiv1interventioncorrective" ],
@@ -854,7 +967,7 @@
         }
       }
     },
-    "/gmssc/api/v1/pieces/getPiece/{codePiece}" : {
+    "/gmssc/api/v1/pieces/getPiece/{CodePiece}" : {
       "get" : {
         "tags" : [ "gmsscapiv1pieces" ],
         "operationId" : "getPieceByCodePiece",
@@ -1365,10 +1478,10 @@
         "societeDto" : {
           "$ref" : "#/definitions/SocieteDto"
         },
-        "adresses1" : {
+        "adresses2" : {
           "type" : "string"
         },
-        "adresses2" : {
+        "adresses1" : {
           "type" : "string"
         }
       }
@@ -1401,8 +1514,8 @@
         "job" : {
           "type" : "string"
         },
-        "userDto" : {
-          "$ref" : "#/definitions/UtilisateurDto"
+        "intervenantDto" : {
+          "$ref" : "#/definitions/IntervenantDto"
         }
       }
     },
@@ -1571,8 +1684,8 @@
           "type" : "string"
         },
         "dateAchat" : {
-          "type" : "integer",
-          "format" : "int64"
+          "type" : "string",
+          "format" : "date"
         },
         "garantie" : {
           "type" : "integer",
@@ -1628,6 +1741,36 @@
         "dateFinTravaux" : {
           "type" : "string",
           "format" : "date"
+        }
+      }
+    },
+    "IntervenantDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "nomInterv" : {
+          "type" : "string"
+        },
+        "prenomInterv" : {
+          "type" : "string"
+        },
+        "fonctionInterv" : {
+          "type" : "string"
+        },
+        "mobile" : {
+          "type" : "string"
+        },
+        "adresse" : {
+          "type" : "string"
+        },
+        "autreInfo" : {
+          "type" : "string"
+        },
+        "societeDto" : {
+          "$ref" : "#/definitions/SocieteDto"
         }
       }
     },
@@ -1795,8 +1938,8 @@
           "type" : "string"
         },
         "dateCreationSociete" : {
-          "type" : "integer",
-          "format" : "int64"
+          "type" : "string",
+          "format" : "date"
         },
         "descriptionActivite" : {
           "type" : "string"
@@ -1841,6 +1984,9 @@
           "type" : "string"
         },
         "email" : {
+          "type" : "string"
+        },
+        "mobile" : {
           "type" : "string"
         },
         "dateDeNaissance" : {

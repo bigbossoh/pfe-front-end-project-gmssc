@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Gmsscapiv1societesService } from 'src/gs-api/src/services';
+
 // import { UserService } from '../user/user.service';
 import { SocieteDto } from '../../../gs-api/src/models/societe-dto';
 import { Observable, of } from 'rxjs';
+import { Gmsscapiv1societesService } from 'src/gs-api/src/services';
 
 @Injectable({
   providedIn: 'root'

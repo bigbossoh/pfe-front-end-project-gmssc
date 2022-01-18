@@ -5,7 +5,7 @@ export interface SocieteDto {
   codeSociete?: string;
   denomination?: string;
   sigle?: string;
-  dateCreationSociete?: number;
+  dateCreationSociete?: string;
   descriptionActivite?: string;
   codeFiscal?: string;
   photo?: string;

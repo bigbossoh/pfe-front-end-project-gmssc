@@ -8,6 +8,7 @@ export { ContratDto } from './models/contrat-dto';
 export { CorrectiveDto } from './models/corrective-dto';
 export { EquipementDto } from './models/equipement-dto';
 export { GroupeIntervenantDto } from './models/groupe-intervenant-dto';
+export { IntervenantDto } from './models/intervenant-dto';
 export { PieceEquipementDto } from './models/piece-equipement-dto';
 export { PiecesDto } from './models/pieces-dto';
 export { PreventiveDto } from './models/preventive-dto';

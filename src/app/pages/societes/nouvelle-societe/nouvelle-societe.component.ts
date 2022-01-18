@@ -40,7 +40,7 @@ export class NouvelleSocieteComponent implements OnInit {
 
   enregistrerSociete(): void {
     this.societeDto.adresse=this.adressedto;
-    console.log(this.societeDto);
+    //console.log(this.societeDto);
 
     this.societeService.enregistrerSociete(this.societeDto)
     .subscribe( resp=>{

@@ -6,6 +6,7 @@ export { Gmsscapiv1CompetencesService } from './services/gmsscapiv-1competences.
 export { Gmsscapiv1contratsService } from './services/gmsscapiv-1contrats.service';
 export { Gmsscapiv1equipementsService } from './services/gmsscapiv-1equipements.service';
 export { Gmsscapiv1groupeIntervenantService } from './services/gmsscapiv-1groupe-intervenant.service';
+export { Gmsscapiv1intervenantsService } from './services/gmsscapiv-1intervenants.service';
 export { Gmsscapiv1interventioncorrectiveService } from './services/gmsscapiv-1interventioncorrective.service';
 export { Gmsscapiv1interventionpreventiveService } from './services/gmsscapiv-1interventionpreventive.service';
 export { Gmsscapiv1piecesService } from './services/gmsscapiv-1pieces.service';

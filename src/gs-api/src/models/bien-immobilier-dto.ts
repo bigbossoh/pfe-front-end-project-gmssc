@@ -11,6 +11,6 @@ export interface BienImmobilierDto {
   autreInformation?: string;
   nombrePiece?: number;
   societeDto?: SocieteDto;
-  adresses1?: string;
   adresses2?: string;
+  adresses1?: string;
 }

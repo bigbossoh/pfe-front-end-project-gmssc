@@ -11,6 +11,7 @@ import { Gmsscapiv1CompetencesService } from './services/gmsscapiv-1competences.
 import { Gmsscapiv1contratsService } from './services/gmsscapiv-1contrats.service';
 import { Gmsscapiv1equipementsService } from './services/gmsscapiv-1equipements.service';
 import { Gmsscapiv1groupeIntervenantService } from './services/gmsscapiv-1groupe-intervenant.service';
+import { Gmsscapiv1intervenantsService } from './services/gmsscapiv-1intervenants.service';
 import { Gmsscapiv1interventioncorrectiveService } from './services/gmsscapiv-1interventioncorrective.service';
 import { Gmsscapiv1interventionpreventiveService } from './services/gmsscapiv-1interventionpreventive.service';
 import { Gmsscapiv1piecesService } from './services/gmsscapiv-1pieces.service';
@@ -39,6 +40,7 @@ import { Gmsscapiv1utilisateursService } from './services/gmsscapiv-1utilisateur
     Gmsscapiv1contratsService,
     Gmsscapiv1equipementsService,
     Gmsscapiv1groupeIntervenantService,
+    Gmsscapiv1intervenantsService,
     Gmsscapiv1interventioncorrectiveService,
     Gmsscapiv1interventionpreventiveService,
     Gmsscapiv1piecesService,
