@@ -8,69 +8,53 @@
     </div>
 
   </div>
-  <div class="col m-3">
+  <div class="col m-3" *ngFor="let societe of listeSocietes">
 
     <!--  -->
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="accordionExample{{societe.id}}" >
       <div class="card mb-2">
         <div class="card-header" id="headingOne">
           <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <app-detail-societe-intervenant></app-detail-societe-intervenant>
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+            [attr.data-target]="'#collapseOne'+societe.id"
+            aria-expanded="true"
+             aria-controls="collapseOne">
+              <app-detail-societe-intervenant
+              [societeDto]="societe">
+            </app-detail-societe-intervenant>
             </button>
           </h2>
         </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample"
+        <div id="collapseOne{{societe.id}}" class="collapse" aria-labelledby="headingOne"
+        [attr.data-parent]="'#accordionExample'+societe.id"
         style="max-height: 300px; overflow-y:scroll">
           <div class="card-body">
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
+           <app-detail-intervenant-societe
+              *ngFor="let ligne of mapLignesIntervenants.get(societe.id)"
+              [listeIntervenant]="ligne"
+           ></app-detail-intervenant-societe>
+
           </div>
         </div>
       </div>
-      <!-- ---------------------- -->
-      <div class="card">
-        <div class="card-header" id="headingOne1">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo"
-             aria-expanded="true" aria-controls="collapseOne">
-              <app-detail-societe-intervenant></app-detail-societe-intervenant>
-            </button>
-          </h2>
-        </div>
 
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample"
-        style="max-height: 300px; overflow-y:scroll">
-          <div class="card-body">
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-           <app-detail-intervenant-societe></app-detail-intervenant-societe>
-          </div>
-        </div>
-      </div>
-    </div>
-
-<!--  -->
   </div>
-  <div class="row mb-3">
-    <div class=" col-md-12 text-center">
-        <app-pagination></app-pagination>
+ <!-- ---------------------- -->
+ <div class="card-footer">
+  <div class="row">
+    <div class="col-md-6 text-left">
+      <h5>{{mapLignesIntervenants.get(societe.id).length}} intervenant(s)</h5>
+    </div>
+    <div class="col-md-6 text-right">
+      <h5></h5>
     </div>
   </div>
-
+</div>
+</div>
+<div class="row mb-3">
+  <div class=" col-md-12 text-center">
+      <app-pagination></app-pagination>
+  </div>
 </div>
 

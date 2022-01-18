@@ -10,29 +10,33 @@
   </div>
   <hr>
   <div class="col-md-12 ">
+    <div class="alert alert-danger" *ngIf="errorMsg.length > 0">
+      <div *ngFor="let msg of errorMsg">
+        <span >{{msg}}</span>
+      </div>
+    </div>
     <form>
       <div class="row mb-3">
         <div class="col-md-2 mb-3">
-            <select id="societe" name="societe"  class="form-control">
-              <option value="0">selectionnez la société</option>
-              <option value="1">société 1</option>
-              <option value="2">société 2</option>
+            <select class="form-control" name="soc" [(ngModel)]="sociereDto.id">
+              <option [value]="null">selectionnez la société</option>
+              <option *ngFor="let soc of listeSocieteDto" [value]="soc.id">{{soc.denomination}}</option>
            </select>
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-2">
-          <input type="text" class="form-control" placeholder="Nom">
+          <input type="text" class="form-control" placeholder="Nom" name="nom" [(ngModel)]="intervenant.nomInterv">
         </div>
         <div class="col-md-6">
-          <input type="text" class="form-control" placeholder="Prénoms">
+          <input type="text" class="form-control" placeholder="Prénoms" name="prenoms" [(ngModel)]="intervenant.prenomInterv">
         </div>
         <div class="col-md-4">
           <div class="col">
-            <select id="fonction" name="fonction"  class="form-control">
+            <select id="fonction" name="fonctionInterv"  class="form-control"  [(ngModel)]="intervenant.fonctionInterv">
               <option value="0">selectionnez la fonction</option>
-              <option value="1">Technicien</option>
-              <option value="2">Responsable</option>
+              <option value="Technicien">Technicien</option>
+              <option value="Responsable">Responsable</option>
            </select>
           </div>
         </div>
@@ -40,28 +44,30 @@
 
       <div class="row mb-3">
         <div class="col">
-          <input type="number" class="form-control" placeholder="Téléphone">
+          <input type="number" class="form-control" placeholder="Mobile" name="mobile" [(ngModel)]="intervenant.mobile">
         </div>
         <div class="col">
-          <input type="number" class="form-control" placeholder="Mobile">
+          <!-- <input type="number" class="form-control" placeholder="Mobile"> -->
         </div>
       </div>
       <div class="row mb-3">
       </div>
       <div class="row mb-3">
         <div class="col-md-6">
-          <textarea class="form-control" placeholder="Adresse" rows="2"></textarea>
+          <textarea class="form-control" placeholder="Adresse" rows="2" name="adresse" [(ngModel)]="intervenant.adresse"></textarea>
         </div>
         <div class="col-md-6">
-          <textarea class="form-control" placeholder="Autre informations" rows="2"></textarea>
+          <textarea class="form-control" placeholder="Autre informations" rows="2" name="autreInfo" [(ngModel)]="intervenant.autreInfo"></textarea>
         </div>
 
       </div>
     </form>
   </div>
   <div class="col-md-12 text-right">
-    <button type="button" class="btn btn-danger mr-3"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
-    <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+    <button type="button" class="btn btn-danger mr-3" (click)="cancel()">
+      <i class="fas fa-ban" ></i>&nbsp;Annuler
+    </button>
+    <button type="button" class="btn btn-primary" (click)="enregistrerIntervenant()"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
   </div>
 </div>
 

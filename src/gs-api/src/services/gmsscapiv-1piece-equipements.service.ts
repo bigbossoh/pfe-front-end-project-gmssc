@@ -13,7 +13,7 @@ import { PieceEquipementDto } from '../models/piece-equipement-dto';
 })
 class Gmsscapiv1PieceEquipementsService extends __BaseService {
   static readonly getAllPieceEquipementPath = '/gmssc/api/v1/PieceEquipements/all';
-  static readonly deletePieceEquipementByIdPath = '/gmssc/api/v1/PieceEquipements/delete/{IdBien}';
+  static readonly deletePieceEquipementByIdPath = '/gmssc/api/v1/PieceEquipements/delete/{IdPieceEqpt}';
   static readonly savePieceEquipementPath = '/gmssc/api/v1/PieceEquipements/savePieceEquipement';
   static readonly getPieceEquipementByIDPath = '/gmssc/api/v1/PieceEquipements/{IdPieceEqpt}';
 

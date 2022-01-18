@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { AuthenticationRequest } from '../../../gs-api/src/models/authentication-request';
 import { Observable, of } from 'rxjs';
 import { AuthenticationResponse } from '../../../gs-api/src/models/authentication-response';
-import { Gmsscapiv1authService } from 'src/gs-api/src/services/gmsscapiv-1auth.service';
-import { UtilisateurService } from '../utilisateur/utilisateur.service';
-import { Gmsscapiv1utilisateursService } from 'src/gs-api/src/services';
+
+
 import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
+import { Gmsscapiv1authService } from 'src/gs-api/src/services/gmsscapiv-1auth.service';
+import { Gmsscapiv1utilisateursService } from 'src/gs-api/src/services';
 
 
 @Injectable({
@@ -15,6 +16,7 @@ import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
 export class UserService {
 
   constructor(
+
     private authenticationService:Gmsscapiv1authService,
     private utilisateurService: Gmsscapiv1utilisateursService,
     private router:Router
@@ -37,14 +39,14 @@ export class UserService {
     localStorage.setItem('connectedUser',JSON.stringify(utilisateurDto));
   }
   getConnectedUser():UtilisateurDto{
-    console.log("we are going to check something",localStorage.getItem('connectedUser'));
+  //  console.log("we are going to check something",localStorage.getItem('connectedUser'));
 
     if(localStorage.getItem('connectedUser')){
-      console.log("we are enter into localstostage");
+     // console.log("we are enter into localstostage");
 
       return JSON.parse(localStorage.getItem('connectedUser') as string)
     }
-    console.log("we are not enter into localstostage");
+   // console.log("we are not enter into localstostage");
     return {};
   }
   isUserLoggedAndAccessTokenValid():boolean{

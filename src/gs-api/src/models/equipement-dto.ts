@@ -11,7 +11,7 @@ export interface EquipementDto {
   poidsNetInterieur?: number;
   poidsNetExterieur?: number;
   puissance?: string;
-  dateAchat?: number;
+  dateAchat?: string;
   garantie?: number;
   nomFournisseur?: string;
   personneRessource?: string;

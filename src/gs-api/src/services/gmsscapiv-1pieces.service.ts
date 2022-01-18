@@ -14,7 +14,7 @@ import { PiecesDto } from '../models/pieces-dto';
 class Gmsscapiv1piecesService extends __BaseService {
   static readonly getListeDesPiecesPath = '/gmssc/api/v1/pieces/all';
   static readonly deletePieceByIdPath = '/gmssc/api/v1/pieces/delete/{idPiece}';
-  static readonly getPieceByCodePiecePath = '/gmssc/api/v1/pieces/getPiece/{codePiece}';
+  static readonly getPieceByCodePiecePath = '/gmssc/api/v1/pieces/getPiece/{CodePiece}';
   static readonly savePiecePath = '/gmssc/api/v1/pieces/savepiece';
   static readonly getPieceByIDPath = '/gmssc/api/v1/pieces/{IdPiece}';
 

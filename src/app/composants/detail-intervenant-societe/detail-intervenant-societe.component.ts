@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IntervenantDto } from 'src/gs-api/src/models';
+
 
 @Component({
   selector: 'app-detail-intervenant-societe',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-intervenant-societe.component.css']
 })
 export class DetailIntervenantSocieteComponent implements OnInit {
+  @Input()
+  listeIntervenant: IntervenantDto= {};
 
   constructor() { }
 

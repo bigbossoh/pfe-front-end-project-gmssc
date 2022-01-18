@@ -53,10 +53,6 @@ class Gmsscapiv1authService extends __BaseService {
    * @return successful operation
    */
   authenticate(body?: AuthenticationRequest): __Observable<AuthenticationResponse> {
-    console.log("depuis le service principale ",body, this.authenticateResponse(body).pipe(
-      __map(_r => _r.body )
-    ));
-
     return this.authenticateResponse(body).pipe(
       __map(_r => _r.body as AuthenticationResponse)
     );
