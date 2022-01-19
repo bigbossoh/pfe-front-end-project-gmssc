@@ -9,12 +9,11 @@
 
   </div>
   <div class="col m-3">
-    <app-detail-bien-immobilier></app-detail-bien-immobilier>
-    <app-detail-bien-immobilier></app-detail-bien-immobilier>
-    <app-detail-bien-immobilier></app-detail-bien-immobilier>
-    <app-detail-bien-immobilier></app-detail-bien-immobilier>
-    <app-detail-bien-immobilier></app-detail-bien-immobilier>
-    <app-detail-bien-immobilier></app-detail-bien-immobilier>
+    <app-detail-bien-immobilier
+    *ngFor="let bienimmo of listeBienImmo"
+    [bienImmo]="bienimmo">
+  </app-detail-bien-immobilier>
+
   </div>
   <div class="row mb-3">
     <div class=" col-md-12 text-center">

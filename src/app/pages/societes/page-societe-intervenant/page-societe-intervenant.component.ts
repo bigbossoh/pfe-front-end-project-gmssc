@@ -25,9 +25,6 @@ export class PageSocieteIntervenantComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllSocietes();
-    //console.log("mapLignesIntervenants: ", this.mapLignesIntervenants);
-
-
   }
   nouveauIntervenant():void{
     this.router.navigate(['nouveauintervenant']);
@@ -35,28 +32,19 @@ export class PageSocieteIntervenantComponent implements OnInit {
   findAllSocietes():void{
     this.societeService.findAll()
     .subscribe(resp=>{
-      //console.log("liste societe : ", resp);
-
       this.listeSocietes=resp;
       this.findAllIntervenantBySociete();
     });
   }
   findAllIntervenantBySociete(): void {
-    //console.log("findAllIntervenantBySociete");
     this.listeSocietes.forEach(societe => {
-
-      console.log("liste des societes ",societe);
       this.findIntervenant(societe.id);
-
     });
   }
   findIntervenant(idSociete?: number): void {
-
       this.intervenantService.findAllIntervenantBySociete(idSociete)
       .subscribe(list => {
-        console.log("listes intervenants :",idSociete, list);
         this.mapLignesIntervenants.set(idSociete, list);
-        console.log("final :",this.mapLignesIntervenants);
       });
 
   }

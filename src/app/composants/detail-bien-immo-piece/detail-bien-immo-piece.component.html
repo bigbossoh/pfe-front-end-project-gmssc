@@ -1,0 +1,80 @@
+<div class="row mb-1 mr-0 custom-border">
+  <div class="col-md-1 custom-border-right p-1 text-center mb-1 mt-1 ">
+    <img src="assets/batB.jpg" width="100px" height="100px">
+  </div>
+
+<!--  Details bien-->
+  <div class="col-md-4 custom-border-right mb-1 mt-1 ">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+        <div class="col-md-11">B-{{bienImmo.codeBienImmobilier}} </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+        <div class="col-md-11">{{bienImmo.nomBienImmobilier}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-university blue-color"></i></div>
+        <div class="col-md-11">Type de bien: {{bienImmo.typeBienImmobilier}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-question-circle blue-color"></i></div>
+        <div class="col-md-4">Batiment(s): {{bienImmo.nbreBatiments}}</div>
+        <div class="col-md-7">
+          <!-- <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Oui</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Non</label>
+          </div> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-phone-alt blue-color"></i></div>
+        <div class="col-md-11">Mobile: {{bienImmo.mobile}}</div>
+      </div>
+    </div>
+  </div>
+
+<!--  details categorie-->
+  <div class="col-md-4 custom-border-right mb-1 mt-1 ">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-globe-africa blue-color"></i></div>
+        <div class="col-md-10">{{bienImmo.societeDto?.adresse?.pays}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-map-marker-alt blue-color"></i></div>
+        <div class="col-md-10">{{bienImmo.societeDto?.adresse?.ville}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-map-marked-alt blue-color"></i></div>
+        <div class="col-md-10">{{bienImmo.societeDto?.adresse?.adresse1}}</div>
+      </div>
+    </div>
+  </div>
+
+<!--  boutons action-->
+  <div class="col-md-3 mb-1 mt-1 ">
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link" (click)="modifierBienImmobilier()">
+          <i class="fas fa-pencil-alt"></i>&nbsp;Modifier
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link text-danger" data-toggle="modal">
+          <i class="fas fa-trash-alt"></i>&nbsp;Supprimer
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link ">
+          <i class="far fa-list-alt"></i>&nbsp;Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

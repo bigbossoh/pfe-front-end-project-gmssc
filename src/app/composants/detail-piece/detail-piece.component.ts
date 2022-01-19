@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PiecesDto } from '../../../gs-api/src/models/pieces-dto';
 
 @Component({
   selector: 'app-detail-piece',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-piece.component.css']
 })
 export class DetailPieceComponent implements OnInit {
-
+  @Input()
+  listePiece: PiecesDto= {};
   constructor() { }
 
   ngOnInit(): void {

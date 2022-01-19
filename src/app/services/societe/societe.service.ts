@@ -5,6 +5,7 @@ import { SocieteDto } from '../../../gs-api/src/models/societe-dto';
 import { Observable, of } from 'rxjs';
 import { Gmsscapiv1societesService } from 'src/gs-api/src/services';
 
+
 @Injectable({
   providedIn: 'root'
 })

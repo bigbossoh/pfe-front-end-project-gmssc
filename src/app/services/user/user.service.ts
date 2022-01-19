@@ -6,8 +6,8 @@ import { AuthenticationResponse } from '../../../gs-api/src/models/authenticatio
 
 
 import { UtilisateurDto } from '../../../gs-api/src/models/utilisateur-dto';
-import { Gmsscapiv1authService } from 'src/gs-api/src/services/gmsscapiv-1auth.service';
-import { Gmsscapiv1utilisateursService } from 'src/gs-api/src/services';
+import { Gmsscapiv1authService, Gmsscapiv1utilisateursService } from 'src/gs-api/src/services';
+
 
 
 @Injectable({

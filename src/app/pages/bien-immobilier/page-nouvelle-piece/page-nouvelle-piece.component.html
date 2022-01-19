@@ -10,42 +10,46 @@
   </div>
   <hr>
   <div class="col-md-12 ">
+    <div class="alert alert-danger" *ngIf="errorMsg.length > 0">
+      <div *ngFor="let msg of errorMsg">
+        <span >{{msg}}</span>
+      </div>
+    </div>
     <form>
       <div class="row mb-3">
 
         <div class="col-md-4">
-          <select id="Typebien" name="Typebien" class="form-control">
+          <select  name="bienImmoDto" class="form-control" name="bienImmoDto" [(ngModel)]="bienImmoDto.id" >
             <option value="0">selectionnez le bien immobilier</option>
-            <option value="1">Pigier centre</option>
-            <option value="2">Pigier annexe</option>
-            <option value="2">Villa pigier</option>
-            <option value="2">Pigier Yamoussoukro</option>
+            <option *ngFor="let bien of listeBienImmoDto" [value]="bien.id">{{bien.nomBienImmobilier}}</option>
+
           </select>
+
         </div>
         <div class="col-md-5">
-          <input type="text" class="form-control" placeholder="Nom du batiment">
+          <input type="text" class="form-control" placeholder="Nom du batiment" name="nomBatiment" [(ngModel)]="pieceDto.nomBatiment">
         </div>
         <div class="col-md-3">
-          <input type="number" class="form-control" placeholder="Etage">
+          <input type="number" class="form-control" placeholder="Etage" name="positionEtage" [(ngModel)]="pieceDto.positionEtage">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col">
-          <select id="Typebien" name="Typebien" class="form-control">
-            <option value="0">selectionnez le type de salle</option>
-            <option value="1">Salle de classe</option>
-            <option value="2">Bureau</option>
-            <option value="3">Amphi</option>
-            <option value="4">Salle informatique</option>
-            <option value="5">Secretariat</option>
-            <option value="6">Showrom</option>
+          <select  name="typeSalle" class="form-control" name="typeSalle" [(ngModel)]="pieceDto.typeSalle">
+            <option selected="selected">selectionnez le type de salle</option>
+            <option value="Salle de classe">Salle de classe</option>
+            <option value="Bureau">Bureau</option>
+            <option value="Amphi">Amphi</option>
+            <option value="Salle informatique">Salle informatique</option>
+            <option value="Secretariat">Secretariat</option>
+            <option value="Showrom">Showrom</option>
           </select>
         </div>
         <div class="col">
-          <input type="number" class="form-control" placeholder="Capacité">
+          <input type="number" class="form-control" placeholder="Capacité" name="capacitePiece" [(ngModel)]="pieceDto.capacitePiece">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Nom de la pièce">
+          <input type="text" class="form-control" placeholder="Nom de la pièce"  name="nomPiece" [(ngModel)]="pieceDto.nomPiece">
         </div>
       </div>
       <div class="row mb-3">
@@ -58,7 +62,7 @@
     </form>
   </div>
   <div class="col-md-12 text-right">
-    <button type="button" class="btn btn-danger mr-3"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
-    <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+    <button type="button" class="btn btn-danger mr-3" (click)="cancel()"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="enregistrerPiece()"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
   </div>
 </div>
