@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Gmsscapiv1intervenantsService } from 'src/gs-api/src/services';
-import { UserService } from '../user/user.service';
+
 import { IntervenantDto } from '../../../gs-api/src/models/intervenant-dto';
 import { Observable, of } from 'rxjs';
+import { Gmsscapiv1intervenantsService } from 'src/gs-api/src/services';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,6 @@ import { Observable, of } from 'rxjs';
 export class IntervenantService {
 
   constructor(
-    private userService:UserService,
     private intervenantService: Gmsscapiv1intervenantsService
   ) { }
 

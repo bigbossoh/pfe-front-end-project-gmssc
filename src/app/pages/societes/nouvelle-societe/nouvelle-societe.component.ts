@@ -24,7 +24,7 @@ export class NouvelleSocieteComponent implements OnInit {
 
   ngOnInit(): void {
    const idSociete= this.activatedRoute.snapshot.params.idSociete;
-   console.log(idSociete);
+   //console.log(idSociete);
 
    if(idSociete){
      this.societeService.findSocieteById(idSociete)

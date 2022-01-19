@@ -9,33 +9,33 @@
     <div class="col">
       <div class="row">
         <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
-        <div class="col-md-11">BI-1001 </div>
+        <div class="col-md-11">BI-{{bienImmo.codeBienImmobilier}} </div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
-        <div class="col-md-11">Pigier Centre</div>
+        <div class="col-md-11">{{bienImmo.nomBienImmobilier}}</div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="fas fa-university blue-color"></i></div>
-        <div class="col-md-11">Université</div>
+        <div class="col-md-11">Type de bien: {{bienImmo.typeBienImmobilier}}</div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="fas fa-question-circle blue-color"></i></div>
-        <div class="col-md-4">Plusieurs batiments</div>
+        <div class="col-md-4">Batiment(s): {{bienImmo.nbreBatiments}}</div>
         <div class="col-md-7">
-          <div class="form-check form-check-inline">
+          <!-- <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
             <label class="form-check-label" for="inlineRadio1">Oui</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
             <label class="form-check-label" for="inlineRadio2">Non</label>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="fas fa-phone-alt blue-color"></i></div>
-        <div class="col-md-11">contact : 01 02 03 04 05</div>
+        <div class="col-md-11">Mobile: {{bienImmo.mobile}}</div>
       </div>
     </div>
   </div>
@@ -45,15 +45,15 @@
     <div class="col">
       <div class="row">
         <div class="col-md-1"><i class="fas fa-globe-africa blue-color"></i></div>
-        <div class="col-md-10">Côte d'ivoire </div>
+        <div class="col-md-10">{{bienImmo.societeDto?.adresse?.pays}}</div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="fas fa-map-marker-alt blue-color"></i></div>
-        <div class="col-md-10">Abidjan</div>
+        <div class="col-md-10">{{bienImmo.societeDto?.adresse?.ville}}</div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="fas fa-map-marked-alt blue-color"></i></div>
-        <div class="col-md-10">plateau sorbone</div>
+        <div class="col-md-10">{{bienImmo.societeDto?.adresse?.adresse1}}</div>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@
   <div class="col-md-3 mb-1 mt-1 ">
     <div class="row mt-4">
       <div class="col-md-4">
-        <button type="button" class="btn btn-link" >
+        <button type="button" class="btn btn-link" (click)="modifierBienImmobilier()">
           <i class="fas fa-pencil-alt"></i>&nbsp;Modifier
         </button>
       </div>

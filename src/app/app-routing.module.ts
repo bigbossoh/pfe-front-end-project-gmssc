@@ -81,6 +81,10 @@ const routes: Routes = [
     path:'nouveaubien',
     component:PageNouveauBienComponent,
     canActivate:[ApplicationGuardService]
+},{
+  path:'nouveaubien/:idBienimmo',
+  component:PageNouveauBienComponent,
+  canActivate:[ApplicationGuardService]
 },
 
   {

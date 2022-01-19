@@ -10,24 +10,39 @@
   </div>
   <hr>
   <div class="col-md-12 ">
+    <div class="alert alert-danger" *ngIf="errorMsg.length > 0">
+      <div *ngFor="let msg of errorMsg">
+        <span >{{msg}}</span>
+      </div>
+    </div>
     <form>
       <div class="row mb-3">
+
+        <div class="col-md-4">
+                <select  class="form-control" name="soc" [(ngModel)]="sociereDto.id">
+                  <option [value]="null">selectionnez la société</option>
+                  <option *ngFor="let soc of listeSocieteDto" [value]="soc.id">{{soc.denomination}}</option>
+               </select>
+        </div>
+
+      </div>
+      <div class="row mb-3">
         <div class="col-md-5">
-          <input type="text" class="form-control" placeholder="Nom du bien">
+          <input type="text" class="form-control" placeholder="Nom du bien" name="nomBien" [(ngModel)]="bienImmo.nomBienImmobilier">
         </div>
         <div class="col-md-4">
-                <select id="Typebien" name="Typebien"  class="form-control">
+                <select  id="typeBienImmobilier" name="typeBienImmobilier"  class="form-control"  [(ngModel)]="bienImmo.typeBienImmobilier">
                   <option value="0">selectionnez le type de bien</option>
-                  <option value="1">Université</option>
-                  <option value="2">Villa</option>
-                  <option value="2">Maison Individuelle</option>
+                  <option value="Université">Université</option>
+                  <option value="Villa">Villa</option>
+                  <option value="Maison Individuelle">Maison Individuelle</option>
                </select>
         </div>
         <div class="col-md-3">
-          <input type="number" class="form-control" placeholder="Nombre de batiments">
+          <input type="number" class="form-control" placeholder="Nombre de batiments" name="nbreBatiments" [(ngModel)]="bienImmo.nbreBatiments">
         </div>
       </div>
-      <div class="row mb-3">
+      <!-- <div class="row mb-3">
         <div class="col">
 
             <select id="country" name="country"  class="form-control">
@@ -287,31 +302,31 @@
         <div class="col">
           <input type="text" class="form-control" placeholder="rue">
         </div>
-      </div>
+      </div> -->
       <div class="row mb-3">
         <div class="col">
-          <input type="number" class="form-control" placeholder="Téléphone">
+          <input type="number" class="form-control" placeholder="Téléphone" name="telephone" [(ngModel)]="bienImmo.telephone">
         </div>
         <div class="col">
-          <input type="number" class="form-control" placeholder="Mobile">
+          <input type="number" class="form-control" placeholder="Mobile" name="mobile" [(ngModel)]="bienImmo.mobile">
         </div>
       </div>
       <div class="row mb-3">
       </div>
       <div class="row mb-3">
         <div class="col-md-6">
-          <textarea class="form-control" placeholder="Adresse" rows="2"></textarea>
+          <textarea class="form-control" placeholder="Adresse" rows="2" name="adresses1" [(ngModel)]="bienImmo.adresses1"></textarea>
         </div>
         <div class="col-md-6">
-          <textarea class="form-control" placeholder="Autre informations" rows="2"></textarea>
+          <textarea class="form-control" placeholder="Autreinformations" rows="2" name="autreInformation" [(ngModel)]="bienImmo.autreInformation">
+          </textarea>
         </div>
-
       </div>
     </form>
   </div>
   <div class="col-md-12 text-right">
-    <button type="button" class="btn btn-danger mr-3"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
-    <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+    <button type="button" class="btn btn-danger mr-3" (click)="cancel()"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="saveBien()"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
   </div>
 </div>
 

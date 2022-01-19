@@ -42,6 +42,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/interceptor/http-interceptor.service';
 import { LoaderComponent } from './composants/loader/loader.component';
+import { DetailBienImmoPieceComponent } from './composants/detail-bien-immo-piece/detail-bien-immo-piece.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { LoaderComponent } from './composants/loader/loader.component';
     PageChangerMotPasseComponent,
     PageGroupeInterventionComponent,
     PageNouveauGroupeInterventionComponent,
-    LoaderComponent
+    LoaderComponent,
+    DetailBienImmoPieceComponent
   ],
   imports: [
     BrowserModule,

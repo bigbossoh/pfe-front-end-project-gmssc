@@ -24,6 +24,10 @@ export class NouveauIntervenantComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.findAllSociete()
+    }
+    
+  findAllSociete():void{
     this.societeService.findAll()
     .subscribe(listsoc=>{
       this.listeSocieteDto=listsoc;
@@ -31,8 +35,7 @@ export class NouveauIntervenantComponent implements OnInit {
       console.log(error.error.errors);
 
     });
-    }
-
+  }
   cancel(): void {
     this.router.navigate(['intervenants'])
   }
