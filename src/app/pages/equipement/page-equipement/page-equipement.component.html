@@ -9,12 +9,11 @@
 
   </div>
   <div class="col m-3">
-    <app-detail-equipement></app-detail-equipement>
-    <app-detail-equipement></app-detail-equipement>
-    <app-detail-equipement></app-detail-equipement>
-    <app-detail-equipement></app-detail-equipement>
-    <app-detail-equipement></app-detail-equipement>
-    <app-detail-equipement></app-detail-equipement>
+    <app-detail-equipement
+    *ngFor="let eqpt of listeEqpmt"
+    [eqpmtDto]="eqpt"
+    ></app-detail-equipement>
+
   </div>
   <div class="row mb-3">
     <div class=" col-md-12 text-center">

@@ -19,7 +19,7 @@
       <div class="row mb-3">
         <div class="col-md-2 mb-3">
             <select class="form-control" name="soc" [(ngModel)]="sociereDto.id">
-              <option [value]="null">selectionnez la société</option>
+              <option value="0">selectionnez la société</option>
               <option *ngFor="let soc of listeSocieteDto" [value]="soc.id">{{soc.denomination}}</option>
            </select>
         </div>
