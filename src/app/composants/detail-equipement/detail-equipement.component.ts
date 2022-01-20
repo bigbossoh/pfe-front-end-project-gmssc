@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { EquipementDto } from '../../../gs-api/src/models/equipement-dto';
 
 @Component({
   selector: 'app-detail-equipement',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-equipement.component.css']
 })
 export class DetailEquipementComponent implements OnInit {
+  @Input()
+  eqpmtDto:EquipementDto={}
 
   constructor() { }
 

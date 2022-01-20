@@ -7,47 +7,58 @@
   </div>
   <hr>
   <div class="col-md-12 ">
+    <div class="alert alert-danger" *ngIf="errorMsg.length > 0">
+      <div *ngFor="let msg of errorMsg">
+        <span >{{msg}}</span>
+      </div>
+    </div>
     <form>
       <div class="row mb-3">
         <div class="col-md-6">
           <label>Bien immobilier</label>
-            <select id="Bien" name="modele" class="form-control">
+            <select  name="modele" class="form-control"  (change)="onChangeBienImmobilier($any($event.target).value)" >
               <option value="0">selectionnez le bien immobilier</option>
-              <option value="1">Pigier centre</option>
-              <option value="2">Pigier annexe</option>
-              <option value="3">Pigier Yamoussoukro</option>
-              <option value="">Villa Pigier</option>
+              <option *ngFor="let bien of listeBienDto" [value]="bien.id">{{bien.nomBienImmobilier}}</option>
             </select>
+
         </div>
 
         <div class="col-md-6">
           <label>Pièce</label>
-          <select id="piece" name="piece" class="form-control">
+          <select id="piece" name="piece" class="form-control" [(ngModel)]="pieceDto.id">
             <option value="0">selectionnez la piece</option>
-            <option value="1">Salle 1</option>
-            <option value="2">Salle 2</option>
-            <option value="3">Salle 3</option>
+            <!-- {{listePiece.bienImmobilierDto?.nomBienImmobilier}}-{{listePiece.typeSalle}}-{{listePiece.nomPiece}} -->
+            <option *ngFor="let piece of listePieceDto" [value]="piece.id">{{piece.bienImmobilierDto?.nomBienImmobilier}}-{{piece.typeSalle}}-{{piece.nomPiece}}</option>
           </select>
         </div>
       </div>
       <div class="row mb-3">
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label>Marque</label>
-          <input type="text" class="form-control" placeholder="Marque">
+          <input type="text" class="form-control" placeholder="Marque" name="marque" [(ngModel)]="equipementDto.marque">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label>N° de série</label>
-          <input type="text" class="form-control" placeholder="N° de série">
+          <input type="text" class="form-control" placeholder="N° de série" name="numeroSerie" [(ngModel)]="equipementDto.numeroSerie">
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
           <label>Modèle</label>
-          <select id="modele" name="modele" class="form-control">
+          <select id="modele" name="modele"  class="form-control"  [(ngModel)]="equipementDto.modele">
             <option value="0">selectionnez le modèle</option>
-            <option value="1">Monobloc mural</option>
-            <option value="2">Monobloc window</option>
-            <option value="3">Split mural</option>
+            <option value="Monobloc mural">Monobloc mural</option>
+            <option value="Monobloc window">Monobloc window</option>
+            <option value="Split mural">Split mural</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label>Type de climatiseur</label>
+          <select id="modele" name="typeClim"  class="form-control"  [(ngModel)]="equipementDto.typeClim">
+            <option value="0">selectionnez le type d'equipement</option>
+            <option value="Evaporateur">Evaporateur</option>
+            <option value="Condensateur">Condensateur</option>
+            <option value="Tout en un">Tout en un</option>
           </select>
         </div>
       </div>
@@ -66,13 +77,14 @@
           <label>Hauteur</label>
         </div>
         <div class="col-md-5">
-          <input type="number" class="form-control" placeholder="Hauteur">
+          <input type="number" class="form-control" placeholder="Hauteur" name="hauteur" [(ngModel)]="equipementDto.hauteur">
         </div>
         <div class="col-md-2">
           <label>Poids net (intérieur, Kg)</label>
         </div>
         <div class="col-md-4">
-          <input type="number" class="form-control" placeholder="Kg">
+          <input type="number" class="form-control" placeholder="Kg"
+          name="poidsNetInterieur" [(ngModel)]="equipementDto.poidsNetInterieur">
         </div>
       </div>
       <div class="row mb-3">
@@ -80,13 +92,15 @@
           <label>Largeur</label>
         </div>
         <div class="col-md-5">
-          <input type="number" class="form-control" placeholder="Largeur">
+          <input type="number" class="form-control" placeholder="Largeur"
+          name="largeur" [(ngModel)]="equipementDto.largeur">
         </div>
         <div class="col-md-2">
           <label>Poids net (Extérieur, Kg)</label>
         </div>
         <div class="col-md-4">
-          <input type="number" class="form-control" placeholder="Kg">
+          <input type="number" class="form-control" placeholder="Kg"
+          name="poidsNetExterieur" [(ngModel)]="equipementDto.poidsNetExterieur">
         </div>
       </div>
       <div class="row mb-3">
@@ -94,13 +108,15 @@
           <label>Longueur</label>
         </div>
         <div class="col-md-5">
-          <input type="number" class="form-control" placeholder="Longueur">
+          <input type="number" class="form-control" placeholder="Longueur"
+          name="longueur" [(ngModel)]="equipementDto.longueur">
         </div>
         <div class="col-md-2">
           <label>Puissance (Chevaux)</label>
         </div>
         <div class="col-md-4">
-          <input type="number" class="form-control" placeholder="2 chevaux">
+          <input type="number" class="form-control" placeholder="2 chevaux"
+          name="puissance" [(ngModel)]="equipementDto.puissance">
         </div>
       </div>
       <div class="row">
@@ -112,37 +128,46 @@
       <div class="row mb-3">
         <div class="col-md-3">
             <label>Date d'achat</label>
-            <input type="Date" class="form-control" placeholder="Contrat">
+            <input type="Date" class="form-control" placeholder="Contrat"
+            name="dateAchat" [(ngModel)]="equipementDto.dateAchat">
         </div>
         <div class="col-md-3">
             <label>N° de facture</label>
-            <input type="text" class="form-control" placeholder="facture">
+            <input type="text" class="form-control" placeholder="facture"
+            >
         </div>
         <div class="col-md-3">
             <label>Prix d'achat (Fr CFA)</label>
-            <input type="number" class="form-control" placeholder="Prix">
+            <input type="number" class="form-control" placeholder="Prix"
+
+            >
         </div>
         <div class="col-md-3">
             <label>Garantie (ans)</label>
-            <input type="number" class="form-control" placeholder="Garantie">
+            <input type="number" class="form-control" placeholder="Garantie"
+            name="garantie" [(ngModel)]="equipementDto.garantie">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-3">
             <label>Fournisseur</label>
-            <input type="text" class="form-control" placeholder="Fournisseur">
+            <input type="text" class="form-control" placeholder="Fournisseur"
+            name="nomFournisseur" [(ngModel)]="equipementDto.nomFournisseur">
         </div>
         <div class="col-md-3">
             <label>Personne ressource</label>
-            <input type="number" class="form-control" placeholder="Personne ressource">
+            <input type="text" class="form-control" placeholder="Personne ressource"
+            name="personneRessource" [(ngModel)]="equipementDto.personneRessource">
         </div>
         <div class="col-md-3">
             <label>Téléphone</label>
-            <input type="number" class="form-control" placeholder="Téléphone">
+            <input type="number" class="form-control" placeholder="Téléphone"
+            name="telephone" [(ngModel)]="equipementDto.telephone">
         </div>
         <div class="col-md-3">
             <label>Mobile</label>
-            <input type="number" class="form-control" placeholder="Mobile">
+            <input type="number" class="form-control" placeholder="Mobile"
+            name="mobile" [(ngModel)]="equipementDto.mobile">
         </div>
       </div>
       <div class="row">
@@ -154,11 +179,13 @@
       <div class="row mb-3">
         <div class="col-md-6">
           <label>Description</label>
-          <textarea class="form-control" placeholder="Description" rows="2"></textarea>
+          <textarea class="form-control" placeholder="Description" rows="2"
+          name="description" [(ngModel)]="equipementDto.description"></textarea>
         </div>
         <div class="col-md-6">
           <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1"
+            name="livreAvecAccessoires" [(ngModel)]="equipementDto.livreAvecAccessoires">
             <label class="form-check-label" for="exampleCheck1">Livré avec un support de protection et tous les accessoires.</label>
           </div>
         </div>
@@ -168,7 +195,7 @@
     </form>
   </div>
   <div class="col-md-12 text-right">
-    <button type="button" class="btn btn-danger mr-3"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
-    <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+    <button type="button" class="btn btn-danger mr-3" (click)="cancel()"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="saveEquipement()"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
   </div>
 </div>

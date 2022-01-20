@@ -11,7 +11,8 @@
     </div>
   </div>
   <div class="col m-3">
-    <app-detail-societe *ngFor="let societe of listeSocietes"
+    <app-detail-societe
+    *ngFor="let societe of listeSocietes"
     [societeDto]="societe"
     (suppressionResult)="handleSuppression($event)"
     >
