@@ -18,7 +18,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.connectedUser=this.userService.getConnectedUser();
    // console.log("we are in header ",this.connectedUser);
-
+ // this.refresh()
   }
+  // refresh(): void {
+
+  //     var isLoadedBefore = localStorage.getItem("IsLoadedBefore");
+  //     if(isLoadedBefore=="true"){
+  //       console.log("we are in header true");
+  //       return;
+  //     }
+  //      else {
+  //       console.log("we are in header not true");
+  //     localStorage.setItem("IsLoadedBefore","true");
+  //     window.location.reload()
+  //     }
+  //   }
 
 }

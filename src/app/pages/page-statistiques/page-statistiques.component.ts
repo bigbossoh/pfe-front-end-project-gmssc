@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-page-statistiques',
   templateUrl: './page-statistiques.component.html',

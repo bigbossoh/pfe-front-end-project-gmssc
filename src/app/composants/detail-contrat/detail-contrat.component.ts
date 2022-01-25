@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ContratDto } from '../../../gs-api/src/models/contrat-dto';
 
 @Component({
   selector: 'app-detail-contrat',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-contrat.component.css']
 })
 export class DetailContratComponent implements OnInit {
-
+  @Input()
+  contratDto:ContratDto={}
   constructor() { }
 
   ngOnInit(): void {

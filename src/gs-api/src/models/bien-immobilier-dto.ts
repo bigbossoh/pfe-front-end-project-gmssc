@@ -8,6 +8,9 @@ export interface BienImmobilierDto {
   nbreBatiments?: number;
   mobile?: string;
   telephone?: string;
+  villeSociete?: string;
+  commune?: string;
+  quartier?: string;
   autreInformation?: string;
   nombrePiece?: number;
   societeDto?: SocieteDto;

@@ -13,6 +13,21 @@
       </div>
     </div>
     <form>
+<!--  -->
+<div class="row mb-3">
+  <div class="col-md-6">
+    <label>Société</label>
+      <select  name="modele" class="form-control"  [(ngModel)]="societeDto.id">
+        <option value="0">selectionnez la société</option>
+        <option *ngFor="let soc of listeSocietePrincipale" [value]="soc.id">{{soc.denomination}}</option>
+      </select>
+
+  </div>
+
+
+</div>
+<!--  -->
+
       <div class="row mb-3">
         <div class="col-md-6">
           <label>Bien immobilier</label>
@@ -134,12 +149,13 @@
         <div class="col-md-3">
             <label>N° de facture</label>
             <input type="text" class="form-control" placeholder="facture"
+            name="numFacture" [(ngModel)]="equipementDto.numFacture"
             >
         </div>
         <div class="col-md-3">
             <label>Prix d'achat (Fr CFA)</label>
             <input type="number" class="form-control" placeholder="Prix"
-
+            name="prixFacture" [(ngModel)]="equipementDto.prixFacture"
             >
         </div>
         <div class="col-md-3">
@@ -148,6 +164,7 @@
             name="garantie" [(ngModel)]="equipementDto.garantie">
         </div>
       </div>
+
       <div class="row mb-3">
         <div class="col-md-3">
             <label>Fournisseur</label>
@@ -170,6 +187,24 @@
             name="mobile" [(ngModel)]="equipementDto.mobile">
         </div>
       </div>
+      <!-- nouvelle ligne  -->
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label>Date de mise en service</label>
+          <input type="date" class="form-control"
+          name="dateMiseService" [(ngModel)]="equipementDto.dateMiseService">
+      </div>
+        <div class="col-md-3">
+          <label>Etat de service</label>
+          <select id="modele" name="typeClim"  class="form-control"  [(ngModel)]="equipementDto.etatService">
+            <option value="0">selectionnez l'etat de l'equipement</option>
+            <option value="En marche">En marche</option>
+            <option value="En panne">En panne</option>
+            <option value="En cours de reparation">En cours de reparation</option>
+          </select>
+        </div>
+      </div>
+      <!-- coooooooool -->
       <div class="row">
         <div class="col">
           <h5><i class="fas fa-feather-alt blue-color"></i>&nbsp;Autres informations</h5>

@@ -19,34 +19,29 @@
 
   </div>
   <div class="row p-0 m-1 mb-3">
+
+    <div class="col-md-6" >
+      <label>Société de principale</label>
+      <select  class="form-control" name="socprincipale" [(ngModel)]="sociereDto.id" (change)="OnChangefindAllEquipement($any($event.target).value)" >
+        <!-- <option [value]="null">selectionnez une société de maintenance</option> -->
+        <option *ngFor="let soc of listeSocietePrincipale" [value]="soc.id">{{soc.denomination}}</option>
+     </select>
+    </div>
     <div class="col-md-6">
       <label>Société de maintenance</label>
-      <select class="custom-select">
-        <option selected>Selectionnez la société de maintenance</option>
-        <option value="1">Société 1</option>
-        <option value="2">Société 2</option>
-      </select>
+      <select  class="form-control" name="socmaintenance" [(ngModel)]="soccietefiltre.id">
+        <!-- <option [value]="null">selectionnez une société de maintenance</option> -->
+        <option *ngFor="let soc of listSociete" [value]="soc.id">{{soc.denomination}}</option>
+     </select>
     </div>
-
   </div>
-  <div class="row p-0 m-1 mb-3">
+
+  <div class="row p-0 m-1 mb-3" *ngIf="listEquipements.length">
     <div class="col-4">
-      <label>Bien(s) immobilier(s)</label>
-      <select class="custom-select" multiple size="3">
-        <option selected>Selectionnez le ou les bien(s) immobilier(s)</option>
-        <option value="1">Pigier Ci</option>
-        <option value="2">Pigier Annexe</option>
-        <option value="3">Pigier Yamoussoukro</option>
-        <option value="4">Villa Pigier</option>
-      </select>
-    </div>
-    <div class="col-2 text-center">
-      <button type="button" class="btn btn-primary w-75 mt-3 p-0 h-75"><i
-          class="fas fa-arrow-right"></i>&nbsp;Valider</button>
-    </div>
-    <div class="col-6">
-      <label>Bien(s) immobilier(s) sélectionné(s)</label>
-      <textarea class="form-control m-0" placeholder="Adresse postale" rows="3"></textarea>
+      <label>Liste des equipements</label>
+      <div class="col"  *ngFor="let eq of listEquipements">
+          <label> Code equipement: {{eq.codeEquipement}} Marque: {{eq.marque}}</label>
+      </div>
     </div>
   </div>
   <hr>
@@ -60,54 +55,66 @@
   </div>
   <div class="row p-0 m-4 mb-3">
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="verificationControleGeneral" [(ngModel)]="contratDto.verificationControleGeneral">
     <label class="form-check-label" for="exampleCheck1">Vérification et contrôle général des unités intérieure(s) et extérieure(s)</label>
     </div>
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="verificationFixationsSupports" [(ngModel)]="contratDto.verificationFixationsSupports">
     <label class="form-check-label" for="exampleCheck1">Vérification des fixations et supports</label>
     </div>
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="verificationCircuitFrigorifique" [(ngModel)]="contratDto.verificationCircuitFrigorifique">
     <label class="form-check-label" for="exampleCheck1">Vérification du circuit frigorifique</label>
     </div>
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Détection des fuites éventuelles de fluide frigorigène et appoint s'il y a lieu</label>
+      <input type="checkbox" class="form-check-input"
+      name="detectionFuitesEventuelles" [(ngModel)]="contratDto.detectionFuitesEventuelles">
+    <label class="form-check-label" for="exampleCheck1">Détection des fuites éventuelles de fluide frigorigène
+      et appoint s'il y a lieu</label>
     </div>
   </div>
   <div class="row p-0 m-4 mb-3">
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="verificationBonneMarcheSecurites" [(ngModel)]="contratDto.verificationBonneMarcheSecurites">
     <label class="form-check-label" for="exampleCheck1">Vérification de la bonne marche des sécurités, de(s) régulation(s) et des
       automatismes</label>
     </div>
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="nettoyageFiltre" [(ngModel)]="contratDto.nettoyageFiltre">
     <label class="form-check-label" for="exampleCheck1">Nettoyage du (des) filtre(s) de(s) unité(s) intérieure(s)</label>
     </div>
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="depoussierageNettoyageUnites" [(ngModel)]="contratDto.depoussierageNettoyageUnites">
     <label class="form-check-label" for="exampleCheck1">Dépoussiérage et nettoyage des unités intérieure(s) et extérieure(s)
       Vérification du bon fonctionnement de l'humidificateur (3).</label>
     </div>
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="verificationEcoulementEaux" [(ngModel)]="contratDto.verificationEcoulementEaux">
     <label class="form-check-label" for="exampleCheck1">Vérification de l'écoulement des eaux de condensas</label>
     </div>
   </div>
   <div class="row p-0 m-4 mb-3">
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="desinfectionNettoyageBacs" [(ngModel)]="contratDto.desinfectionNettoyageBacs">
     <label class="form-check-label" for="exampleCheck1">désinfection et nettoyage
       des bacs à condensas et des siphons</label>
     </div>
     <div class="col-md-3">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="nettoyageEnlevementResidus" [(ngModel)]="contratDto.nettoyageEnlevementResidus">
     <label class="form-check-label" for="exampleCheck1">Nettoyage et enlèvement des résidus en fin de visite</label>
     </div>
     <div class="col-md-6">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="etablissementRapportVisite" [(ngModel)]="contratDto.etablissementRapportVisite">
     <label class="form-check-label" for="exampleCheck1">Etablissement d'un rapport de visite, incluant les travaux réalisés, les réponses
       aux éventuelles remarques du CLIENT ainsi que toute recommandation nécessaire
       au bon fonctionnement de l'installation</label>
@@ -117,7 +124,8 @@
   <div class="row p-0 m-4 mb-3">
 
     <div class="col-md-6">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="risquesEventuels" [(ngModel)]="contratDto.risquesEventuels">
     <label class="form-check-label" for="exampleCheck1">Les risques éventuels, qui pourraient découler des interventions du
       PRESTATAIRE et qui relèveraient directement de sa responsabilité, sont couverts par
       une assurance professionnelle.</label>
@@ -137,28 +145,31 @@
       <label>Delai</label>
     </div>
     <div class="col-md-2">
-      <input type="time" class="form-control" placeholder="Largeur">
+      <input type="time" class="form-control" placeholder="delaiIntervention"  name="delaiIntervention" [(ngModel)]="contratDto.delaiIntervention">
     </div>
     <div class="col-md-1">
       <label>Contact </label>
     </div>
     <div class="col-md-2">
-      <input type="number" class="form-control" placeholder="Contact">
+      <input type="number" class="form-control" placeholder="Contact" name="contactUrgence" [(ngModel)]="contratDto.contactUrgence">
     </div>
   </div>
   <div class="row p-0 m-4 mb-3">
     <div class="col-md-4">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="coutInterventionsInclus" [(ngModel)]="contratDto.coutInterventionsInclus">
     <label class="form-check-label" for="exampleCheck1">Le coût de ces interventions est inclus dans la redevance contractuelle</label>
     </div>
     <div class="col-md-4">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input"
+      name="coutInterventionsExclus" [(ngModel)]="contratDto.coutInterventionsExclus">
     <label class="form-check-label" for="exampleCheck1">Le coût de ces interventions est exclus de la redevance contractuelle à l'exception de(s) visite(s) non
       facturable(s)</label>
     </div>
     <div class="col-md-4">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Le coût de ces interventions fera l'objet d'une facturation complémentaire</label>
+      <input type="checkbox" class="form-check-input"
+      name="coutInterventionsFacture" [(ngModel)]="contratDto.coutInterventionsFacture">
+    <label class="form-check-label">Le coût de ces interventions fera l'objet d'une facturation complémentaire</label>
     </div>
   </div>
   <div class="row p-0 m-1 mb-3">
@@ -173,19 +184,29 @@
       <label>Date de signature du contrat</label>
     </div>
     <div class="col-md-2">
-      <input type="date" class="form-control">
+      <input type="date" class="form-control"
+      name="dateSignature" [(ngModel)]="contratDto.dateSignature">
     </div>
     <div class="col-md-2">
       <label>Durée du contrat (jours)</label>
     </div>
+    <div class="col-md-2 mr-2">
+      <input type="number" class="form-control" placeholder="Jour"
+      name="dateSignature" [(ngModel)]="contratDto.dateSignature">
+    </div>
     <div class="col-md-2">
-      <input type="number" class="form-control" placeholder="Jour">
+      <input type="checkbox" class="form-check-input"
+      name="resiliation" [(ngModel)]="contratDto.resiliation">
+      <label class="form-check-label">Résiliation du contrat</label>
+    </div>
+    <div class="col-md-2">
+
     </div>
   </div>
   <div class="row p-0 m-4 mb-3">
     <div class="col-md-12 text-right">
-      <button type="button" class="btn btn-danger mr-3"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
-      <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+      <button type="button" class="btn btn-danger mr-3" (click)="cancel()" ><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+      <button type="button" class="btn btn-primary" (click)="saveContrat()"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
     </div>
   </div>
 </form>

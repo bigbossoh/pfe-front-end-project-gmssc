@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 
 // import { UserService } from '../user/user.service';
-import { SocieteDto } from '../../../gs-api/src/models/societe-dto';
+
 import { Observable, of } from 'rxjs';
+import { SocieteDto } from 'src/gs-api/src/models';
 import { Gmsscapiv1societesService } from 'src/gs-api/src/services';
+
 
 
 @Injectable({
@@ -24,6 +26,12 @@ export class SocieteService {
   }
   findAll():Observable<SocieteDto[]>{
     return this.societeService.getListeDesSocietes();
+  }
+  findAllfilterByTypeMaintenance():Observable<SocieteDto[]>{
+    return this.societeService.getListeDesSocietesfilterbysocietemaintenance();
+  }
+  findAllorder():Observable<SocieteDto[]>{
+    return this.societeService.getListeDesSocietesOrderByAsc();
   }
   findSocieteById(idSociete?:number):Observable<SocieteDto>{
     if(idSociete){

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Gmsscapiv1equipementsService } from 'src/gs-api/src/services';
+
 import { EquipementDto } from '../../../gs-api/src/models/equipement-dto';
 
 
@@ -18,6 +19,9 @@ export class EquipementService {
   }
   findAllEquipement():Observable<EquipementDto[]>{
     return this.equipementService.getListeDesEquipements();
+  }
+  findAllEquipementBySociete(idSociete:number):Observable<EquipementDto[]>{
+    return this.equipementService.getListeEquipementByIdSociete(idSociete);
   }
   findEquipementById(idEqpt?:number):Observable<EquipementDto>{
     if(idEqpt){

@@ -14,7 +14,8 @@ import { EquipementDto } from '../models/equipement-dto';
 class Gmsscapiv1equipementsService extends __BaseService {
   static readonly getListeDesEquipementsPath = '/gmssc/api/v1/equipements/all';
   static readonly deleteEquipementByIdPath = '/gmssc/api/v1/equipements/delete/{idEquipement}';
-  static readonly getPieceByIDPath = '/gmssc/api/v1/equipements/getPiece/{CodeEquipement}';
+  static readonly getListeEquipementByIdSocietePath = '/gmssc/api/v1/equipements/getallequipement/{idsoiete}';
+  static readonly getPieceByIDPath = '/gmssc/api/v1/equipements/getequipement/{CodeEquipement}';
   static readonly savePiecePath = '/gmssc/api/v1/equipements/saveEquipement';
   static readonly getEquipementByIDPath = '/gmssc/api/v1/equipements/{IdEquipement}';
 
@@ -95,6 +96,42 @@ class Gmsscapiv1equipementsService extends __BaseService {
   }
 
   /**
+   * @param idsoiete undefined
+   * @return successful operation
+   */
+  getListeEquipementByIdSocieteResponse(idsoiete: number): __Observable<__StrictHttpResponse<Array<EquipementDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/equipements/getallequipement/${idsoiete}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<EquipementDto>>;
+      })
+    );
+  }
+  /**
+   * @param idsoiete undefined
+   * @return successful operation
+   */
+  getListeEquipementByIdSociete(idsoiete: number): __Observable<Array<EquipementDto>> {
+    return this.getListeEquipementByIdSocieteResponse(idsoiete).pipe(
+      __map(_r => _r.body as Array<EquipementDto>)
+    );
+  }
+
+  /**
    * @param CodeEquipement undefined
    * @return successful operation
    */
@@ -105,7 +142,7 @@ class Gmsscapiv1equipementsService extends __BaseService {
 
     let req = new HttpRequest<any>(
       'GET',
-      this.rootUrl + `/gmssc/api/v1/equipements/getPiece/${CodeEquipement}`,
+      this.rootUrl + `/gmssc/api/v1/equipements/getequipement/${CodeEquipement}`,
       __body,
       {
         headers: __headers,

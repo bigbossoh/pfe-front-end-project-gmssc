@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BienImmobilierDto } from 'src/gs-api/src/models';
+
 
 import { Observable, of } from 'rxjs';
+import { BienImmobilierDto } from 'src/gs-api/src/models';
 import { Gmsscapiv1biensService } from 'src/gs-api/src/services';
+
 
 
 
@@ -32,4 +34,5 @@ export class BienImmobilierService {
     }
     return of();
   }
+  
 }

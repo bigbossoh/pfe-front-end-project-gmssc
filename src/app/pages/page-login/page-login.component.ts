@@ -27,6 +27,7 @@ login(){
      this.userService.setAccessToken(data);
      this.getUtilisateurByEmail();
      this.router.navigate(['']);
+
     }, error=>{
      console.log(error);
       this.errorMessage='Login et/ou Mot de passe incorrecte.'
@@ -43,4 +44,5 @@ getUtilisateurByEmail():void{
     }
   )
 }
+
 }

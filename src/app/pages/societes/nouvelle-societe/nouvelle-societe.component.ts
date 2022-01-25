@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SocieteService } from 'src/app/services/societe/societe.service';
 import { SocieteDto } from 'src/gs-api/src/models';
+
 import { AdresseDto } from '../../../../gs-api/src/models/adresse-dto';
 
 @Component({
