@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IntervenantService } from '../../../services/intervenant/intervenant.service';
 import { IntervenantDto } from '../../../../gs-api/src/models/intervenant-dto';
-import { SocieteDto } from '../../../../gs-api/src/models/societe-dto';
+
 import { SocieteService } from '../../../services/societe/societe.service';
+import { SocieteDto } from 'src/gs-api/src/models';
 
 @Component({
   selector: 'app-nouveau-intervenant',
@@ -26,9 +27,9 @@ export class NouveauIntervenantComponent implements OnInit {
   ngOnInit(): void {
     this.findAllSociete()
     }
-    
+
   findAllSociete():void{
-    this.societeService.findAll()
+    this.societeService.findAllfilterByTypeMaintenance()
     .subscribe(listsoc=>{
       this.listeSocieteDto=listsoc;
     },error=>{

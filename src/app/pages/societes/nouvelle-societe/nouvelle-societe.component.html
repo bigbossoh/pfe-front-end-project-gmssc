@@ -30,10 +30,11 @@
 
       <div class="row mb-3">
         <div class="col">
-          <textarea class="form-control" placeholder="Description de l'activité" rows="2" name="Description" [(ngModel)]="societeDto.descriptionActivite">
-
+          <textarea class="form-control" placeholder="Description de l'activité" rows="1"
+           name="Description" [(ngModel)]="societeDto.descriptionActivite">
           </textarea>
         </div>
+
       </div>
 
       <div class="row mb-3">
@@ -309,12 +310,38 @@
         </div>
 
       </div>
+      <!--  -->
       <div class="row mb-3">
-        <div class="col-md-2">
-          <textarea class="form-control" placeholder="Adresse postale" rows="2" name="Adresse_postale" [(ngModel)]="adressedto.codePostale"></textarea>
+
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Code fiscal"
+            name="codeFiscal" [(ngModel)]="societeDto.codeFiscal">
+          </div>
+
+        <div class="col">
+          <input class="form-control" placeholder="Site Web"
+          name="siteWeb" [(ngModel)]="societeDto.siteWeb">
         </div>
-        <div class="col-md-10">
+        <div class="col">
+          <input type="text"  class="form-control" placeholder="Adresse postale"
+          name="Adresse_postale" [(ngModel)]="adressedto.codePostale">
+        </div>
+
+
+      </div>
+      <!--  -->
+      <div class="row mb-3">
+
+        <div class="col-md-4">
           <textarea class="form-control" placeholder="Adresse" rows="2" name="Adresse" [(ngModel)]="adressedto.adresse1"></textarea>
+        </div>
+        <div class="col-md-4">
+          <textarea class="form-control" placeholder="Autre informations" rows="2" name="adresse2" [(ngModel)]="adressedto.adresse2"></textarea>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1"
+          name="societeMaintenance" [(ngModel)]="societeDto.societeMaintenance">
+          <label class="form-check-label" for="exampleCheck1">Société de maintenance ?</label>
         </div>
 
       </div>

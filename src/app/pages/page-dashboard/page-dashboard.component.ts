@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-page-dashboard',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
-  }
+    console.log("we are getting insde of dashboard page");
 
+    //this.refresh()
+  }
+  refresh(): void {
+
+    var isLoadedBefore = localStorage.getItem("isLoadedBefore");
+    if(isLoadedBefore=="true"){
+      console.log("we are in header true");
+      return;
+    }
+     else {
+    console.log("we are in header not true");
+    localStorage.setItem("isLoadedBefore","true");
+    window.location.reload()
+    }
+  }
 }

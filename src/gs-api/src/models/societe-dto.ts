@@ -14,5 +14,6 @@ export interface SocieteDto {
   mobile?: string;
   fax?: string;
   siteWeb?: string;
+  societeMaintenance?: boolean;
   adresse?: AdresseDto;
 }

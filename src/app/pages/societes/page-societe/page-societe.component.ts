@@ -5,6 +5,7 @@ import { SocieteDto } from 'src/gs-api/src/models';
 
 
 
+
 @Component({
   selector: 'app-page-societe',
   templateUrl: './page-societe.component.html',
@@ -23,7 +24,7 @@ export class PageSocieteComponent implements OnInit {
     this.findAllSocietes();
   }
   findAllSocietes():void{
-    this.societeService.findAll()
+    this.societeService.findAllorder()
     .subscribe(resp=>{
       this.listeSocietes=resp;
     });

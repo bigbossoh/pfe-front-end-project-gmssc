@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Gmsscapiv1PieceEquipementsService } from 'src/gs-api/src/services';
 import { PieceEquipementDto } from '../../../gs-api/src/models/piece-equipement-dto';
 
@@ -14,5 +14,10 @@ export class EquipementPieceService {
   savePieceEqpmnt(pieceEqpmnt:PieceEquipementDto):Observable<PieceEquipementDto>{
     return this.pieceEqpmtService.savePieceEquipement(pieceEqpmnt);
   }
- 
+  findAllPicesEquipementByEquipement(idEquipement:number):Observable<PieceEquipementDto[]>{
+    if(idEquipement){
+      return this.pieceEqpmtService.listOfPiecEqpmtByEqpmntID(idEquipement);
+    }
+    return of();
+  }
 }

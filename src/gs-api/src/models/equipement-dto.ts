@@ -1,5 +1,6 @@
 /* tslint:disable */
 import { ContratDto } from './contrat-dto';
+import { SocieteDto } from './societe-dto';
 export interface EquipementDto {
   id?: number;
   codeEquipement?: string;
@@ -19,7 +20,12 @@ export interface EquipementDto {
   mobile?: string;
   livreAvecAccessoires?: boolean;
   description?: string;
+  numFacture?: string;
+  prixFacture?: string;
+  dateMiseService?: string;
+  etatService?: string;
   typeClim?: string;
   contratDto?: ContratDto;
+  societeDto?: SocieteDto;
   longueur?: number;
 }

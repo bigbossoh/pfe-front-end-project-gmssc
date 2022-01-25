@@ -39,9 +39,22 @@
                </select>
         </div>
         <div class="col-md-3">
-          <input type="number" class="form-control" placeholder="Nombre de batiments" name="nbreBatiments" [(ngModel)]="bienImmo.nbreBatiments">
+          <input type="text" class="form-control" placeholder="Nombre de batiments" name="nbreBatiments" [(ngModel)]="bienImmo.nbreBatiments">
         </div>
       </div>
+        <!-- ajout adresse -->
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Ville" name="villeSociete" [(ngModel)]="bienImmo.villeSociete">
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Commune" name="commune" [(ngModel)]="bienImmo.commune">
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Quartier" name="nbreBatiments" [(ngModel)]="bienImmo.quartier">
+          </div>
+        </div>
+        <!-- fin ajout adresse -->
       <!-- <div class="row mb-3">
         <div class="col">
 

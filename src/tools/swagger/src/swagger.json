@@ -60,6 +60,31 @@
         }
       }
     },
+    "/gmssc/api/v1/PieceEquipements/allbyequiment/{IdEquipement}" : {
+      "get" : {
+        "tags" : [ "gmsscapiv1PieceEquipements" ],
+        "operationId" : "listOfPiecEqpmtByEqpmntID",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "IdEquipement",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PieceEquipementDto"
+              }
+            }
+          }
+        }
+      }
+    },
     "/gmssc/api/v1/PieceEquipements/delete/{IdPieceEqpt}" : {
       "delete" : {
         "tags" : [ "gmsscapiv1PieceEquipements" ],
@@ -491,7 +516,32 @@
         }
       }
     },
-    "/gmssc/api/v1/equipements/getPiece/{CodeEquipement}" : {
+    "/gmssc/api/v1/equipements/getallequipement/{idsoiete}" : {
+      "get" : {
+        "tags" : [ "gmsscapiv1equipements" ],
+        "operationId" : "getListeEquipementByIdSociete",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idsoiete",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/EquipementDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gmssc/api/v1/equipements/getequipement/{CodeEquipement}" : {
       "get" : {
         "tags" : [ "gmsscapiv1equipements" ],
         "operationId" : "getPieceByID",
@@ -1163,6 +1213,42 @@
         }
       }
     },
+    "/gmssc/api/v1/societes/allfilterbysocietemaintenance" : {
+      "get" : {
+        "tags" : [ "gmsscapiv1societes" ],
+        "operationId" : "getListeDesSocietesfilterbysocietemaintenance",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SocieteDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gmssc/api/v1/societes/allorder" : {
+      "get" : {
+        "tags" : [ "gmsscapiv1societes" ],
+        "operationId" : "getListeDesSocietesOrderByAsc",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SocieteDto"
+              }
+            }
+          }
+        }
+      }
+    },
     "/gmssc/api/v1/societes/delete/{idSociete}" : {
       "delete" : {
         "tags" : [ "gmsscapiv1societes" ],
@@ -1493,6 +1579,15 @@
         "telephone" : {
           "type" : "string"
         },
+        "villeSociete" : {
+          "type" : "string"
+        },
+        "commune" : {
+          "type" : "string"
+        },
+        "quartier" : {
+          "type" : "string"
+        },
         "autreInformation" : {
           "type" : "string"
         },
@@ -1734,11 +1829,27 @@
         "description" : {
           "type" : "string"
         },
+        "numFacture" : {
+          "type" : "string"
+        },
+        "prixFacture" : {
+          "type" : "string"
+        },
+        "dateMiseService" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "etatService" : {
+          "type" : "string"
+        },
         "typeClim" : {
           "type" : "string"
         },
         "contratDto" : {
           "$ref" : "#/definitions/ContratDto"
+        },
+        "societeDto" : {
+          "$ref" : "#/definitions/SocieteDto"
         },
         "longueur" : {
           "type" : "number",
@@ -1989,6 +2100,9 @@
         },
         "siteWeb" : {
           "type" : "string"
+        },
+        "societeMaintenance" : {
+          "type" : "boolean"
         },
         "adresse" : {
           "$ref" : "#/definitions/AdresseDto"

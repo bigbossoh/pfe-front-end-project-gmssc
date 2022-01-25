@@ -13,6 +13,8 @@ import { SocieteDto } from '../models/societe-dto';
 })
 class Gmsscapiv1societesService extends __BaseService {
   static readonly getListeDesSocietesPath = '/gmssc/api/v1/societes/all';
+  static readonly getListeDesSocietesfilterbysocietemaintenancePath = '/gmssc/api/v1/societes/allfilterbysocietemaintenance';
+  static readonly getListeDesSocietesOrderByAscPath = '/gmssc/api/v1/societes/allorder';
   static readonly deleteSocieteByIdPath = '/gmssc/api/v1/societes/delete/{idSociete}';
   static readonly saveSocietePath = '/gmssc/api/v1/societes/savesociete';
   static readonly getSocieteByIDPath = '/gmssc/api/v1/societes/{IdSociete}';
@@ -53,6 +55,72 @@ class Gmsscapiv1societesService extends __BaseService {
    */
   getListeDesSocietes(): __Observable<Array<SocieteDto>> {
     return this.getListeDesSocietesResponse().pipe(
+      __map(_r => _r.body as Array<SocieteDto>)
+    );
+  }
+
+  /**
+   * @return successful operation
+   */
+  getListeDesSocietesfilterbysocietemaintenanceResponse(): __Observable<__StrictHttpResponse<Array<SocieteDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/societes/allfilterbysocietemaintenance`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<SocieteDto>>;
+      })
+    );
+  }
+  /**
+   * @return successful operation
+   */
+  getListeDesSocietesfilterbysocietemaintenance(): __Observable<Array<SocieteDto>> {
+    return this.getListeDesSocietesfilterbysocietemaintenanceResponse().pipe(
+      __map(_r => _r.body as Array<SocieteDto>)
+    );
+  }
+
+  /**
+   * @return successful operation
+   */
+  getListeDesSocietesOrderByAscResponse(): __Observable<__StrictHttpResponse<Array<SocieteDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/societes/allorder`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<SocieteDto>>;
+      })
+    );
+  }
+  /**
+   * @return successful operation
+   */
+  getListeDesSocietesOrderByAsc(): __Observable<Array<SocieteDto>> {
+    return this.getListeDesSocietesOrderByAscResponse().pipe(
       __map(_r => _r.body as Array<SocieteDto>)
     );
   }

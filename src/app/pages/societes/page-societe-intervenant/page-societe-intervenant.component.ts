@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IntervenantService } from 'src/app/services/intervenant/intervenant.service';
 import { SocieteService } from 'src/app/services/societe/societe.service';
 import { SocieteDto } from 'src/gs-api/src/models';
+
 import { IntervenantDto } from '../../../../gs-api/src/models/intervenant-dto';
 
 @Component({
@@ -30,7 +31,7 @@ export class PageSocieteIntervenantComponent implements OnInit {
     this.router.navigate(['nouveauintervenant']);
   }
   findAllSocietes():void{
-    this.societeService.findAll()
+    this.societeService.findAllfilterByTypeMaintenance()
     .subscribe(resp=>{
       this.listeSocietes=resp;
       this.findAllIntervenantBySociete();
