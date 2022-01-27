@@ -6,6 +6,7 @@ import { IntervenantDto } from '../../../../gs-api/src/models/intervenant-dto';
 import { SocieteService } from '../../../services/societe/societe.service';
 import { SocieteDto } from 'src/gs-api/src/models';
 
+
 @Component({
   selector: 'app-nouveau-intervenant',
   templateUrl: './nouveau-intervenant.component.html',
@@ -33,7 +34,7 @@ export class NouveauIntervenantComponent implements OnInit {
     .subscribe(listsoc=>{
       this.listeSocieteDto=listsoc;
     },error=>{
-      console.log(error.error.errors);
+      this.errorMsg=error.error.errors;
 
     });
   }
@@ -42,7 +43,7 @@ export class NouveauIntervenantComponent implements OnInit {
   }
   enregistrerIntervenant():void{
     this.intervenant.societeDto=this.sociereDto;
-    console.log(this.intervenant);
+    //console.log(this.intervenant);
 
     this.interventionService.eregistrementIntervenant(this.intervenant)
     .subscribe(inter=>{

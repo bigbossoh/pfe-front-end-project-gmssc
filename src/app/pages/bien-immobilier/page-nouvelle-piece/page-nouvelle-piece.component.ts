@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BienImmobilierService } from '../../../services/bien-immobilier/bien-immobilier.service';
 import { PieceService } from '../../../services/piece/piece.service';
+import { BienImmobilierDto, PiecesDto } from 'src/gs-api/src/models';
 
-import { BienImmobilierDto } from '../../../../gs-api/src/models/bien-immobilier-dto';
-import { PiecesDto } from 'src/gs-api/src/models';
 
 @Component({
   selector: 'app-page-nouvelle-piece',

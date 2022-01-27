@@ -6,9 +6,9 @@ import { EquipementService } from '../../../services/equipement/equipement.servi
 import { PieceService } from '../../../services/piece/piece.service';
 import { SocieteService } from '../../../services/societe/societe.service';
 import { BienImmobilierService } from '../../../services/bien-immobilier/bien-immobilier.service';
-import { BienImmobilierDto, EquipementDto, SocieteDto } from 'src/gs-api/src/models';
 import { Router } from '@angular/router';
 import { ContratDto } from '../../../../gs-api/src/models/contrat-dto';
+import { BienImmobilierDto, EquipementDto, SocieteDto } from 'src/gs-api/src/models';
 
 @Component({
   selector: 'app-page-nouveau-contrat',

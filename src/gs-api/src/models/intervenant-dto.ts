@@ -7,6 +7,7 @@ export interface IntervenantDto {
   fonctionInterv?: string;
   mobile?: string;
   adresse?: string;
+  emailIntervenant?: string;
   autreInfo?: string;
   societeDto?: SocieteDto;
 }
