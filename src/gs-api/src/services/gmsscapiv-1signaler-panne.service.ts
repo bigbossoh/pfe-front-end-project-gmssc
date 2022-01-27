@@ -13,6 +13,7 @@ import { SignalerPanneDto } from '../models/signaler-panne-dto';
 })
 class Gmsscapiv1signalerPanneService extends __BaseService {
   static readonly getAllSignalerPannePath = '/gmssc/api/v1/signaler-panne/all';
+  static readonly getAllSignalerPanneOrderByDatePath = '/gmssc/api/v1/signaler-panne/allorderdate';
   static readonly deleteSignalerPanneByIdPath = '/gmssc/api/v1/signaler-panne/delete/{IdPanne}';
   static readonly saveSignalerPannePath = '/gmssc/api/v1/signaler-panne/savesignalerpanne';
   static readonly getSignalerPanneDtoPath = '/gmssc/api/v1/signaler-panne/{IdPanne}';
@@ -53,6 +54,39 @@ class Gmsscapiv1signalerPanneService extends __BaseService {
    */
   getAllSignalerPanne(): __Observable<Array<SignalerPanneDto>> {
     return this.getAllSignalerPanneResponse().pipe(
+      __map(_r => _r.body as Array<SignalerPanneDto>)
+    );
+  }
+
+  /**
+   * @return successful operation
+   */
+  getAllSignalerPanneOrderByDateResponse(): __Observable<__StrictHttpResponse<Array<SignalerPanneDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/signaler-panne/allorderdate`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<SignalerPanneDto>>;
+      })
+    );
+  }
+  /**
+   * @return successful operation
+   */
+  getAllSignalerPanneOrderByDate(): __Observable<Array<SignalerPanneDto>> {
+    return this.getAllSignalerPanneOrderByDateResponse().pipe(
       __map(_r => _r.body as Array<SignalerPanneDto>)
     );
   }

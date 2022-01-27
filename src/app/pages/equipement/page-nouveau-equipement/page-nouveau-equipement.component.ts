@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipementDto } from '../../../../gs-api/src/models/equipement-dto';
-import { BienImmobilierDto } from '../../../../gs-api/src/models/bien-immobilier-dto';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PieceService } from 'src/app/services/piece/piece.service';
 import { BienImmobilierService } from '../../../services/bien-immobilier/bien-immobilier.service';
 import { EquipementService } from 'src/app/services/equipement/equipement.service';
 import { EquipementPieceService } from '../../../services/equipement-piece/equipement-piece.service';
-import { PieceEquipementDto, PiecesDto } from 'src/gs-api/src/models';
 import { SocieteService } from '../../../services/societe/societe.service';
-import { SocieteDto } from '../../../../gs-api/src/models/societe-dto';
+import { BienImmobilierDto, EquipementDto, PieceEquipementDto, PiecesDto, SocieteDto } from 'src/gs-api/src/models';
+
 
 @Component({
   selector: 'app-page-nouveau-equipement',

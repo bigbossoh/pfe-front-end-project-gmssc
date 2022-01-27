@@ -8,27 +8,27 @@
     <div class="col">
       <div class="row">
         <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
-        <div class="col-md-11">Code: Interv1001</div>
+        <div class="col-md-11">Code: Interv-{{signalePanneDto.codeSignalerPanne}}</div>
       </div>
     </div>
 
     <div class="col">
       <div class="row">
         <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
-        <div class="col-md-11">Priorité : normale</div>
+        <div class="col-md-11">Priorité : {{signalePanneDto.priorite}}</div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
-        <div class="col-md-11">Description: Le climatiseur ne donne pas.</div>
+        <div class="col-md-11">Description: {{signalePanneDto.descriptionPanne}}</div>
       </div>
 
       <div class="row">
         <div class="col-md-1"><i class="fas fa-plug blue-color"></i></div>
-        <div class="col-md-11">Demandé par: BOSSOH</div>
+        <div class="col-md-11">Demandé par: {{signalePanneDto. utilisateurDto?.nom}}&nbsp;{{signalePanneDto. utilisateurDto?.prenom}} </div>
       </div>
       <div class="row">
         <div class="col-md-1"><i class="far fa-calendar-check blue-color"></i></div>
-        <div class="col-md-11">Date : 01/01/2018</div>
+        <div class="col-md-11">Date : {{signalePanneDto.dateSignalerPanne |date: 'dd/MM/yyyy' }}</div>
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
       </div>
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-12">Bien: Pigier Annexe</div>
+          <div class="col-md-12">Bien: {{signalePanneDto.piecesDto?.bienImmobilierDto?.nomBienImmobilier}}</div>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
       </div>
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-12">Batimant: Principale</div>
+          <div class="col-md-12">Batiment: {{signalePanneDto.piecesDto?.nomBatiment}}</div>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
       </div>
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-12">Piece: salle 1</div>
+          <div class="col-md-12">Piece: {{signalePanneDto.piecesDto?.typeSalle}}-{{signalePanneDto.piecesDto?.nomPiece}}</div>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
       </div>
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-12">Etat: En panne</div>
+          <div class="col-md-12">Etat:&nbsp;{{signalePanneDto.etatSignalerPanne}}</div>
         </div>
       </div>
     </div>

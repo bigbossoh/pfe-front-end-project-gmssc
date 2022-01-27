@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ContratDto } from 'src/gs-api/src/models';
 import { Gmsscapiv1contratsService } from 'src/gs-api/src/services';
-import { ContratDto } from '../../../gs-api/src/models/contrat-dto';
+
 
 
 @Injectable({

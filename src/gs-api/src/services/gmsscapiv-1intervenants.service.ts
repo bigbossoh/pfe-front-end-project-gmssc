@@ -14,6 +14,8 @@ import { IntervenantDto } from '../models/intervenant-dto';
 class Gmsscapiv1intervenantsService extends __BaseService {
   static readonly getAllIntervenantsPath = '/gmssc/api/v1/intervenants/all';
   static readonly listOfIntervenantsBySocieteIdPath = '/gmssc/api/v1/intervenants/allbysociete/{IdSociete}';
+  static readonly listOfIntervenantsBySocieteIdAndFunctionPath = '/gmssc/api/v1/intervenants/allbysocieteandfunction/{IdSociete}/{fonctionInterv}';
+  static readonly listOfIntervenantsByfunctionPath = '/gmssc/api/v1/intervenants/allbysocietebyfunction/{fonctionInterv}';
   static readonly deleteIntervenantByIdPath = '/gmssc/api/v1/intervenants/delete/{IdInterv}';
   static readonly saveIntervenantPath = '/gmssc/api/v1/intervenants/saveIntervenant';
   static readonly getIntervenantByIDPath = '/gmssc/api/v1/intervenants/{IdInterv}';
@@ -90,6 +92,89 @@ class Gmsscapiv1intervenantsService extends __BaseService {
    */
   listOfIntervenantsBySocieteId(IdSociete: number): __Observable<Array<IntervenantDto>> {
     return this.listOfIntervenantsBySocieteIdResponse(IdSociete).pipe(
+      __map(_r => _r.body as Array<IntervenantDto>)
+    );
+  }
+
+  /**
+   * @param params The `Gmsscapiv1intervenantsService.ListOfIntervenantsBySocieteIdAndFunctionParams` containing the following parameters:
+   *
+   * - `fonctionInterv`:
+   *
+   * - `IdSociete`:
+   *
+   * @return successful operation
+   */
+  listOfIntervenantsBySocieteIdAndFunctionResponse(params: Gmsscapiv1intervenantsService.ListOfIntervenantsBySocieteIdAndFunctionParams): __Observable<__StrictHttpResponse<Array<IntervenantDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/intervenants/allbysocieteandfunction/${params.IdSociete}/${params.fonctionInterv}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<IntervenantDto>>;
+      })
+    );
+  }
+  /**
+   * @param params The `Gmsscapiv1intervenantsService.ListOfIntervenantsBySocieteIdAndFunctionParams` containing the following parameters:
+   *
+   * - `fonctionInterv`:
+   *
+   * - `IdSociete`:
+   *
+   * @return successful operation
+   */
+  listOfIntervenantsBySocieteIdAndFunction(params: Gmsscapiv1intervenantsService.ListOfIntervenantsBySocieteIdAndFunctionParams): __Observable<Array<IntervenantDto>> {
+    return this.listOfIntervenantsBySocieteIdAndFunctionResponse(params).pipe(
+      __map(_r => _r.body as Array<IntervenantDto>)
+    );
+  }
+
+  /**
+   * @param fonctionInterv undefined
+   * @return successful operation
+   */
+  listOfIntervenantsByfunctionResponse(fonctionInterv: string): __Observable<__StrictHttpResponse<Array<IntervenantDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/intervenants/allbysocietebyfunction/${fonctionInterv}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<IntervenantDto>>;
+      })
+    );
+  }
+  /**
+   * @param fonctionInterv undefined
+   * @return successful operation
+   */
+  listOfIntervenantsByfunction(fonctionInterv: string): __Observable<Array<IntervenantDto>> {
+    return this.listOfIntervenantsByfunctionResponse(fonctionInterv).pipe(
       __map(_r => _r.body as Array<IntervenantDto>)
     );
   }
@@ -204,6 +289,14 @@ class Gmsscapiv1intervenantsService extends __BaseService {
 }
 
 module Gmsscapiv1intervenantsService {
+
+  /**
+   * Parameters for listOfIntervenantsBySocieteIdAndFunction
+   */
+  export interface ListOfIntervenantsBySocieteIdAndFunctionParams {
+    fonctionInterv: string;
+    IdSociete: number;
+  }
 }
 
 export { Gmsscapiv1intervenantsService }

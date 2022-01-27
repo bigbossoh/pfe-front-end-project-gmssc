@@ -5,6 +5,7 @@ import { SocieteService } from 'src/app/services/societe/societe.service';
 import { SocieteDto } from 'src/gs-api/src/models';
 
 
+
 import { BienImmobilierDto } from '../../../../gs-api/src/models/bien-immobilier-dto';
 
 @Component({

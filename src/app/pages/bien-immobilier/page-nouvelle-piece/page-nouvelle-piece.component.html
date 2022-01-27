@@ -22,8 +22,8 @@
       <div class="row mb-3">
 
         <div class="col-md-4">
-          <select  name="bienImmoDto" class="form-control" name="bienImmoDto" [(ngModel)]="bienImmoDto.id" >
-            <option value="0">selectionnez le bien immobilier</option>
+          <select   class="form-control" name="bienImmoDto" [(ngModel)]="bienImmoDto.id" >
+            <option  value="selectionnez le bien immobilier" selected>selectionnez le bien immobilier</option>
             <option *ngFor="let bien of listeBienImmoDto" [value]="bien.id">{{bien.nomBienImmobilier}}</option>
 
           </select>
