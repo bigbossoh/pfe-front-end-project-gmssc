@@ -26,7 +26,7 @@ login(){
       this.errorMessage=''
      this.userService.setAccessToken(data);
      this.getUtilisateurByEmail();
-     this.router.navigate(['']);
+     this.router.navigate(['dashboard']);
 
     }, error=>{
      console.log(error);

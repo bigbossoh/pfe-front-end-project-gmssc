@@ -7,7 +7,7 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
-import { UtilisateurGroupeIntervenantDto } from '../models/utilisateur-groupe-intervenant-dto';
+import { IntervenantGroupeIntervenantDto } from '../models/intervenant-groupe-intervenant-dto';
 @Injectable({
   providedIn: 'root',
 })
@@ -63,7 +63,7 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
   /**
    * @return successful operation
    */
-  getAllUtilisateurGroupeIntervenantResponse(): __Observable<__StrictHttpResponse<Array<UtilisateurGroupeIntervenantDto>>> {
+  getAllUtilisateurGroupeIntervenantResponse(): __Observable<__StrictHttpResponse<Array<IntervenantGroupeIntervenantDto>>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -80,16 +80,16 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Array<UtilisateurGroupeIntervenantDto>>;
+        return _r as __StrictHttpResponse<Array<IntervenantGroupeIntervenantDto>>;
       })
     );
   }
   /**
    * @return successful operation
    */
-  getAllUtilisateurGroupeIntervenant(): __Observable<Array<UtilisateurGroupeIntervenantDto>> {
+  getAllUtilisateurGroupeIntervenant(): __Observable<Array<IntervenantGroupeIntervenantDto>> {
     return this.getAllUtilisateurGroupeIntervenantResponse().pipe(
-      __map(_r => _r.body as Array<UtilisateurGroupeIntervenantDto>)
+      __map(_r => _r.body as Array<IntervenantGroupeIntervenantDto>)
     );
   }
 
@@ -97,7 +97,7 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveUtilisateurGroupeIntervenantResponse(body?: UtilisateurGroupeIntervenantDto): __Observable<__StrictHttpResponse<UtilisateurGroupeIntervenantDto>> {
+  saveUtilisateurGroupeIntervenantResponse(body?: IntervenantGroupeIntervenantDto): __Observable<__StrictHttpResponse<IntervenantGroupeIntervenantDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -115,7 +115,7 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<UtilisateurGroupeIntervenantDto>;
+        return _r as __StrictHttpResponse<IntervenantGroupeIntervenantDto>;
       })
     );
   }
@@ -123,9 +123,9 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
    * @param body undefined
    * @return successful operation
    */
-  saveUtilisateurGroupeIntervenant(body?: UtilisateurGroupeIntervenantDto): __Observable<UtilisateurGroupeIntervenantDto> {
+  saveUtilisateurGroupeIntervenant(body?: IntervenantGroupeIntervenantDto): __Observable<IntervenantGroupeIntervenantDto> {
     return this.saveUtilisateurGroupeIntervenantResponse(body).pipe(
-      __map(_r => _r.body as UtilisateurGroupeIntervenantDto)
+      __map(_r => _r.body as IntervenantGroupeIntervenantDto)
     );
   }
 
@@ -133,7 +133,7 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
    * @param IduserGrpeInterv undefined
    * @return successful operation
    */
-  getUtilisateurGroupeIntervenantByIDResponse(IduserGrpeInterv: number): __Observable<__StrictHttpResponse<UtilisateurGroupeIntervenantDto>> {
+  getUtilisateurGroupeIntervenantByIDResponse(IduserGrpeInterv: number): __Observable<__StrictHttpResponse<IntervenantGroupeIntervenantDto>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -151,7 +151,7 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<UtilisateurGroupeIntervenantDto>;
+        return _r as __StrictHttpResponse<IntervenantGroupeIntervenantDto>;
       })
     );
   }
@@ -159,9 +159,9 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
    * @param IduserGrpeInterv undefined
    * @return successful operation
    */
-  getUtilisateurGroupeIntervenantByID(IduserGrpeInterv: number): __Observable<UtilisateurGroupeIntervenantDto> {
+  getUtilisateurGroupeIntervenantByID(IduserGrpeInterv: number): __Observable<IntervenantGroupeIntervenantDto> {
     return this.getUtilisateurGroupeIntervenantByIDResponse(IduserGrpeInterv).pipe(
-      __map(_r => _r.body as UtilisateurGroupeIntervenantDto)
+      __map(_r => _r.body as IntervenantGroupeIntervenantDto)
     );
   }
 }

@@ -23,6 +23,11 @@ import { PageChangerMotPasseComponent } from './pages/profil/page-changer-mot-pa
 import { PageGroupeInterventionComponent } from './pages/Intervention/page-groupe-intervention/page-groupe-intervention.component';
 import { PageNouveauGroupeInterventionComponent } from './pages/Intervention/page-nouveau-groupe-intervention/page-nouveau-groupe-intervention.component';
 import { ApplicationGuardService } from './services/guard/application-guard.service';
+import { CorrectiveComponent } from './pages/maintenance/corrective/corrective.component';
+import { PreventiveComponent } from './pages/maintenance/preventive/preventive.component';
+import { PageNouvelleMaintenancePreventiveComponent } from './pages/maintenance/page-nouvelle-maintenance-preventive/page-nouvelle-maintenance-preventive.component';
+import { PageNouvelleMaintenanceCorrectiveComponent } from './pages/maintenance/page-nouvelle-maintenance-corrective/page-nouvelle-maintenance-corrective.component';
+import { PageVueEnsembleComponent } from './pages/page-accueil/page-vue-ensemble/page-vue-ensemble.component';
 
 const routes: Routes = [
   {
@@ -44,6 +49,12 @@ const routes: Routes = [
         component:PageStatistiquesComponent,
         canActivate:[ApplicationGuardService]
     },
+    {
+      path:'dashboard',
+      component:PageVueEnsembleComponent,
+      canActivate:[ApplicationGuardService]
+  }
+  ,
     {
       path:'société',
       component:PageSocieteComponent,
@@ -152,6 +163,27 @@ const routes: Routes = [
 {
   path:'changermotpasse',
   component:PageChangerMotPasseComponent,
+  canActivate:[ApplicationGuardService]
+},
+{
+  path:'corrective',
+  component:CorrectiveComponent,
+  canActivate:[ApplicationGuardService]
+}
+,
+{
+  path:'preventive',
+  component:PreventiveComponent,
+  canActivate:[ApplicationGuardService]
+},
+{
+  path:'nouvellemaintenancepreventive',
+  component:PageNouvelleMaintenancePreventiveComponent,
+  canActivate:[ApplicationGuardService]
+},
+{
+  path:'nouvellemaintenancecorrective',
+  component:PageNouvelleMaintenanceCorrectiveComponent,
   canActivate:[ApplicationGuardService]
 }
     ]

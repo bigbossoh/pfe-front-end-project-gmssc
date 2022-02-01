@@ -12,7 +12,12 @@
   </div>
   <div class="col m-3">
     <app-detail-societe
-    *ngFor="let societe of listeSocietes"
+    *ngFor="let societe of listeSocietes
+    | paginate: {
+      itemsPerPage: 4,
+      currentPage: page,
+      totalItems:totalLigne
+    }"
     [societeDto]="societe"
     (suppressionResult)="handleSuppression($event)"
     >
@@ -20,7 +25,7 @@
   </div>
   <div class="row mb-3" *ngIf="listeSocietes.length>0">
     <div class=" col-md-12 text-center">
-        <app-pagination></app-pagination>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 

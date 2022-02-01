@@ -10,15 +10,19 @@
   </div>
   <div class="col m-3">
     <app-detail-bien-immobilier
-    *ngFor="let bienimmo of listeBienImmo"
+    *ngFor="let bienimmo of listeBienImmo
+    | paginate: {
+      itemsPerPage: 4,
+      currentPage: page,
+      totalItems:totalLigne
+    }"
     [bienImmo]="bienimmo">
   </app-detail-bien-immobilier>
 
   </div>
   <div class="row mb-3">
     <div class=" col-md-12 text-center">
-        <app-pagination></app-pagination>
-    </div>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
   </div>
 
 </div>

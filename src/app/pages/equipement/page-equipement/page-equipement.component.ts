@@ -14,6 +14,8 @@ export class PageEquipementComponent implements OnInit {
 
   listeEqpmt: Array<EquipementDto>=[];
   pieceDto:PiecesDto={}
+  totalLigne:number=0;
+  page:number=1;
   errorMsg='';
   constructor(
     private router:Router,
@@ -28,6 +30,7 @@ export class PageEquipementComponent implements OnInit {
     this.eqpmtService.findAllEquipement()
     .subscribe(data=>{
       this.listeEqpmt=data;
+      this.totalLigne=this.listeEqpmt.length
     });
   }
   nouveauEquipement():void{

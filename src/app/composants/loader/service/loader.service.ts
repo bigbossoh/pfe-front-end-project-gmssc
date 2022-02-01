@@ -20,4 +20,4 @@ export class LoaderService {
   hide(): void {
     this.loaderSubject.next({show: false});
   }
-}
+} 

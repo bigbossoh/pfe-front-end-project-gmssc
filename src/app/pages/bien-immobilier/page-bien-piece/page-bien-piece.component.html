@@ -8,7 +8,12 @@
     </div>
 
   </div>
-  <div class="col m-3" *ngFor="let bienimmo of listeBienImmo">
+  <div class="col m-3" *ngFor="let bienimmo of listeBienImmo
+  | paginate: {
+    itemsPerPage: 2,
+    currentPage: page,
+    totalItems:totalLigne
+  }">
 
       <!--  -->
       <div class="accordion" id="accordionExample{{bienimmo.id}}">
@@ -19,7 +24,8 @@
               [attr.data-target]="'#collapseOne'+bienimmo.id"
               aria-expanded="true" aria-controls="collapseOne">
                 <app-detail-bien-immo-piece
-                 [bienImmo]="bienimmo">
+                 [bienImmo]="bienimmo"
+                 >
                 </app-detail-bien-immo-piece>
               </button>
             </h2>
@@ -35,9 +41,9 @@
              >
              </app-detail-piece>
              <div class="row mb-3">
-              <!-- <div class=" col-md-12 text-center">
+              <div class=" col-md-12 text-center">
                   <app-pagination></app-pagination>
-              </div> -->
+              </div>
             </div>
 
             </div>
@@ -60,7 +66,7 @@
 
   <div class="row mb-3">
     <div class=" col-md-12 text-center">
-        <app-pagination></app-pagination>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 

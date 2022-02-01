@@ -10,6 +10,7 @@ import { SocieteService } from '../../../services/societe/societe.service';
 
 import { IntervenantService } from '../../../services/intervenant/intervenant.service';
 import { BienImmobilierDto, IntervenantDto, PiecesDto, SignalerPanneDto, SocieteDto, UtilisateurDto } from 'src/gs-api/src/models';
+//import { BienImmobilierDto, IntervenantDto, PiecesDto, SignalerPanneDto, SocieteDto, UtilisateurDto } from 'src/gs-api/src/models';
 
 
 @Component({
@@ -56,7 +57,7 @@ export class PageNouvelleInterventionComponent implements OnInit {
     this.signalerpanneDto.etatSignalerPanne="En panne"
     this.signalerpanneDto.intervenantDto=this.interv
 
-    console.log(this.signalerpanneDto);
+    //console.log(this.signalerpanneDto);
 
     this.signalerPanneService.saveSignalerpanne(this.signalerpanneDto)
     .subscribe(data=>{

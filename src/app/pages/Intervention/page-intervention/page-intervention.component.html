@@ -11,7 +11,12 @@
   </div>
   <div class="col m-3">
     <app-detail-intervention
-    *ngFor="let signalPanne of listSignalePanne"
+    *ngFor="let signalPanne of listSignalePanne
+    | paginate: {
+      itemsPerPage: 4,
+      currentPage: page,
+      totalItems:totalLigne
+    }"
    [signalePanneDto]=signalPanne
     ></app-detail-intervention>
     <!-- <app-detail-intervention></app-detail-intervention>
@@ -21,7 +26,7 @@
   </div>
   <div class="row mb-3">
     <div class=" col-md-12 text-center">
-        <app-pagination></app-pagination>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 
