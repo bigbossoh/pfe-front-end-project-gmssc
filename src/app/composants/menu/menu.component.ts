@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
           id: '11',
           titre: "Vue d'ensemble",
           icon: 'fas fa-chart-pie',
-          url: ''
+          url: 'dashboard'
         },
         {
           id: '12',
@@ -118,13 +118,13 @@ export class MenuComponent implements OnInit {
           icon: 'fas fa-users-cog',
           url: 'listegroupeintervention'
         }
-        ,
-        {
-          id: '23',
-          titre: "Créer Groupe d'intervention",
-          icon: 'fas fa-user-plus',
-          url: 'nouveaugroupeintervention'
-        }
+        // ,
+        // {
+        //   id: '23',
+        //   titre: "Créer Groupe d'intervention",
+        //   icon: 'fas fa-user-plus',
+        //   url: 'nouveaugroupeintervention'
+        // }
       ]
     },
     {
@@ -136,14 +136,14 @@ export class MenuComponent implements OnInit {
         {
           id: '51',
           titre: "Maintenances Correctives",
-          icon: '',
-          url: ''
+          icon: 'fas fa-tools',
+          url: 'corrective'
         },
         {
           id: '51',
           titre: "Maintenances Preventives",
-          icon: '',
-          url: ''
+          icon: 'fas fa-toolbox',
+          url: 'preventive'
         }
       ]
     }

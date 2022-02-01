@@ -1,1 +1,38 @@
-<p>page-nouveau-groupe-intervention works!</p>
+<div class="row">
+  <div class="col mt-3 ">
+    <div class="row">
+      <div class="col-md-6">
+        <h3><i class="fas fa-info-circle blue-color"></i>&nbsp;Affecter un groupe d'intervention a une panne</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<form>
+
+  <div class="row mb-3 p-0 m-1">
+    <div class="col-md-6">
+      <label>Signaler une panne </label>
+        <select class="custom-select" name="modele"  [(ngModel)]="signalerpanneDto.id" >
+          <option value="0">selectionnez une signalisation</option>
+          <option *ngFor="let signalepanne of ListeSignalerPanneDto" [value]="signalepanne.id">Priorité :
+            {{signalepanne.priorite}}-Date: {{signalepanne.dateSignalerPanne |date: 'dd/MM/yyyy' }}
+            - Code :{{signalepanne.codeSignalerPanne}}
+          </option>
+        </select>
+    </div>
+    <div class="col-6">
+      <label>Commentaire</label>
+      <textarea class="form-control m-0" placeholder="Suggestions de réparation ou améliorations à apporter"
+       rows="2" name="modele"  [(ngModel)]="groupeIntervenantDto.commentaire"></textarea>
+    </div>
+  </div>
+
+  <div class="row p-0 m-4 mb-3">
+    <div class="col-md-12 text-right">
+      <button type="button" class="btn btn-danger mr-3" (click)="cancel() "><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+      <button type="button" class="btn btn-primary" (click)="saveGroupeIntervention()"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+    </div>
+  </div>
+</form>

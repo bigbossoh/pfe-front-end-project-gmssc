@@ -35,6 +35,9 @@ export class IntervenantService {
         }
         return of();
   }
+  findAllIntervenant():Observable<IntervenantDto[]>{
+    return this.intervenantService.getAllIntervenants();
+  }
   // findIntervenantResponsable(test:ListOfIntervenantsBySocieteIdAndFunctionParams):Observable<IntervenantDto[]>{
   //   if(idSociete && fonctionResp){
   //     return this.intervenantService.listOfIntervenantsBySocieteIdAndFunction(idSociete,fonctionResp)

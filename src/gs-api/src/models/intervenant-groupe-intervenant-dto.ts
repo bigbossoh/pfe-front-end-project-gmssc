@@ -1,9 +1,9 @@
 /* tslint:disable */
 import { GroupeIntervenantDto } from './groupe-intervenant-dto';
-import { UtilisateurDto } from './utilisateur-dto';
-export interface UtilisateurGroupeIntervenantDto {
+import { IntervenantDto } from './intervenant-dto';
+export interface IntervenantGroupeIntervenantDto {
   id?: number;
   dateAffectionUser?: string;
   groupeIntervenantDto?: GroupeIntervenantDto;
-  utilisateurDto?: UtilisateurDto;
+  intervenantDto?: IntervenantDto;
 }

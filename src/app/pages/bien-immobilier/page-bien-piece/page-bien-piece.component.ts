@@ -14,6 +14,8 @@ export class PageBienPieceComponent implements OnInit {
   listeBienImmo: Array<BienImmobilierDto>=[];
   listePieces: Array<PiecesDto> = [];
   mapLignesPieces = new Map();
+  totalLigne:number=0;
+  page:number=1;
   errorMsg='';
   constructor(
     private router:Router,
@@ -31,6 +33,7 @@ export class PageBienPieceComponent implements OnInit {
     this.bienImmoService.findAll()
     .subscribe(resp=>{
       this.listeBienImmo=resp;
+      this.totalLigne=this.listeBienImmo.length
       this.findAllPieceByBien();
     });
   }

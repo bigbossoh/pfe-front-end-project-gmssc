@@ -1,0 +1,74 @@
+<div class="mt-3 mb-3 ml-3">
+  <app-area></app-area>
+</div>
+<hr>
+<div class="row justify-content-center">
+  <div class="col-md-3">
+      <div class="card mb-4 ml-4 mr-2 text-left">
+          <div class="card-body">
+              <app-card label="Nombre d'utilisateurs" total="3" percentage="75%" ></app-card>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="card mb-4 ml-2 mr-2 text-left">
+          <div class="card-body">
+            <app-card label="Nombre de biens" total="5" percentage="100%"></app-card>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card mb-4 ml-2 mr-2 text-left">
+        <div class="card-body">
+          <app-card label="Nombre de pièces" total="8" percentage="20%"></app-card>
+        </div>
+    </div>
+</div>
+<div class="col-md-3">
+  <div class="card mb-4 ml-2 mr-4 text-left">
+      <div class="card-body">
+        <app-card label="Maintenance en cours" total="4" ></app-card>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<hr>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card mb-4 ml-4 mr-2 text-left">
+      <div class="card-body">
+        <p class="h4 blue-color">Liste des intervenants</p>
+        <hr>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Fonction</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of ListeIntervenant; let indexOfelement=index;" >
+              <th scope="row">{{indexOfelement+1}}</th>
+              <td>{{item.nomInterv}}</td>
+              <td>{{item.fonctionInterv}}</td>
+              <td>{{item.emailIntervenant}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="card mb-4 ml-2 mr-4  text-left">
+    <div class="card-body">
+        <app-pie></app-pie>
+    </div>
+</div>
+</div>
+</div>

@@ -12,6 +12,8 @@ import { BienImmobilierDto } from '../../../../gs-api/src/models/bien-immobilier
 export class PageBienImmobilierComponent implements OnInit {
 
   listeBienImmo: Array<BienImmobilierDto>=[];
+  totalLigne:number=0;
+  page:number=1;
   errorMsg='';
   constructor(
     private router:Router,
@@ -29,6 +31,7 @@ export class PageBienImmobilierComponent implements OnInit {
     this.bienImmoService.findAll()
     .subscribe(resp=>{
       this.listeBienImmo=resp;
+      this.totalLigne=this.listeBienImmo.length
     });
   }
   nouvelleSociete():void{

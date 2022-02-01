@@ -1,0 +1,105 @@
+<div class="row mb-1 mr-0 custom-border">
+  <div class="col-md-1 custom-border-right p-1 text-center mb-1 mt-1 ">
+    <img src="assets/work-maintenance.png" width="100px" height="100px">
+  </div>
+
+<!--  Details article-->
+  <div class="col-md-5 custom-border-right mb-1 mt-1 ">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+        <div class="col-md-11">Code: Interv-{{signalePanneDto.codeSignalerPanne}}</div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+        <div class="col-md-11">Priorité : {{signalePanneDto.priorite}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+        <div class="col-md-11">Description: {{signalePanneDto.descriptionPanne}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-plug blue-color"></i></div>
+        <div class="col-md-11">Demandé par: {{signalePanneDto. utilisateurDto?.nom}}&nbsp;{{signalePanneDto. utilisateurDto?.prenom}} </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="far fa-calendar-check blue-color"></i></div>
+        <div class="col-md-11">Date : {{signalePanneDto.dateSignalerPanne |date: 'dd/MM/yyyy' }}</div>
+      </div>
+    </div>
+  </div>
+
+<!--  details categorie-->
+  <div class="col-md-3 custom-border-right mb-1 mt-1 ">
+    <div class="row">
+      <div class="col-md-2">
+        <i class="fas fa-building blue-color"></i>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-12">Bien: {{signalePanneDto.piecesDto?.bienImmobilierDto?.nomBienImmobilier}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <i class="fas fa-map-marker-alt blue-color"></i>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-12">Batiment: {{signalePanneDto.piecesDto?.nomBatiment}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <i class="fas fa-person-booth blue-color"></i>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-12">Piece: {{signalePanneDto.piecesDto?.typeSalle}}-{{signalePanneDto.piecesDto?.nomPiece}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <i class="fas fa-charging-station blue-color"></i>
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-12">Etat:&nbsp;{{signalePanneDto.etatSignalerPanne}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  boutons action-->
+  <div class="col-md-3 mb-1 mt-1 ">
+    <div class="row">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link" >
+          <i class="fas fa-pencil-alt"></i>&nbsp;Modifier
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link text-danger" data-toggle="modal">
+          <i class="fas fa-trash-alt"></i>&nbsp;Supprimer
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link ">
+          <i class="far fa-list-alt"></i>&nbsp;Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

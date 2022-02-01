@@ -10,14 +10,19 @@
   </div>
   <div class="col m-3">
     <app-detail-equipement
-    *ngFor="let eqpt of listeEqpmt"
+    *ngFor="let eqpt of listeEqpmt
+    | paginate: {
+      itemsPerPage: 4,
+      currentPage: page,
+      totalItems:totalLigne
+    }"
     [eqpmtDto]="eqpt"
     ></app-detail-equipement>
 
   </div>
   <div class="row mb-3">
     <div class=" col-md-12 text-center">
-        <app-pagination></app-pagination>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 

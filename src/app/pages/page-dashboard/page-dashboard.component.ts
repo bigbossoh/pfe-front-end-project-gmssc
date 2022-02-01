@@ -12,7 +12,7 @@ export class PageDashboardComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit(): void {
-    console.log("we are getting insde of dashboard page");
+   // console.log("we are getting insde of dashboard page");
 
     //this.refresh()
   }

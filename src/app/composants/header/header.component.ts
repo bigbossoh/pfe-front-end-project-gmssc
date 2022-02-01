@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { UtilisateurDto } from 'src/gs-api/src/models';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
   connectedUser:UtilisateurDto ={};
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -34,5 +36,9 @@ export class HeaderComponent implements OnInit {
   //     window.location.reload()
   //     }
   //   }
-
+logoutUser():void{
+  localStorage.removeItem('AccessToken')
+  localStorage.removeItem('connectedUser')
+  this.router.navigate(['/login'])
+}
 }

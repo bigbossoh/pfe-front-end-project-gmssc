@@ -43,6 +43,18 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/interceptor/http-interceptor.service';
 import { LoaderComponent } from './composants/loader/loader.component';
 import { DetailBienImmoPieceComponent } from './composants/detail-bien-immo-piece/detail-bien-immo-piece.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { DetailGroupeInterventionComponent } from './composants/detail-groupe-intervention/detail-groupe-intervention.component';
+import { DetailIntervenantInterventionComponent } from './composants/detail-intervenant-intervention/detail-intervenant-intervention.component';
+import { CorrectiveComponent } from './pages/maintenance/corrective/corrective.component';
+import { PreventiveComponent } from './pages/maintenance/preventive/preventive.component';
+import { PageNouvelleMaintenanceCorrectiveComponent } from './pages/maintenance/page-nouvelle-maintenance-corrective/page-nouvelle-maintenance-corrective.component';
+import { PageNouvelleMaintenancePreventiveComponent } from './pages/maintenance/page-nouvelle-maintenance-preventive/page-nouvelle-maintenance-preventive.component';
+import { PageVueEnsembleComponent } from './pages/page-accueil/page-vue-ensemble/page-vue-ensemble.component';
+import { AreaComponent } from './composants/widgets/area/area.component';
+import { CardComponent } from './composants/widgets/card/card.component';
+import { PieComponent } from './composants/widgets/pie/pie.component';
 
 @NgModule({
   declarations: [
@@ -83,13 +95,25 @@ import { DetailBienImmoPieceComponent } from './composants/detail-bien-immo-piec
     PageGroupeInterventionComponent,
     PageNouveauGroupeInterventionComponent,
     LoaderComponent,
-    DetailBienImmoPieceComponent
+    DetailBienImmoPieceComponent,
+    DetailGroupeInterventionComponent,
+    DetailIntervenantInterventionComponent,
+    CorrectiveComponent,
+    PreventiveComponent,
+    PageNouvelleMaintenanceCorrectiveComponent,
+    PageNouvelleMaintenancePreventiveComponent,
+    PageVueEnsembleComponent,
+    AreaComponent,
+    CardComponent,
+    PieComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    HighchartsChartModule
   ],
   providers: [
     {

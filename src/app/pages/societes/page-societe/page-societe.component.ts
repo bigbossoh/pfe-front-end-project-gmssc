@@ -6,6 +6,7 @@ import { SocieteDto } from 'src/gs-api/src/models';
 
 
 
+
 @Component({
   selector: 'app-page-societe',
   templateUrl: './page-societe.component.html',
@@ -14,6 +15,8 @@ import { SocieteDto } from 'src/gs-api/src/models';
 export class PageSocieteComponent implements OnInit {
 
   listeSocietes: Array<SocieteDto>=[];
+  totalLigne:number=0;
+  page:number=1;
   errorMsg='';
   constructor(
     private router:Router,
@@ -27,6 +30,7 @@ export class PageSocieteComponent implements OnInit {
     this.societeService.findAllorder()
     .subscribe(resp=>{
       this.listeSocietes=resp;
+      this.totalLigne=this.listeSocietes.length
     });
   }
   nouvelleSociete():void{

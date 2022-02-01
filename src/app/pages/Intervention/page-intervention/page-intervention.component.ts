@@ -10,6 +10,8 @@ import { SignalerpanneService } from '../../../services/signalerpanne/signalerpa
 })
 export class PageInterventionComponent implements OnInit {
   listSignalePanne:Array<SignalerPanneDto>=[]
+  totalLigne:number=0;
+  page:number=1;
   constructor(
     private router:Router,
     private SigpanService:SignalerpanneService
@@ -25,5 +27,6 @@ export class PageInterventionComponent implements OnInit {
     this.SigpanService.findAllOrder()
   .subscribe(data=>{
     this.listSignalePanne=data;
-  })  }
+    this.totalLigne=this.listSignalePanne.length
+   })  }
 }

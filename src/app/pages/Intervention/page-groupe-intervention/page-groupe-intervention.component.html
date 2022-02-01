@@ -1,1 +1,65 @@
-<p>page-groupe-intervention works!</p>
+<div class="col">
+  <div class="row m-3">
+    <div class="col-md-8 p-0">
+      <h1>Liste des groupes d'intervention</h1>
+    </div>
+    <div class="col-md-4 text-right">
+      <app-boutton-action (clickEvent)="nouvelleGroupeIntervention()"></app-boutton-action>
+    </div>
+
+  </div>
+  <div class="col m-3" *ngFor="let signalePanne of listeGroupeInterventions
+  | paginate: {
+    itemsPerPage: 2,
+    currentPage: page,
+    totalItems:totalLigne
+  }">
+
+    <!--  -->
+    <div class="accordion" id="accordionExample{{signalePanne.id}}" >
+      <div class="card mb-2">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+            [attr.data-target]="'#collapseOne'+signalePanne.id"
+            aria-expanded="true" aria-controls="collapseOne">
+              <app-detail-groupe-intervention
+              [signalePanneDto]=signalePanne
+              >
+            </app-detail-groupe-intervention>
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne{{signalePanne.id}}" class="collapse" aria-labelledby="headingOne"
+        [attr.data-parent]="'#accordionExample'+signalePanne.id"
+        style="max-height: 300px; overflow-y:scroll">
+          <div class="card-body">
+           <app-detail-intervenant-intervention
+
+           ></app-detail-intervenant-intervention>
+
+          </div>
+        </div>
+      </div>
+
+  </div>
+ <!-- ---------------------- -->
+ <div class="card-footer">
+  <div class="row">
+    <div class="col-md-6 text-left">
+      <h5> intervenant(s)</h5>
+    </div>
+    <div class="col-md-6 text-right">
+      <h5></h5>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row mb-3">
+  <div class=" col-md-12 text-center">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>
+
+
