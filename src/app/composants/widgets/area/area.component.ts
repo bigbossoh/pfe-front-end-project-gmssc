@@ -15,22 +15,27 @@ export class AreaComponent implements OnInit {
     credits:{
       enabled:false
     },
+    title: {
+      text: 'Statistique par bien immobilier'
+    },
     exporting:{
       enabled:true
     },
     series: [
       {
         name:'Nombre de pièces par batiment',
-      data: [10,56,16],
+      data: [13,36,16],
       type: 'area'
      },
      {
-      data: [4, 2, 6],
+      name:'Nombre de maintenance par batiment',
+      data: [11, 32, 12],
       type: 'area'
      }
     ,
     {
-     data: [14, 1, 62],
+      name:'Suivie des equipements par batiment ',
+     data: [2, 11, 41],
      type: 'area'
     }
 

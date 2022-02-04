@@ -55,6 +55,9 @@ import { PageVueEnsembleComponent } from './pages/page-accueil/page-vue-ensemble
 import { AreaComponent } from './composants/widgets/area/area.component';
 import { CardComponent } from './composants/widgets/card/card.component';
 import { PieComponent } from './composants/widgets/pie/pie.component';
+import { PagePieceEquipementComponent } from './pages/equipement/page-piece-equipement/page-piece-equipement.component';
+import { DetailCorrectiveComponent } from './composants/detail-corrective/detail-corrective.component';
+import { DetailPreventiveComponent } from './composants/detail-preventive/detail-preventive.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +108,10 @@ import { PieComponent } from './composants/widgets/pie/pie.component';
     PageVueEnsembleComponent,
     AreaComponent,
     CardComponent,
-    PieComponent
+    PieComponent,
+    PagePieceEquipementComponent,
+    DetailCorrectiveComponent,
+    DetailPreventiveComponent
   ],
   imports: [
     BrowserModule,

@@ -20,4 +20,16 @@ export class EquipementPieceService {
     }
     return of();
   }
+  findAllPicesEquipementByPiece(idpiece:number):Observable<PieceEquipementDto[]>{
+    if(idpiece){
+      return this.pieceEqpmtService.listOfPiecEqpmtByPiece(idpiece);
+    }
+    return of();
+  }
+  findPieceEquipementByID(idpieceEquipement:number):Observable<PieceEquipementDto>{
+    if(idpieceEquipement){
+      return this.pieceEqpmtService.getPieceEquipementByID(idpieceEquipement);
+    }
+    return of();
+  }
 }

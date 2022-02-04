@@ -85,3 +85,8 @@ border: none !important;
   margin: 20px 0;
   color: red;
 }
+.required:after {
+  content: " *";
+    color: red;
+    font-weight: 100;
+}

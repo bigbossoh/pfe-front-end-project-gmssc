@@ -1,5 +1,6 @@
 export { Gmsscapiv1PieceEquipementsService } from './services/gmsscapiv-1piece-equipements.service';
 export { Gmsscapiv1utilisateurGroupeIntervenantService } from './services/gmsscapiv-1utilisateur-groupe-intervenant.service';
+export { Gmsscapiv1actionsService } from './services/gmsscapiv-1actions.service';
 export { Gmsscapiv1authService } from './services/gmsscapiv-1auth.service';
 export { Gmsscapiv1biensService } from './services/gmsscapiv-1biens.service';
 export { Gmsscapiv1CompetencesService } from './services/gmsscapiv-1competences.service';

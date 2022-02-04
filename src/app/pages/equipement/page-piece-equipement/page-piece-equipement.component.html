@@ -1,0 +1,140 @@
+<div class="col mt-3 mb-3">
+  <div class="col-md-12">
+    <h3><i class="fas fa-info-circle blue-color"></i>&nbsp;Equipement par pièce</h3>
+  </div>
+  <hr>
+  <div class="col-md-12 ">
+    <!-- <div class="alert alert-danger" *ngIf="errorMsg.length > 0">
+      <div *ngFor="let msg of errorMsg">
+        <span >{{msg}}</span>
+      </div>
+    </div> -->
+    <!-- <form> -->
+<!--  -->
+<div class="row mb-3">
+  <div class="col-md-6">
+    <label>Société</label>
+      <select  name="modele" class="form-control"  [(ngModel)]="societeDto.id">
+        <option value="0">selectionnez la société</option>
+        <option *ngFor="let soc of listeSocietePrincipale" [value]="soc.id">{{soc.denomination}}</option>
+      </select>
+
+  </div>
+  <div class="col-md-6">
+    <label>Bien immobilier(s) <span class="badge badge-info">{{listeBienDto.length}}</span></label>
+      <select  name="modele" class="form-control"  (change)="onChangeBienImmobilier($any($event.target).value)" >
+        <option value="0">selectionnez le bien immobilier</option>
+        <option *ngFor="let bien of listeBienDto" [value]="bien.id">{{bien.nomBienImmobilier}}</option>
+           </select>
+
+  </div>
+
+</div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label>Pièce(s) <span class="badge badge-info">{{listePieceDto.length}}</span></label>
+          <select id="piece" name="piece" class="form-control" [(ngModel)]="pieceDto.id"  (change)="onChangePiece($any($event.target).value)">
+            <option value="0">selectionnez la piece</option>
+            <!-- {{listePiece.bienImmobilierDto?.nomBienImmobilier}}-{{listePiece.typeSalle}}-{{listePiece.nomPiece}} -->
+            <option *ngFor="let piece of listePieceDto" [value]="piece.id">{{piece.bienImmobilierDto?.nomBienImmobilier}}
+              -{{piece.typeSalle}}-{{piece.nomPiece}}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label>Nombre d'quipement(s) <span class="badge badge-info">{{listepieceEquipementDto.length}}</span></label>
+          <select id="equipement" name="equipement" class="form-control" [(ngModel)]="pieceEquipementDto.id" (change)="findEquipementByID($any($event.target).value)">
+            <option value="0">selectionnez l'equipement</option>
+            <!-- {{listePiece.bienImmobilierDto?.nomBienImmobilier}}-{{listePiece.typeSalle}}-{{listePiece.nomPiece}} -->
+            <option *ngFor="let Eqpmt of listepieceEquipementDto" [value]="Eqpmt.equipementDto?.id">Marque:&nbsp;{{Eqpmt.equipementDto?.marque}}-{{Eqpmt.equipementDto?.modele}}-{{Eqpmt.equipementDto?.typeClim}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="(equipementDtoRestored | json) != '{}'" >
+        <div class="col-md-6">
+          <h5><i class="fas fa-info-circle blue-color"></i>&nbsp;La fiche technique</h5>
+        </div>
+        <div class="col-md-6">
+          <!-- <h5><i class="fas fa-balance-scale blue-color"></i>&nbsp;Poids & Puissance</h5> -->
+        </div>
+      </div>
+      <hr>
+      <!-- <div class="row mb-3"> -->
+
+
+      <div class="row mb-3" *ngIf="(equipementDtoRestored | json) != '{}'" >
+          <div class="col-md-6">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Etat </a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Fiche d'identification </a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Maintenances</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                href="#nav-historique" role="tab" aria-controls="nav-historique" aria-selected="false">Historique salle</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+               aria-labelledby="nav-home-tab">
+               <div class="m-2">
+                <label >Date de mise en Service:  <span class="badge badge-info">{{equipementDtoRestored.dateMiseService | date: 'dd/MM/yyyy'}}</span></label>
+                <br>
+                <label >Etat: <span class="badge badge-info">{{equipementDtoRestored.etatService}}</span></label>
+                <br>
+                <label >Puissance: <span class="badge badge-info">{{equipementDtoRestored.puissance}} chevaux</span></label>
+              </div>
+                </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="m-2">
+                  <label >Modèle:  <span class="badge badge-info">{{equipementDtoRestored.modele }}</span></label>
+                  <br>
+                  <label >Marque: <span class="badge badge-info">{{equipementDtoRestored.marque}}</span></label>
+                  <br>
+                  <label >Type de climatiseur: <span class="badge badge-info">{{equipementDtoRestored.typeClim}} chevaux</span></label>
+                  <br>
+                  <label >Garantie: <span class="badge badge-info">{{equipementDtoRestored.garantie}}</span></label>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+              </div>
+              <div class="tab-pane fade" id="nav-historique" role="tabpanel" aria-labelledby="nav-historique-tab">
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Type de salle</th>
+                      <th scope="col">Nom Salle</th>
+                      <th scope="col">Nom Equipement</th>
+                      <th scope="col">Date d'installation</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of listepieceEquipementDto; let indexOfelement=index;" >
+                      <th scope="row">{{indexOfelement+1}}</th>
+                      <td>{{item.piecesDto?.typeSalle}}</td>
+                      <td>{{item.piecesDto?.bienImmobilierDto?.nomBienImmobilier}}-{{item.piecesDto?.typeSalle}}-{{item.piecesDto?.nomPiece}}</td>
+                      <td>{{item.equipementDto?.marque}}-{{item.equipementDto?.modele}}-{{item.equipementDto?.typeClim}}</td>
+                      <td>{{item.dateInstallation | date :'dd-MM-yyyy' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+      </div>
+
+
+    <!-- </form> -->
+  </div>
+  <!-- <div class="col-md-12 text-right">
+    <button type="button" class="btn btn-danger mr-3" (click)="cancel()"><i class="fas fa-ban"></i>&nbsp;Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="saveEquipement()"><i class="fas fa-save"></i>&nbsp;Enregistrer</button>
+  </div> -->
+</div>
+

@@ -5,6 +5,7 @@ export interface PreventiveDto {
   programmer?: boolean;
   dateProgramation?: string;
   isDone?: boolean;
+  typeTravaux?: string;
   periodique?: boolean;
   dateDebutIntervention?: string;
   dateFinIntervention?: string;

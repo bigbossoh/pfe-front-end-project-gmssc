@@ -16,4 +16,5 @@ export { PreventiveDto } from './models/preventive-dto';
 export { RolesDto } from './models/roles-dto';
 export { SignalerPanneDto } from './models/signaler-panne-dto';
 export { SocieteDto } from './models/societe-dto';
+export { TodoMaintenanceDto } from './models/todo-maintenance-dto';
 export { UtilisateurDto } from './models/utilisateur-dto';

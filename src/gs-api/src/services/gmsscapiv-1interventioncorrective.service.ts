@@ -13,9 +13,10 @@ import { CorrectiveDto } from '../models/corrective-dto';
 })
 class Gmsscapiv1interventioncorrectiveService extends __BaseService {
   static readonly getAllCorrectivePath = '/gmssc/api/v1/intervention/corrective/all';
-  static readonly deleteBienByIdPath = '/gmssc/api/v1/intervention/corrective/delete/{IdCorrective}';
+  static readonly deleteCorrectiveByIdPath = '/gmssc/api/v1/intervention/corrective/delete/{IdCorrective}';
   static readonly saveCorrectivePath = '/gmssc/api/v1/intervention/corrective/savecorrective';
   static readonly getCorrectiveByIDPath = '/gmssc/api/v1/intervention/corrective/{IdCorrective}';
+  static readonly getAllCorrectiveByGrpeIntervPath = '/gmssc/api/v1/intervention/correctivebygrpeinterv/all/{IdCorrective}';
 
   constructor(
     config: __Configuration,
@@ -61,7 +62,7 @@ class Gmsscapiv1interventioncorrectiveService extends __BaseService {
    * @param IdCorrective undefined
    * @return successful operation
    */
-  deleteBienByIdResponse(IdCorrective: number): __Observable<__StrictHttpResponse<boolean>> {
+  deleteCorrectiveByIdResponse(IdCorrective: number): __Observable<__StrictHttpResponse<boolean>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -87,8 +88,8 @@ class Gmsscapiv1interventioncorrectiveService extends __BaseService {
    * @param IdCorrective undefined
    * @return successful operation
    */
-  deleteBienById(IdCorrective: number): __Observable<boolean> {
-    return this.deleteBienByIdResponse(IdCorrective).pipe(
+  deleteCorrectiveById(IdCorrective: number): __Observable<boolean> {
+    return this.deleteCorrectiveByIdResponse(IdCorrective).pipe(
       __map(_r => _r.body as boolean)
     );
   }
@@ -162,6 +163,42 @@ class Gmsscapiv1interventioncorrectiveService extends __BaseService {
   getCorrectiveByID(IdCorrective: number): __Observable<CorrectiveDto> {
     return this.getCorrectiveByIDResponse(IdCorrective).pipe(
       __map(_r => _r.body as CorrectiveDto)
+    );
+  }
+
+  /**
+   * @param IdCorrective undefined
+   * @return successful operation
+   */
+  getAllCorrectiveByGrpeIntervResponse(IdCorrective: number): __Observable<__StrictHttpResponse<Array<CorrectiveDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/intervention/correctivebygrpeinterv/all/${IdCorrective}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<CorrectiveDto>>;
+      })
+    );
+  }
+  /**
+   * @param IdCorrective undefined
+   * @return successful operation
+   */
+  getAllCorrectiveByGrpeInterv(IdCorrective: number): __Observable<Array<CorrectiveDto>> {
+    return this.getAllCorrectiveByGrpeIntervResponse(IdCorrective).pipe(
+      __map(_r => _r.body as Array<CorrectiveDto>)
     );
   }
 }

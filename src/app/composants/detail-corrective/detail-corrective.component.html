@@ -1,0 +1,85 @@
+<div class="row mb-1 mr-0 custom-border">
+  <div class="col-md-1 custom-border-right p-1 text-center mb-1 mt-1 ">
+    <img src="assets/batB.jpg" width="100px" height="100px">
+  </div>
+
+<!--  Details bien-->
+  <div class="col-md-4 custom-border-right mb-1 mt-1 ">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+        <div class="col-md-11">Code Panne-{{grpeInterv.signalerPanneDto?.codeSignalerPanne}} </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-info-circle blue-color"></i></div>
+        <div class="col-md-11">Priorité:&nbsp;{{grpeInterv.signalerPanneDto?.priorite}} </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-university blue-color"></i></div>
+        <!-- {{piece.bienImmobilierDto?.nomBienImmobilier}}-
+            {{piece.typeSalle}}-{{piece.nomPiece}} -->
+        <div class="col-md-11">Lieu: &nbsp;{{grpeInterv.signalerPanneDto?.piecesDto?.bienImmobilierDto?.nomBienImmobilier}}-
+          {{grpeInterv.signalerPanneDto?.piecesDto?.typeSalle}}-{{grpeInterv.signalerPanneDto?.piecesDto?.nomPiece}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-question-circle blue-color"></i></div>
+        <div class="col-md-4">Etat:&nbsp;{{grpeInterv.signalerPanneDto?.etatSignalerPanne }}</div>
+        <div class="col-md-7">
+          <!-- <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Oui</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Non</label>
+          </div> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-phone-alt blue-color"></i></div>
+        <div class="col-md-11">Date : &nbsp;{{grpeInterv.signalerPanneDto?.dateSignalerPanne | date: 'dd-MM-yyyy' }}</div>
+      </div>
+    </div>
+  </div>
+
+<!--  details categorie-->
+  <div class="col-md-4 custom-border-right mb-1 mt-1 ">
+    <div class="col">
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-globe-africa blue-color"></i></div>
+        <div class="col-md-10">Demandeur:&nbsp;{{grpeInterv.signalerPanneDto?.utilisateurDto?.nom }}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-map-marker-alt blue-color"></i></div>
+        <div class="col-md-10">Description:&nbsp;{{grpeInterv.signalerPanneDto?.descriptionPanne }}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"><i class="fas fa-map-marked-alt blue-color"></i></div>
+        <div class="col-md-10"></div>
+      </div>
+    </div>
+  </div>
+
+<!--  boutons action-->
+  <div class="col-md-3 mb-1 mt-1 ">
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link" >
+          <i class="fas fa-pencil-alt"></i>&nbsp;Modifier
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link text-danger" data-toggle="modal">
+          <i class="fas fa-trash-alt"></i>&nbsp;Supprimer
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-link ">
+          <i class="far fa-list-alt"></i>&nbsp;Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

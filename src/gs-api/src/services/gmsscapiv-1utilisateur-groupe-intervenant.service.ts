@@ -14,6 +14,7 @@ import { IntervenantGroupeIntervenantDto } from '../models/intervenant-groupe-in
 class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
   static readonly deleteUtilisateurGroupeIntervenantByIdPath = '/gmssc/api/v1/UtilisateurGroupeIntervenant/delete/{IduserGrpeInterv}';
   static readonly getAllUtilisateurGroupeIntervenantPath = '/gmssc/api/v1/utilisateurGroupeIntervenant/all';
+  static readonly getlistOfUtilisateurGroupeIntervenantByGroupeIntervenantPath = '/gmssc/api/v1/utilisateurGroupeIntervenant/allparGroupeIntervenant/{IduserGrpeInterv}';
   static readonly saveUtilisateurGroupeIntervenantPath = '/gmssc/api/v1/utilisateurGroupeIntervenant/saveusergroupeintervenant';
   static readonly getUtilisateurGroupeIntervenantByIDPath = '/gmssc/api/v1/utilisateurGroupeIntervenant/{IduserGrpeInterv}';
 
@@ -89,6 +90,42 @@ class Gmsscapiv1utilisateurGroupeIntervenantService extends __BaseService {
    */
   getAllUtilisateurGroupeIntervenant(): __Observable<Array<IntervenantGroupeIntervenantDto>> {
     return this.getAllUtilisateurGroupeIntervenantResponse().pipe(
+      __map(_r => _r.body as Array<IntervenantGroupeIntervenantDto>)
+    );
+  }
+
+  /**
+   * @param IduserGrpeInterv undefined
+   * @return successful operation
+   */
+  getlistOfUtilisateurGroupeIntervenantByGroupeIntervenantResponse(IduserGrpeInterv: number): __Observable<__StrictHttpResponse<Array<IntervenantGroupeIntervenantDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/utilisateurGroupeIntervenant/allparGroupeIntervenant/${IduserGrpeInterv}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<IntervenantGroupeIntervenantDto>>;
+      })
+    );
+  }
+  /**
+   * @param IduserGrpeInterv undefined
+   * @return successful operation
+   */
+  getlistOfUtilisateurGroupeIntervenantByGroupeIntervenant(IduserGrpeInterv: number): __Observable<Array<IntervenantGroupeIntervenantDto>> {
+    return this.getlistOfUtilisateurGroupeIntervenantByGroupeIntervenantResponse(IduserGrpeInterv).pipe(
       __map(_r => _r.body as Array<IntervenantGroupeIntervenantDto>)
     );
   }
