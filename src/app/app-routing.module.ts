@@ -28,6 +28,7 @@ import { PreventiveComponent } from './pages/maintenance/preventive/preventive.c
 import { PageNouvelleMaintenancePreventiveComponent } from './pages/maintenance/page-nouvelle-maintenance-preventive/page-nouvelle-maintenance-preventive.component';
 import { PageNouvelleMaintenanceCorrectiveComponent } from './pages/maintenance/page-nouvelle-maintenance-corrective/page-nouvelle-maintenance-corrective.component';
 import { PageVueEnsembleComponent } from './pages/page-accueil/page-vue-ensemble/page-vue-ensemble.component';
+import { PagePieceEquipementComponent } from './pages/equipement/page-piece-equipement/page-piece-equipement.component';
 
 const routes: Routes = [
   {
@@ -118,6 +119,12 @@ const routes: Routes = [
 {
   path:'nouvelleequipement',
   component:PageNouveauEquipementComponent,
+  canActivate:[ApplicationGuardService]
+}
+,
+{
+  path:'pieceequipement',
+  component:PagePieceEquipementComponent,
   canActivate:[ApplicationGuardService]
 }
 ,

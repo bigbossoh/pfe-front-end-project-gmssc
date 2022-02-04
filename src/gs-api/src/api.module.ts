@@ -5,6 +5,7 @@ import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration
 
 import { Gmsscapiv1PieceEquipementsService } from './services/gmsscapiv-1piece-equipements.service';
 import { Gmsscapiv1utilisateurGroupeIntervenantService } from './services/gmsscapiv-1utilisateur-groupe-intervenant.service';
+import { Gmsscapiv1actionsService } from './services/gmsscapiv-1actions.service';
 import { Gmsscapiv1authService } from './services/gmsscapiv-1auth.service';
 import { Gmsscapiv1biensService } from './services/gmsscapiv-1biens.service';
 import { Gmsscapiv1CompetencesService } from './services/gmsscapiv-1competences.service';
@@ -34,6 +35,7 @@ import { Gmsscapiv1utilisateursService } from './services/gmsscapiv-1utilisateur
     ApiConfiguration,
     Gmsscapiv1PieceEquipementsService,
     Gmsscapiv1utilisateurGroupeIntervenantService,
+    Gmsscapiv1actionsService,
     Gmsscapiv1authService,
     Gmsscapiv1biensService,
     Gmsscapiv1CompetencesService,

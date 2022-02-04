@@ -8,6 +8,9 @@ import { PiecesDto } from './../../../gs-api/src/models/pieces-dto';
   providedIn: 'root'
 })
 export class PieceService {
+  findAllPicesEquipementByPiece(idBien: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private pieceService:Gmsscapiv1piecesService

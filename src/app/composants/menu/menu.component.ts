@@ -81,6 +81,12 @@ export class MenuComponent implements OnInit {
           titre: "Equipements",
           icon: 'fas fa-fan',
           url: 'listeequipement'
+        },
+        {
+          id: '42',
+          titre: "Pièce Equipements",
+          icon: 'fas fa-door-open',
+          url: 'pieceequipement'
         }
       ]
     },

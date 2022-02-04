@@ -16,4 +16,7 @@ export class UtilisateurService {
   sinscrire(utilisateurDto:UtilisateurDto):Observable<UtilisateurDto>{
     return this.utilisateurService.save(utilisateurDto);
   }
+  findAll():Observable<UtilisateurDto[]>{
+    return this.utilisateurService.getListeDesUtilisateurs();
+  }
 }

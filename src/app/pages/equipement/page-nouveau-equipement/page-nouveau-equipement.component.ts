@@ -16,6 +16,7 @@ import { BienImmobilierDto, EquipementDto, PieceEquipementDto, PiecesDto, Societ
 export class PageNouveauEquipementComponent implements OnInit {
 
   equipementDto:EquipementDto={};
+ 
   savedEqptDto:EquipementDto={};
   pieceEquipementDto:PieceEquipementDto={};
   listeSocietePrincipale:Array<SocieteDto>=[];
@@ -66,15 +67,13 @@ cancel(): void {
   this.router.navigate(['listeequipement'])
 }
 saveEquipement():void{
-  // this.equipementService.societeDto=this.sociereDto;
 
-  //console.log("SAVING SHOW ....We are in the new equipment ...",this.equipementDto);
   this.equipementDto.societeDto=this.societeDto
   console.log("ici on a notre equipement ",this.equipementDto);
 
   this.equipementService.saveEquipement(this.equipementDto)
   .subscribe(inter=>{
-    //console.log("the new object of equipement is ....",inter);
+
     this.savedEqptDto=inter;
     this.savePieceEquipement();
     this.router.navigate(['listeequipement'])
@@ -87,28 +86,21 @@ saveEquipement():void{
 savePieceEquipement():void{
   this.pieceEquipementDto.equipementDto= this.savedEqptDto;
   this.pieceEquipementDto.piecesDto=this.pieceDto
-
-  //console.log("We going to save pice equipement",this.pieceEquipementDto);
   this.pieceEquipementService.savePieceEqpmnt(this.pieceEquipementDto)
   .subscribe(data=>{
-    //console.log("pieceeQuipement saved !!!");
-
   })
-
 }
 onChangeBienImmobilier(idBien:number):void{
   if(idBien){
-    console.log("onchange",idBien);
-
     this.pieceService.findAllPieceByBien(idBien).subscribe(
       listPiesce=>{
         this.listePieceDto=listPiesce;
         console.log("les valeurs apres changement ",this.listePieceDto);
       }
     )
-
     }
   }
+
   findAllSocietesprincipale():void{
     this.socService.findAllorder()
     .subscribe(resp=>{

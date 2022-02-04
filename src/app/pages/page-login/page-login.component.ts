@@ -23,6 +23,8 @@ export class PageLoginComponent implements OnInit {
 login(){
   this.userService.login(this.authenticationRequest).subscribe(
     (data)=>{
+     // console.log("login");
+
       this.errorMessage=''
      this.userService.setAccessToken(data);
      this.getUtilisateurByEmail();

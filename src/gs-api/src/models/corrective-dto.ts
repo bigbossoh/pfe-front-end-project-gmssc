@@ -5,6 +5,7 @@ export interface CorrectiveDto {
   actionsMener?: string;
   reparation?: boolean;
   depannage?: boolean;
+  typeTravaux?: string;
   coutMaintenance?: number;
   dateDebutIntervention?: string;
   dateFinIntervention?: string;

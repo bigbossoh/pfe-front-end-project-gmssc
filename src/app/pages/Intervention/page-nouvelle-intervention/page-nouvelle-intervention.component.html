@@ -23,7 +23,7 @@
 <form>
   <div class="row mb-3 p-0 m-1">
     <div class="col-md-6">
-      <label>Société de maintenance </label>
+      <label class="required">Société de maintenance </label>
         <select class="custom-select" name="modele" (change)="onChangeIntervenant($any($event.target).value)">
           <option value="0">selectionnez la société</option>
           <option *ngFor="let societeMaintenance of listeSocietePrincipale" [value]="societeMaintenance.id">{{societeMaintenance.denomination}}</option>
@@ -32,7 +32,7 @@
     </div>
     <div class="col-md-6" >
 
-      <label>Responsable</label>
+      <label class="required">Responsable</label>
         <select class="custom-select" name="modele" (change)="onChangeIntervenant($any($event.target).value)" [(ngModel)]="interv.id">
           <option value="0">selectionnez le responsable</option>
           <option *ngFor="let intervs of listeIntervenant" [value]="intervs.id">{{intervs.emailIntervenant}}</option>
@@ -43,7 +43,7 @@
   </div>
   <div class="row p-0 m-1 mb-3">
     <div class="col-md-6">
-      <label>Bien immobilier </label>
+      <label class="required">Bien immobilier </label>
       <select class="custom-select" (change)="onChangeBienImmobilier($any($event.target).value)">
         <option selected>Selectionnez un bien immobilier</option>
         <option *ngFor="let bien of listeBienImmoDto" [value]="bien.id">{{bien.nomBienImmobilier}}</option>
@@ -52,11 +52,12 @@
     </div>
     <div class="col-md-6">
 
-        <label>Pièce</label>
+        <label class="required">Pièce</label>
         <select class="form-control" name="piece" [(ngModel)]="pieceDto.id">
           <option value="0">selectionnez la piece</option>
           <!-- {{listePiece.bienImmobilierDto?.nomBienImmobilier}}-{{listePiece.typeSalle}}-{{listePiece.nomPiece}} -->
-          <option *ngFor="let piece of listePieceDto" [value]="piece.id">{{piece.bienImmobilierDto?.nomBienImmobilier}}-{{piece.typeSalle}}-{{piece.nomPiece}}</option>
+          <option *ngFor="let piece of listePieceDto" [value]="piece.id">{{piece.bienImmobilierDto?.nomBienImmobilier}}-
+            {{piece.typeSalle}}-{{piece.nomPiece}}</option>
         </select>
     </div>
   </div>
@@ -82,17 +83,9 @@
 
 
   <div class="row p-0 m-2 mb-3">
-    <!-- <div class="col-6">
-      <label>Motif d'intervention</label>
-      <input type="text" class="form-control" placeholder="motif">
-    </div> -->
-    <!-- <div class="col-6">
-      <label>Date d'echeance</label>
-      <input type="date" class="form-control" placeholder="date" name="piece" [(ngModel)]="signalerpanneDto.id">
-    </div> -->
 
     <div class="col-6">
-      <label>Priorité</label>
+      <label class="required">Priorité</label>
       <select class="custom-select" name="priorite" [(ngModel)]="signalerpanneDto.priorite">
         <option value="Urgent" selected>Urgent</option>
         <option value="Normale">Normale</option>
@@ -103,8 +96,8 @@
   </div>
 <div class="row p-0 m-2 mb-3">
   <div class="col-6">
-    <label>Description du problème</label>
-    <textarea class="form-control m-0" placeholder="Description du problème" rows="2"
+    <label class="required">Description du problème</label>
+    <textarea class="form-control m-0 "  placeholder="Description du problème" rows="2"
     name="descriptionPanne" [(ngModel)]="signalerpanneDto.descriptionPanne"></textarea>
   </div>
   <div class="col-6">

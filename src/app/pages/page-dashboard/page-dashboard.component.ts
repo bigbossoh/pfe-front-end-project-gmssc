@@ -20,7 +20,7 @@ export class PageDashboardComponent implements OnInit {
 
     var isLoadedBefore = localStorage.getItem("isLoadedBefore");
     if(isLoadedBefore=="true"){
-      console.log("we are in header true");
+     // console.log("we are in header true");
       return;
     }
      else {

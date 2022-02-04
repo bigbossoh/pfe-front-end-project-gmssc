@@ -14,6 +14,7 @@ import { PieceEquipementDto } from '../models/piece-equipement-dto';
 class Gmsscapiv1PieceEquipementsService extends __BaseService {
   static readonly getAllPieceEquipementPath = '/gmssc/api/v1/PieceEquipements/all';
   static readonly listOfPiecEqpmtByEqpmntIDPath = '/gmssc/api/v1/PieceEquipements/allbyequiment/{IdEquipement}';
+  static readonly listOfPiecEqpmtByPiecePath = '/gmssc/api/v1/PieceEquipements/allbypieceequiment/{IdPiece}';
   static readonly deletePieceEquipementByIdPath = '/gmssc/api/v1/PieceEquipements/delete/{IdPieceEqpt}';
   static readonly savePieceEquipementPath = '/gmssc/api/v1/PieceEquipements/savePieceEquipement';
   static readonly getPieceEquipementByIDPath = '/gmssc/api/v1/PieceEquipements/{IdPieceEqpt}';
@@ -90,6 +91,42 @@ class Gmsscapiv1PieceEquipementsService extends __BaseService {
    */
   listOfPiecEqpmtByEqpmntID(IdEquipement: number): __Observable<Array<PieceEquipementDto>> {
     return this.listOfPiecEqpmtByEqpmntIDResponse(IdEquipement).pipe(
+      __map(_r => _r.body as Array<PieceEquipementDto>)
+    );
+  }
+
+  /**
+   * @param IdPiece undefined
+   * @return successful operation
+   */
+  listOfPiecEqpmtByPieceResponse(IdPiece: number): __Observable<__StrictHttpResponse<Array<PieceEquipementDto>>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+
+    let req = new HttpRequest<any>(
+      'GET',
+      this.rootUrl + `/gmssc/api/v1/PieceEquipements/allbypieceequiment/${IdPiece}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<PieceEquipementDto>>;
+      })
+    );
+  }
+  /**
+   * @param IdPiece undefined
+   * @return successful operation
+   */
+  listOfPiecEqpmtByPiece(IdPiece: number): __Observable<Array<PieceEquipementDto>> {
+    return this.listOfPiecEqpmtByPieceResponse(IdPiece).pipe(
       __map(_r => _r.body as Array<PieceEquipementDto>)
     );
   }
