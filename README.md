@@ -8,12 +8,17 @@ A l’issue de ce projet Pigier CI devra disposer d’une application web qui lu
 de :
 Gérer des contrats de maintenances
 Gérer le stock de équipements du système de climatisation
- Gérer l’ensemble de salles (salle de classes ou bureaux) des établissements de Pigier
+* Gérer l’ensemble de salles (salle de classes ou bureaux) des établissements de Pigier
 Côte d’Ivoire
- Gérer les bons de travaux
- Gérer les maintenances correctives
- Gérer les maintenances préventives
- Gérer les interventions de maintenance et les fiches d’interventions
+* Gérer les bons de travaux
+* Gérer les maintenances correctives
+* Gérer les maintenances préventives
+* Gérer les interventions de maintenance et les fiches d’interventions
+## Technologies
+Project is created with:
+* Backend: Spring Boot 2.5.6
+* Frontend: Angular 12.2.0
+* SGBD: Mysql 
 # GMSSC
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
